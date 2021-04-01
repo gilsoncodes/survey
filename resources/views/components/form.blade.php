@@ -1,10 +1,10 @@
 @props([
-	'method' => 'POST',
+	'method' => 'POST',// 'method' = POST by default but it can be GET DELETE PATCH PUT
 	'action' => ''
 ])
 <form method="{{  $method ==='GET' ? 'GET' : 'POST' }}"
 			wire:submit.prevent="submitForm" action="{{ $action }}" {{ $attributes }}>
-
+			<!-- ?????? Some how laravel figure out submitForm is a function at 'app/Http/Livewire/ContactForm.php'-->
 			@csrf
 
 			@if (! in_array($method, ['GET', 'POST']))

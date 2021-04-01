@@ -27,19 +27,19 @@ Route::get('contact', function () {
     return view('contact');
 })->name('contact');
 
-Route::post('/contact', function (Request $request) {
-    $contact = $request->validate([
-      'name' => 'required',
-      'email' => 'required|email',
-      'phone' => 'required',
-      'message' => 'required',
-    ]);
-
-    Mail::to(request('email'))->send(new ContactForm($contact));
-
-    return back()->with('success_message', 'We received your message successfully.');
-
-});
+// Route::post('/contact', function (Request $request) {
+//     $contact = $request->validate([
+//       'name' => 'required',
+//       'email' => 'required|email',
+//       'phone' => 'required',
+//       'message' => 'required',
+//     ]);
+//     dd('1');
+//     Mail::to(request('email'))->send(new ContactForm($contact));
+//
+//     return back()->with('success_message', 'We received your message successfully.');
+//
+// });
 
 
 Route::get('about', function () {

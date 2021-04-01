@@ -26,13 +26,13 @@ class ContactForm extends Component
         'message' => 'required',
       ]);
 
-      $contact['name'] = $this->name;
-      $contact['email'] = $this->email;
-      $contact['phone'] = $this->phone;
-      $contact['message'] = $this->message;
+      // $contact['name'] = $this->name;
+      // $contact['email'] = $this->email;
+      // $contact['phone'] = $this->phone;
+      // $contact['message'] = $this->message;
 
       // sleep(1);
-
+      
       Mail::to($contact['email'])->send(new ContactFormMail($contact));
 
       $this->successMessage = "we received your message successfully.";
@@ -52,6 +52,7 @@ class ContactForm extends Component
 
     public function render()
     {
+
         return view('livewire.contact-form');
     }
 }
