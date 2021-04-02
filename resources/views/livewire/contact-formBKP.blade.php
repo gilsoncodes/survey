@@ -7,13 +7,7 @@
             </div>
             <div class="m-7">
               {{-- In livewire I think I don't need to to set the method and action  --}}
-								{{-- <form wire:submit.prevent="submitForm"> --}}
-                 {{-- when push the button submit, send an event call recaptcha to the window. then @recaptcha.window call the function 'execute'--}}
-                <form method="POST"
-                      x-data
-                      @submit.prevent="$dispatch('recaptcha')"
-                >
-                    @csrf
+								<form wire:submit.prevent="submitForm">
 										@if ($successMessage)
 											<div class=" rounded-md bg-green-50 p-4 mt-8">
                         {{ $successMessage }}
@@ -48,7 +42,6 @@
 										@error('message')
 											<p class="text-red-500 mt-1">{{ $message }}</p>
 										@enderror
-                    <x-recaptcha />
                     <div class="mb-6">
                         <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:border-indigo-700 active:bg-indigo-700 transition ease-in-out duration-150  disabled:opacity-50" >
                           <!-- This svg was grabbed from the source code view-source:https://tailwindcss.com/docs/animation -->
@@ -59,18 +52,8 @@
                           <span>Send Message2</span>
                         </button>
                     </div>
-                    <ul>
-                      @if ($errors->any())
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-
-                      @endif
-                    </ul>
-
-                    @error('name')
-											<p class="text-red-500  mt-1">{{ $message }}</p>
-										@enderror
+                    <p class="text-base text-center text-gray-400" id="result">
+                    </p>
                 </form>
             </div>
         </div>
