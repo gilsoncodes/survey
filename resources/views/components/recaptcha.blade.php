@@ -21,11 +21,14 @@
 										grecaptcha.execute();
                 },
                 onComplete() {
-									var g_recaptcha_response = grecaptcha.getResponse();
-									//alert(g_recaptcha_response);
-									//Recaptcha verification is complete and we are ready to submit the form
-									//????? BUT how to call the method "submitForm" on livewire ??????
-									this.$el.closest('form').submit();
+									let grecaptcharesponse = grecaptcha.getResponse();
+                  Livewire.emit('validateRecaptcha', grecaptcharesponse)
+                  // grecaptcha.render(this.$el, {
+                  //     sitekey: '{{ config('services.recaptcha.key') }}',
+                  //     size: 'invisible',
+                  //     callback: this.onComplete.bind(this)
+                  // });
+
                 }
             };
         };

@@ -20,6 +20,7 @@
 											</div>
 										@endif
                     <div class="mb-6">
+                      {{ $name }}
                         <label for="name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Full Name</label>
                         <input wire:model.defer="name" type="text" name="name" id="name" placeholder="John Doe" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" value="{{ old('name') }}"/>
                     </div>
@@ -47,11 +48,6 @@
 										@error('message')
 											<p class="text-red-500 mt-1">{{ $message }}</p>
 										@enderror
-                    <input wire:model.defer="grecaptcharesponse" type="hidden" name="grecaptcharesponse"/>
-                    @error('grecaptcharesponse')
-											<p class="text-red-500 mt-1">{{ $message }}</p>
-										@enderror
-
                     <x-recaptcha />
                     <div class="mb-6">
                         <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:border-indigo-700 active:bg-indigo-700 transition ease-in-out duration-150  disabled:opacity-50" >
@@ -60,21 +56,9 @@
                              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                            </svg>
-                          <span>Send Message</span>
+                          <span>Send Message2</span>
                         </button>
                     </div>
-                    <ul>
-                      @if ($errors->any())
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-
-                      @endif
-                    </ul>
-
-                    @error('name')
-											<p class="text-red-500  mt-1">{{ $message }}</p>
-										@enderror
                 </form>
             </div>
         </div>

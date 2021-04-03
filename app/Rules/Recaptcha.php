@@ -3,6 +3,7 @@
 namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Support\Facades\Http;
 
 class Recaptcha implements Rule
 {
@@ -16,7 +17,7 @@ class Recaptcha implements Rule
     public function passes($attribute, $value)
     {
 
-      $response = Http::asForm()->post('https://www.google.com/recaptcha/api/sitevirify',[
+       $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
           'secret' => config('services.recaptcha.secret'),
           'response' => $value,
           'remoteip' => request()->ip()
@@ -32,6 +33,6 @@ class Recaptcha implements Rule
      */
     public function message()
     {
-        return 'Recaptcha verification failed.';
+        return 'Recaptcha verification failed. Try it again or contact us at info@garsolutions.com';
     }
 }
