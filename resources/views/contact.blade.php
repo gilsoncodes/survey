@@ -1,7 +1,7 @@
 <x-app-layout>
-    @push('scripts')
-        <script src="https://www.google.com/recaptcha/api.js?render=explicit"></script>
-    @endpush
+  @push('scripts')
+     <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.key') }}"></script>
+ @endpush
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Contact') }}
