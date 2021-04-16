@@ -6,39 +6,42 @@ use Livewire\Component;
 use Illuminate\Http\Request;
 use App\Mail\ContactFormMail;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Http;
-use Carbon\Carbon;
 
 class ContactForm extends Component
 {
 
     public $name;
+    public $extra;
     public $email;
     public $phone;
     public $message;
-    public $successMessage;
-    public $error_recaptha;
-    public $captcha = 0;
-    public $timeToken;
-    public function updatedCaptcha($token)
-    {
-      $this->timeToken =  Carbon::now() . " " .  substr($token, -10);
-        $response = Http::post('https://www.google.com/recaptcha/api/siteverify?secret=' . config('services.recaptcha.secret') . '&response=' . $token);
-       // dd($response->json()['score']);
-        $this->captcha = $response->json()['score'];
-        $this->error_recaptha = false;
-        if (!$this->captcha > .3) {
-          $this->submitForm();
-        } else {
-          $this->error_recaptha = Carbon::now() . " " . $this->captcha . "Google thinks you are a bot, please refresh and try again." . substr($token, -10);
-        }
+    public $errorName;
+    public $errorEmail;
+    public $errorPhone;
+    public $errorMessage;
+    // public $successMessage;
+    public function errorName(){
+      $this->errorName = false;
     }
-
+    public function errorEmail(){
+      $this->errorEmail = false;
+    }
+    public function errorPhone(){
+      $this->errorPhone = false;
+    }
+    public function errorMessage(){
+      $this->errorMessage = false;
+    }
     public function submitForm(){
-      $this->successMessage = false;
-
+      // $this->successMessage = false;
+        $this->errorName = true;
+        $this->errorEmail = true;
+        $this->errorPhone = true;
+        $this->errorMessage = true;
+        
       $contact = $this->validate([
         'name' => 'required',
+        'extra' => ['present', 'max:0'],
         'email' => 'required|email',
         'phone' => 'required',
         'message' => 'required',
@@ -46,11 +49,10 @@ class ContactForm extends Component
 
 
       Mail::to($contact['email'])->send(new ContactFormMail($contact));
-
-      $this->successMessage =  Carbon::now() . " " . $this->captcha . "we received your message successfully." ;
+      $this->emit('successMessage');
+      // $this->successMessage = "we received your message successfully.";
 
       $this->resetForm();
-
 
 
     }
@@ -60,6 +62,7 @@ class ContactForm extends Component
       $this->email = '';
       $this->phone = '';
       $this->message = '';
+      $this->extra = '';
     }
 
     public function render()

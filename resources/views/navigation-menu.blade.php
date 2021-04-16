@@ -90,7 +90,7 @@
                 @endauth
                 <div class="hidden md:-my-px md:ml-7 md:flex"> <!-- Make an Apppointment -->
                     <a class="inline-flex items-center text-center font-semibold h-12 px-4 my-auto text-sm text-white transition-colors duration-150 bg-yellow-500 rounded-xl focus:shadow-outline hover:bg-yellow-600" href="{{ URL::route('contact') }}#appointment">
-                        {!! __('Make an <br> Appointment') !!}
+                        {!! __('Request an <br> Appointment') !!}
                     </a>
                 </div>
             </div>
@@ -111,7 +111,7 @@
         <div class="relative bg-white mx-6 -mt-4 p-4 z-50 rounded-tl-md  rounded-b-md">
           <div class="flex justify-center bg-white pb-4 z-50"> <!-- Make an Apppointment -->
             <a @click='open = false' class="inline-flex z-50 items-center h-10 px-4 my-auto text-sm text-white transition-colors duration-150 bg-yellow-500 rounded-xl focus:shadow-outline hover:bg-yellow-600" href="{{ URL::route('contact') }}#appointment">
-                {{ __('Make an Appointment') }}
+                {{ __('Request an Appointment') }}
             </a>
         </div>
             <div class="flex justify-between  mr-2">

@@ -24,8 +24,9 @@
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
-        @stack('scripts')
-        @stack('challenge')
+        @stack('pikaday')
+        @stack('calendar')
+
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
