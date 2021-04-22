@@ -61,14 +61,57 @@
 			</template>
 		</div>
 	</div>
-
+	@error('dateMeeting')
+		<p class="text-red-500 mt-1">@if($errorDate) {{ $message }} @endif</p>
+	@enderror
+	<div class="mb-6" x-show="selectedHour">
+			<label for="time" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Select time</label>
+			<div class="flex">
+					<div>
+							<select x-model="selectedHour"
+								class="border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white  dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+								>
+								<template x-for="hour in hours" :key="hour">
+									<option :value="hour" x-text="hour"></option>
+								</template>
+							</select>
+					</div>
+					<span class="px-2 py-2" >:</span>
+					<div>
+							<select x-model="selectedMinute"
+								class="border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white  dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+								>
+								<template x-for="minute in minutes" :key="minute">
+									<option :value="minute" x-text="minute"></option>
+								</template>
+							</select>
+					</div>
+					<div>
+							<select x-model="selectedAmPm"
+								class="ml-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white  dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+								>
+								<template x-for="AmPm in AmPms" :key="AmPm">
+									<option :value="AmPm" x-text="AmPm"></option>
+								</template>
+							</select>
+					</div>
+			</div>
+	</div>
+	@error('date')
+		<p class="text-red-500 mt-1">@if($errorDate) {{ $message }} @endif</p>
+	@enderror
 </div>
-
 
 @push('calendar')
     <script>
         window.calendar = () => {
             return {
+								selectedHour: @entangle('selectedHour'),
+								hours: [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12' ],
+								selectedAmPm: @entangle('selectedAmPm'),
+								AmPms: [ 'AM', 'PM' ],
+								selectedMinute: @entangle('selectedMinute'),
+								minutes: [ '00', '15', '30', '45' ],
 								dateShow: @entangle('dateShow'),
 								calendar: false,
 								weekref: '',
@@ -86,6 +129,7 @@
 								prevM: 0,
 								nextM: 2,
 								selectDay(Nday){
+									this.selectedHour = 1;
 									this.dayref = Nday;
 									this.monthref = this.month;
 									this.yearref = this.year;

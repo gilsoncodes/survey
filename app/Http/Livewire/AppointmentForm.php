@@ -130,6 +130,7 @@ class AppointmentForm extends Component
       $this->selectedMeeting = '1';
       $this->selectedHour = '';
       $this->selectedMinute = '';
+      $this->selectedAmPm = 'initAgain';
     }
 
     public function render()
