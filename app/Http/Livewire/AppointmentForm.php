@@ -4,10 +4,11 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Illuminate\Http\Request;
-use App\Mail\ContactFormMail;
+use App\Mail\AppointmentFormMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
 use Carbon\Carbon;
+use App\Models\Appointment;
 
 class AppointmentForm extends Component
 {
@@ -84,7 +85,7 @@ class AppointmentForm extends Component
         //dd(Carbon::createFromFormat('Y-m-d', '1977-12-28')->format('l F jS, Y'));
 // dd($this->date);
       //dd($this->dateShow);
-      $contact = $this->validate([
+      $appointment = $this->validate([
         'name' => 'required',
         'business' => 'required',
         'extra' => ['present', 'max:0'],
@@ -92,25 +93,44 @@ class AppointmentForm extends Component
         'phone' => 'required',
         'message' => 'required',
         'selectedMeeting' => 'required',
-        'address' => Rule::requiredIf($this->selectedMeeting == '2'),
+        'address' => Rule::requiredIf($this->selectedMeeting == '0'),
         'dateShow' => 'required', // use the datepicker to format the date like 'Tue Apr 05, 2021'
         'selectedHour' => 'required',
         'selectedMinute' => 'required',
         'selectedAmPm' => 'required',
       ]);
-      //dd($contact['dateShow']);
-      //$date4db = Carbon::createFromFormat('D M jS Y', $contact['dateShow'])->format('Y-m-d');
-      $date4db = Carbon::createFromFormat('D M j, Y', $contact['dateShow'])->format('Y-m-d');
+      if ($this->selectedMeeting == '0') {
+        $newAddress = $appointment['address'];
+      } else {
+        $newAddress = '';
+      }
+
+      //dd($appointment['dateShow']);
+      //$date4db = Carbon::createFromFormat('D M jS Y', $appointment['dateShow'])->format('Y-m-d');
+      $date4db = Carbon::createFromFormat('D M j, Y', $appointment['dateShow'])->format('Y-m-d');
       //dd($date4db);
-      $hour4db = $contact['selectedHour'];
+      $hour4db = $appointment['selectedHour'];
       if($this->selectedAmPm == 'PM'){
         $hour4db = $hour4db + 12;
       }
       // do I need to adjust the leading zeros
-      $time4db = $hour4db . ":" . $contact['selectedMinute'] . ":00";
+      $time4db = $hour4db . ":" . $appointment['selectedMinute'] . ":00";
       //dd($time4db);
  //     10:22:40:54
-      Mail::to($contact['email'])->send(new ContactFormMail($contact));
+       Appointment::create([
+         'name' => $appointment['name'],
+         'email' => $appointment['email'],
+         'phone' => $appointment['phone'],
+         'message' => $appointment['message'],
+         'business' => $appointment['business'],
+         'selectedMeeting' => $appointment['selectedMeeting'],
+         'address' => $newAddress,
+         'dateTime' => $date4db . " " . $time4db,
+         'status' => 1,
+         'reference' => 'reference_1234567890'
+       ]);
+       
+      Mail::to($appointment['email'])->send(new AppointmentFormMail($appointment));
       $this->emit('successRequest');
 
       $this->resetForm();

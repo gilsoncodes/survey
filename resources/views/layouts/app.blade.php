@@ -24,7 +24,6 @@
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
-        @stack('pikaday')
         @stack('calendar')
 
     </head>
@@ -45,6 +44,7 @@
 
             <!-- Page Content -->
             <main>
+              
                 {{ $slot }}
             </main>
         {{-- </div> --}}

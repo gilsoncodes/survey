@@ -46,7 +46,7 @@
 														x-data="{
 															lists: [
 																{	id: 1, name: 'Zoom meeting' },
-																{ id: 2, name: 'Visit our business'}
+																{ id: 0, name: 'Visit our business'}
 															],
 															 selectedMeeting: @entangle('selectedMeeting')
 														}">
@@ -61,7 +61,7 @@
 												@error('selectedMeeting')
 													<p class="text-red-500 mt-1">@if($errorMeeting) {{ $message }} @endif</p>
 												@enderror
-												<div x-show="selectedMeeting == 2" >
+												<div x-show="selectedMeeting == 0" >
 													<div class="mb-6">
 		                          <label for="address" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Full Address</label>
 		                          <input wire:model.defer="address" type="text" name="address"  placeholder="125 Main Street, Watertown, MA 02472" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" value="{{ old('address') }}"/>

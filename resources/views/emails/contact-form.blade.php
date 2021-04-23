@@ -5,19 +5,16 @@
 		<title></title>
 	</head>
 	<body>
-		<h1>Email Test</h1>
+		<h3>{{ $contact['name'] }}, thank you for contact us.</h3>
+		<br>
+		<h4>You sent us the information below:</h4>
 		<p>Name: {{ $contact['name'] }}</p>
-		<p>business: {{ $contact['business'] }}</p>
-		<p>email: {{ $contact['email'] }}</p>
-		<p>phone: {{ $contact['phone'] }}</p>
-		<p>message: {{ $contact['message'] }}</p>
-		@if ($contact['selectedMeeting'] == '1')
-			<p>Zoom Meeting</p>
-		@else
-			<p>Meeting at the business place:</p>
-			<p>{{ $contact['address'] }}</p>
-		@endif
-		<p>date: {{ $contact['dateShow'] }}</p>
-		<p>time: {{ $contact['selectedHour'] . ":" . $contact['selectedMinute'] . " " . $contact['selectedAmPm'] }}</p>
+		<p>Email: {{ $contact['email'] }}</p>
+		<p>Phone: {{ $contact['phone'] }}</p>
+		<p>Message: {{ $contact['message'] }}</p>
+		<br>
+		<p>We'll get back to you as soon as possible.</p>
+		<p>Sincerly,</p>
+		<p>The GAR Solution Team</p>
 	</body>
 </html>

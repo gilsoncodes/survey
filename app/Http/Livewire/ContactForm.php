@@ -6,6 +6,7 @@ use Livewire\Component;
 use Illuminate\Http\Request;
 use App\Mail\ContactFormMail;
 use Illuminate\Support\Facades\Mail;
+use App\Models\Contact;
 
 class ContactForm extends Component
 {
@@ -38,7 +39,7 @@ class ContactForm extends Component
         $this->errorEmail = true;
         $this->errorPhone = true;
         $this->errorMessage = true;
-        
+
       $contact = $this->validate([
         'name' => 'required',
         'extra' => ['present', 'max:0'],
@@ -47,8 +48,18 @@ class ContactForm extends Component
         'message' => 'required',
       ]);
 
+      Contact::create([
+    		'name' => $contact['name'],
+    		'email' => $contact['email'],
+    		'phone' => $contact['phone'],
+        'message' => $contact['message']
+    	]);
 
-      Mail::to($contact['email'])->send(new ContactFormMail($contact));
+      Mail::to($contact['email'])
+            //->bcc('restaurant@garsolutions.com')
+            ->send(new ContactFormMail($contact));
+      Mail::to('restaurant@garsolutions.com')
+            ->send(new ContactFormMail($contact));
       $this->emit('successMessage');
       // $this->successMessage = "we received your message successfully.";
 
