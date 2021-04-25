@@ -69,8 +69,8 @@
 												</div>
 										  </div>
 										</div>
-										<x-datepicker />
-
+										{{-- <x-datepicker /> <!-- using AlpineJS--> --}}
+                    @livewire('datetimepicker')  <!-- using livewire -->
                     <div class="mb-6">
                         <label for="message" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Comment</label>
                         <textarea wire:model.defer="message" wire:click="errorMessage" rows="5" name="message"  placeholder="Optional" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" required>{{ old('message') }}</textarea>

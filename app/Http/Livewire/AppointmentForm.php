@@ -94,7 +94,7 @@ class AppointmentForm extends Component
         'message' => 'required',
         'selectedMeeting' => 'required',
         'address' => Rule::requiredIf($this->selectedMeeting == '0'),
-        'dateShow' => 'required', // use the datepicker to format the date like 'Tue Apr 05, 2021'
+        'dateShow' => 'required', // I need to create a Rule to check if "l F jS, Y hh:mm XM" is available on db
         'selectedHour' => 'required',
         'selectedMinute' => 'required',
         'selectedAmPm' => 'required',
@@ -129,7 +129,7 @@ class AppointmentForm extends Component
          'status' => 1,
          'reference' => 'reference_1234567890'
        ]);
-       
+
       Mail::to($appointment['email'])->send(new AppointmentFormMail($appointment));
       $this->emit('successRequest');
 
