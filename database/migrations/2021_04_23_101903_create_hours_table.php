@@ -16,7 +16,7 @@ class CreateHoursTable extends Migration
         Schema::create('hours', function (Blueprint $table) {
             $table->id();
             $table->foreignId('day_id');
-            $table->smallInteger('hourSelected');
+            $table->time('timeSelected');
             $table->timestamps();
         });
     }

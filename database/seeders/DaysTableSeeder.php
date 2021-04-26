@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Day;
 use App\Models\Hour;
-use App\Models\Minute;
 
 class DaysTableSeeder extends Seeder
 {
@@ -18,7 +17,6 @@ class DaysTableSeeder extends Seeder
     {
         Day::truncate();
         Hour::truncate();
-        Minute::truncate();
         $today= date("Y-m-d");
         $numberDayOfWeek = date("w");
         $this->populate($today, $numberDayOfWeek);
@@ -34,119 +32,97 @@ class DaysTableSeeder extends Seeder
 
     public function populate($date, $week){
       if ($week == 1) {//Monday
-          $dayCreated = Day::create([ 'daySelected' => $date ]);
-          for ($hour=8; $hour < 18 ; $hour++) {
-              $hourCreated = Hour::create([
-                'hourSelected' => $hour,
-                'day_id' => $dayCreated->id
-              ]);
-              for ($minute=0; $minute < 50; $minute = $minute +15) {
-                $saveMinute = $minute;
-                if ($minute < 10) {
-                  $saveMinute = '0' . $minute;
-                }
-                Minute::create([
-                  'minuteSelected' => $saveMinute,
-                  'hour_id' => $hourCreated->id
-                ]);
-              }
+        $dayCreated = Day::create([ 'daySelected' => $date ]);
+        for ($hour=8; $hour < 18 ; $hour++) {
+          $hr = $hour;
+          if ($hour < 10) {
+            $hr = "0" . $hour;
           }
+          for ($i=0; $i < 50 ; $i = $i + 15) {
+            $min = $i;
+            if ($i < 10) {
+              $min = "0" . $i;
+            }
+            Hour::create(['timeSelected' => $hr . ":" . $min . ":00", 'day_id' => $dayCreated->id]);
+          }
+        }
       }
       if ($week == 2) {//Tuesday
-          $dayCreated = Day::create([ 'daySelected' => $date ]);
-          for ($hour=8; $hour < 16 ; $hour++) {
-              $hourCreated = Hour::create([
-                'hourSelected' => $hour,
-                'day_id' => $dayCreated->id
-              ]);
-              for ($minute=0; $minute < 50; $minute = $minute +15) {
-                $saveMinute = $minute;
-                if ($minute < 10) {
-                  $saveMinute = '0' . $minute;
-                }
-                Minute::create([
-                  'minuteSelected' => $saveMinute,
-                  'hour_id' => $hourCreated->id
-                ]);
-              }
+        $dayCreated = Day::create([ 'daySelected' => $date ]);
+        for ($hour=8; $hour < 15 ; $hour++) {
+          $hr = $hour;
+          if ($hour < 10) {
+            $hr = "0" . $hour;
           }
+          for ($i=10; $i < 60 ; $i = $i + 15) {
+            $min = $i;
+            Hour::create(['timeSelected' => $hr . ":" . $min . ":00", 'day_id' => $dayCreated->id]);
+          }
+        }
       }
       if ($week == 3) {//Wednesday
-          $dayCreated = Day::create([ 'daySelected' => $date ]);
-          for ($hour=13; $hour < 18 ; $hour++) {
-              $hourCreated = Hour::create([
-                'hourSelected' => $hour,
-                'day_id' => $dayCreated->id
-              ]);
-              for ($minute=0; $minute < 50; $minute = $minute + 20) {
-                $saveMinute = $minute;
-                if ($minute < 10) {
-                  $saveMinute = '0' . $minute;
-                }
-                Minute::create([
-                  'minuteSelected' => $saveMinute,
-                  'hour_id' => $hourCreated->id
-                ]);
-              }
+        $dayCreated = Day::create([ 'daySelected' => $date ]);
+        for ($hour=12; $hour < 18 ; $hour++) {
+          $hr = $hour;
+          if ($hour < 10) {
+            $hr = "0" . $hour;
           }
+          for ($i=0; $i < 50 ; $i = $i + 20) {
+            $min = $i;
+            if ($i < 10) {
+              $min = "0" . $i;
+            }
+            Hour::create(['timeSelected' => $hr . ":" . $min . ":00", 'day_id' => $dayCreated->id]);
+          }
+        }
       }
-      if ($week == 4) {//Thurday
-          $dayCreated = Day::create([ 'daySelected' => $date ]);
-          for ($hour=8; $hour < 18 ; $hour++) {
-              $hourCreated = Hour::create([
-                'hourSelected' => $hour,
-                'day_id' => $dayCreated->id
-              ]);
-              for ($minute=0; $minute < 50; $minute = $minute +15) {
-                $saveMinute = $minute;
-                if ($minute < 10) {
-                  $saveMinute = '0' . $minute;
-                }
-                Minute::create([
-                  'minuteSelected' => $saveMinute,
-                  'hour_id' => $hourCreated->id
-                ]);
-              }
+      if ($week == 4) {//Thursday
+        $dayCreated = Day::create([ 'daySelected' => $date ]);
+        for ($hour=8; $hour < 18 ; $hour++) {
+          $hr = $hour;
+          if ($hour < 10) {
+            $hr = "0" . $hour;
           }
+          for ($i=0; $i < 60 ; $i = $i + 20) {
+            $min = $i;
+            if ($i < 10) {
+              $min = "0" . $i;
+            }
+            Hour::create(['timeSelected' => $hr . ":" . $min . ":00", 'day_id' => $dayCreated->id]);
+          }
+        }
       }
       if ($week == 5) {//Friday
-          $dayCreated = Day::create([ 'daySelected' => $date ]);
-          for ($hour=8; $hour < 18 ; $hour++) {
-              $hourCreated = Hour::create([
-                'hourSelected' => $hour,
-                'day_id' => $dayCreated->id
-              ]);
-              for ($minute=0; $minute < 50; $minute = $minute +15) {
-                $saveMinute = $minute;
-                if ($minute < 10) {
-                  $saveMinute = '0' . $minute;
-                }
-                Minute::create([
-                  'minuteSelected' => $saveMinute,
-                  'hour_id' => $hourCreated->id
-                ]);
-              }
+        $dayCreated = Day::create([ 'daySelected' => $date ]);
+        for ($hour=8; $hour < 18 ; $hour++) {
+          $hr = $hour;
+          if ($hour < 10) {
+            $hr = "0" . $hour;
           }
-      }
-      if ($week == 6) {//Sarturday
-          $dayCreated = Day::create([ 'daySelected' => $date ]);
-          for ($hour=8; $hour < 13 ; $hour++) {
-              $hourCreated = Hour::create([
-                'hourSelected' => $hour,
-                'day_id' => $dayCreated->id
-              ]);
-              for ($minute=0; $minute < 50; $minute = $minute +15) {
-                $saveMinute = $minute;
-                if ($minute < 10) {
-                  $saveMinute = '0' . $minute;
-                }
-                Minute::create([
-                  'minuteSelected' => $saveMinute,
-                  'hour_id' => $hourCreated->id
-                ]);
-              }
+          for ($i=0; $i < 50 ; $i = $i + 30) {
+            $min = $i;
+            if ($i < 10) {
+              $min = "0" . $i;
+            }
+            Hour::create(['timeSelected' => $hr . ":" . $min . ":00", 'day_id' => $dayCreated->id]);
           }
+        }
       }
-
+      if ($week == 6) {//Saturday
+        $dayCreated = Day::create([ 'daySelected' => $date ]);
+        for ($hour=8; $hour < 12 ; $hour++) {
+          $hr = $hour;
+          if ($hour < 10) {
+            $hr = "0" . $hour;
+          }
+          for ($i=0; $i < 50 ; $i = $i + 15) {
+            $min = $i;
+            if ($i < 10) {
+              $min = "0" . $i;
+            }
+            Hour::create(['timeSelected' => $hr . ":" . $min . ":00", 'day_id' => $dayCreated->id]);
+          }
+        }
+      }
     }
 }

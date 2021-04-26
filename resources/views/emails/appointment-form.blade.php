@@ -18,7 +18,7 @@
 			<p>{{ $appointment['address'] }}</p>
 		@endif
 		<p>Date: {{ $appointment['dateShow'] }}</p>
-		<p>Time: {{ $appointment['selectedHour'] . ":" . $appointment['selectedMinute'] . " " . $appointment['selectedAmPm'] }}</p>
+		<p>Time: {{ $timeMail }}</p>
 		<br>
 		@if ($appointment['selectedMeeting'] == '1')
 			<p>You'll receive another email shortly with the instructions to access the zoom Meeting</p>
@@ -27,7 +27,7 @@
 		@endif
 
 		<p>If you are unable to make it, click the link below to cancel the appointment</p>
-		<a href="http://gar.test">gar.test</a>
+		<a href="http://gar.test?ref={{ $linkRef }}">gar.test</a>
 		<p>We are looking forward to talk to you</p>
 
 		<p>Sincerly,</p>

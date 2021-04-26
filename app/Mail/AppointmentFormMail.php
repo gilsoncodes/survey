@@ -12,15 +12,18 @@ class AppointmentFormMail extends Mailable
     use Queueable, SerializesModels;
 
     public $appointment;
-
+    public $timeMail;
+    public $linkRef;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($appointment)
+    public function __construct($appointment, $time4Mail, $reference)
     {
         $this->appointment = $appointment;
+        $this->timeMail = $time4Mail;
+        $this->linkRef = $reference;
     }
 
     /**
@@ -32,6 +35,8 @@ class AppointmentFormMail extends Mailable
     {
       return $this->view('emails.appointment-form',[
         'appointment' => $this->appointment,
+        'timeMail' => $this->timeMail,
+        'linkRef' => $this->linkRef,
       ]);
     }
 }

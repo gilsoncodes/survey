@@ -6,6 +6,7 @@
                 <p class="text-gray-400 dark:text-gray-400">Let's meet in your restaurant or via Zoom</p>
             </div>
             <div class="m-7">
+              
               {{-- In livewire I think I don't need to to set the method and action  --}}
 								<form
                   wire:submit.prevent="submitForm">
@@ -25,7 +26,7 @@
 												<p class="text-red-500 mt-1">@if($errorBusiness) {{ $message }} @endif</p>
 											@enderror
                     <div class="mb-6 hidden">
-                        <input wire:model.defer="extra" type="text" name="extra"  class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
+                        <input wire:model.defer="extra" type="text" name="extra"  class="w-full" />
                     </div>
                     <div class="mb-6">
                         <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email Address</label>

@@ -11,8 +11,6 @@ class Hour extends Model
 
     protected $guarded =[];
 
-    public function minutes(){
-      return $this->hasMany(Minute::class);
-    }
+    
 
 }

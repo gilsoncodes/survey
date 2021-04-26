@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
 use Carbon\Carbon;
 use App\Models\Appointment;
+use App\Models\Hour;
+use App\Rules\ValidateDate;
+use App\Rules\ValidateTime;
 
 class AppointmentForm extends Component
 {
@@ -18,22 +21,34 @@ class AppointmentForm extends Component
     public $phone;
     public $selectedMeeting = '1';
     public $address;
-    public $message;
     public $dateShow;
-    public $selectedHour = '1';
-    public $selectedMinute = '00';
-    public $selectedAmPm = 'AM';
+    public $timeSelection;
+    public $message;
     public $extra;
     public $errorName;
     public $errorBusiness;
     public $errorEmail;
     public $errorPhone;
     public $errorMeeting;
-    public $errorMessage;
+    public $errorAddress;
     public $errorDate;
-    public $errorHour;
-    public $errorMinute;
-    public $errorAmPm;
+    public $errorTime;
+    public $errorMessage;
+    public $date_id;
+    public $test='123';
+
+    protected $listeners = ['selectedDate', 'selectedTime'];
+
+
+    public function selectedDate($passDate)
+    {
+        $this->dateShow = $passDate;
+    }
+
+    public function selectedTime($passTimeId)
+    {
+        $this->timeSelection = $passTimeId;
+    }
 
     public function errorName(){
       $this->errorName = false;
@@ -47,91 +62,76 @@ class AppointmentForm extends Component
     public function errorPhone(){
       $this->errorPhone = false;
     }
-    public function errorMessage(){
-      $this->errorMessage = false;
-    }
     public function errorMeeting(){
       $this->errorMeeting = false;
+    }
+    public function errorAddress(){
+      $this->errorAddress = false;
     }
     public function errorDate(){
       $this->errorDate = false;
     }
-    public function errorHour(){
-      $this->errorHour = false;
+    public function errorTime(){
+      $this->errorTime = false;
     }
-    public function errorMinute(){
-      $this->errorMinute = false;
-    }
-    public function errorAmPm(){
-      $this->errorAmPm = false;
+    public function errorMessage(){
+      $this->errorMessage = false;
     }
     public function submitForm(){
-
+      //dd('name='.$this->business.' email='.$this->email.' phone='.$this->phone.' address='.$this->address.' msg='.$this->message.' date='.$this->dateShow.' time='.$this->timeSelection);
         $this->errorName = true;
         $this->errorBusiness = true;
         $this->errorEmail = true;
         $this->errorPhone = true;
-        $this->errorMessage = true;
         $this->errorMeeting = true;
+        $this->errorAddress = true;
         $this->errorDate = true;
-        $this->errorHour = true;
-        $this->errorMinute = true;
-        $this->errorAmPm = true;
-        //dd(Carbon::hasFormat('Thursday 25th December 1975', 'l jS F Y'));
-        //dd(Carbon::createFromFormat('l F jS, Y', 'Wednesday December 28th, 1977')->format('Y-m-d'));
-        // dd(Carbon::createFromFormat('D M jS, Y', 'Wed Dec 28th, 1977')->format('Y-m-d'));
-        //dd(Carbon::createFromFormat('Y-m-d', '1977-12-28')->format('D M jS, Y'));
+        $this->errorTime = true;
+        $this->errorMessage = true;
 
-        //dd(Carbon::createFromFormat('Y-m-d', '1977-12-28')->format('l F jS, Y'));
-// dd($this->date);
-      //dd($this->dateShow);
       $appointment = $this->validate([
         'name' => 'required',
         'business' => 'required',
         'extra' => ['present', 'max:0'],
-        'email' => 'required|email',
-        'phone' => 'required',
-        'message' => 'required',
-        'selectedMeeting' => 'required',
+        'email' => 'email:rfc,dns',
+        'phone' => 'required|min:10',
+        'selectedMeeting' => ['required', Rule::in([0, 1])],
         'address' => Rule::requiredIf($this->selectedMeeting == '0'),
-        'dateShow' => 'required', // I need to create a Rule to check if "l F jS, Y hh:mm XM" is available on db
-        'selectedHour' => 'required',
-        'selectedMinute' => 'required',
-        'selectedAmPm' => 'required',
+        'dateShow' => ['required', new ValidateDate], // I need to create a Rule to check if "l F jS, Y hh:mm XM" is available on db
+        'timeSelection' => ['required', new ValidateTime($this->dateShow)],
+        'message' => 'required',
       ]);
-      if ($this->selectedMeeting == '0') {
+
+     if ($this->selectedMeeting == '0') {
         $newAddress = $appointment['address'];
       } else {
         $newAddress = '';
       }
-
-      //dd($appointment['dateShow']);
+     // dd($appointment);
       //$date4db = Carbon::createFromFormat('D M jS Y', $appointment['dateShow'])->format('Y-m-d');
-      $date4db = Carbon::createFromFormat('D M j, Y', $appointment['dateShow'])->format('Y-m-d');
+      $date4db = Carbon::createFromFormat('l - F j, Y', $appointment['dateShow'])->format('Y-m-d');
       //dd($date4db);
-      $hour4db = $appointment['selectedHour'];
-      if($this->selectedAmPm == 'PM'){
-        $hour4db = $hour4db + 12;
-      }
-      // do I need to adjust the leading zeros
-      $time4db = $hour4db . ":" . $appointment['selectedMinute'] . ":00";
-      //dd($time4db);
- //     10:22:40:54
-       Appointment::create([
+      $getTimeRecord = Hour::findOrFail($this->timeSelection);
+      //dd($getTimeRecord->timeSelected);
+      $time4Mail = date('g:i A', strtotime($getTimeRecord->timeSelected));
+      //dd($time4Mail);
+       $appointmentDB = Appointment::create([
          'name' => $appointment['name'],
+         'business' => $appointment['business'],
          'email' => $appointment['email'],
          'phone' => $appointment['phone'],
-         'message' => $appointment['message'],
-         'business' => $appointment['business'],
          'selectedMeeting' => $appointment['selectedMeeting'],
          'address' => $newAddress,
-         'dateTime' => $date4db . " " . $time4db,
+         'dateTime' => $date4db . " " . $getTimeRecord->timeSelected,
+         'message' => $appointment['message'],
          'status' => 1,
          'reference' => 'reference_1234567890'
        ]);
-
-      Mail::to($appointment['email'])->send(new AppointmentFormMail($appointment));
+       //dd($appointmentDB);
+      Mail::to($appointment['email'])->send(new AppointmentFormMail($appointment, $time4Mail, $appointmentDB['reference']));
       $this->emit('successRequest');
+
+      Hour::findOrFail($this->timeSelection)->delete();
 
       $this->resetForm();
 
@@ -141,16 +141,14 @@ class AppointmentForm extends Component
     private function resetForm(){
       $this->name = '';
       $this->business = '';
+      $this->extra = '';
       $this->email = '';
       $this->phone = '';
-      $this->message = '';
-      $this->dateShow = '';
-      $this->address = '';
-      $this->extra = '';
       $this->selectedMeeting = '1';
-      $this->selectedHour = '';
-      $this->selectedMinute = '';
-      $this->selectedAmPm = 'initAgain';
+      $this->address = '';
+      $this->message = '';
+      $this->emit('reset');
+
     }
 
     public function render()

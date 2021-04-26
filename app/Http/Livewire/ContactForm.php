@@ -43,8 +43,8 @@ class ContactForm extends Component
       $contact = $this->validate([
         'name' => 'required',
         'extra' => ['present', 'max:0'],
-        'email' => 'required|email',
-        'phone' => 'required',
+        'email' => 'email:rfc,dns',
+        'phone' => 'required|min:10',
         'message' => 'required',
       ]);
 
