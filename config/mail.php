@@ -100,8 +100,8 @@ return [
     */
 
     'markdown' => [
-        'theme' => 'default',
-
+        //'theme' => 'default',
+        'theme' => 'garsolutions',
         'paths' => [
             resource_path('views/vendor/mail'),
         ],

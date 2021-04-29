@@ -4,7 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Illuminate\Http\Request;
-use App\Mail\AppointmentFormMail;
+use App\Mail\AppointmentMarkdown;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
 use Carbon\Carbon;
@@ -12,6 +12,7 @@ use App\Models\Appointment;
 use App\Models\Hour;
 use App\Rules\ValidateDate;
 use App\Rules\ValidateTime;
+use Illuminate\Support\Str;
 
 class AppointmentForm extends Component
 {
@@ -115,6 +116,9 @@ class AppointmentForm extends Component
       //dd($getTimeRecord->timeSelected);
       $time4Mail = date('g:i A', strtotime($getTimeRecord->timeSelected));
       //dd($time4Mail);
+      $nowSeconds = Carbon::now()->timestamp;
+      $randomChars = Str::random(16);
+      $token = $nowSeconds . $randomChars;
        $appointmentDB = Appointment::create([
          'name' => $appointment['name'],
          'business' => $appointment['business'],
@@ -125,10 +129,10 @@ class AppointmentForm extends Component
          'dateTime' => $date4db . " " . $getTimeRecord->timeSelected,
          'message' => $appointment['message'],
          'status' => 1,
-         'reference' => 'reference_1234567890'
+         'reference' => $token
        ]);
        //dd($appointmentDB);
-      Mail::to($appointment['email'])->send(new AppointmentFormMail($appointment, $time4Mail, $appointmentDB['reference']));
+      Mail::to($appointment['email'])->send(new AppointmentMarkdown($appointmentDB, $time4Mail, $appointment['dateShow']));
       $this->emit('successRequest');
 
       Hour::findOrFail($this->timeSelection)->delete();

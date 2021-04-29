@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Illuminate\Http\Request;
 use App\Mail\ContactFormMail;
+use App\Mail\ContactMarkdown;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Contact;
 
@@ -59,7 +60,7 @@ class ContactForm extends Component
             //->bcc('restaurant@garsolutions.com')
             ->send(new ContactFormMail($contact));
       Mail::to('restaurant@garsolutions.com')
-            ->send(new ContactFormMail($contact));
+            ->send(new ContactMarkdown($contact));
       $this->emit('successMessage');
       // $this->successMessage = "we received your message successfully.";
 

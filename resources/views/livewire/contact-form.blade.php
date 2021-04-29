@@ -18,8 +18,16 @@
                         <span @click="show = false" class="cursor-pointer px-2" >&times;</span>
 											</div>
                       <div class="mb-6">
-                          <label for="name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Full Name</label>
-                          <input wire:model.defer="name" type="text" wire:click="errorName" name="name"  placeholder="John Doe" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" value="{{ old('name') }}" required/>
+                          <label for="name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Name</label>
+                            <input wire:model.defer="name"
+                                   type="text"
+                                   wire:click="errorName"
+                                   name="name"
+                                   placeholder="John Doe"
+                                   class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" value="{{ old('name') }}"
+                                   />
+
+
                       </div>
                       @error('name')
   											<p class="text-red-500 mt-1">@if($errorName) {{ $message }} @endif</p>
@@ -32,21 +40,41 @@
                     </div>
                     <div class="mb-6">
                         <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email Address</label>
-                        <input wire:model.defer="email" type="email" wire:click="errorEmail" name="email"  placeholder="you@company.com" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"  value="{{ old('email') }}" required/>
+                        <input wire:model.defer="email"
+                               type="email"
+                               wire:click="errorEmail"
+                               name="email"
+                               placeholder="you@company.com"
+                               class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"  value="{{ old('email') }}"
+                               />
                     </div>
 										@error('email')
 											<p class="text-red-500 mt-1">@if($errorEmail) {{ $message }} @endif</p>
 										@enderror
                     <div class="mb-6">
                         <label for="phone" class="text-sm text-gray-600 dark:text-gray-400">Phone Number</label>
-                        <input wire:model.defer="phone" type="text" wire:click="errorPhone" name="phone" placeholder="+1 (555) 123-4567"  class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"  value="{{ old('phone') }}" required/>
+                        <input wire:model.defer="phone"
+                               type="text"
+                               wire:click="errorPhone"
+                               name="phone"
+                               placeholder="+1 (555) 123-4567"
+                               class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"  value="{{ old('phone') }}"
+                               />
                     </div>
 										@error('phone')
 											<p class="text-red-500 mt-1">@if($errorPhone) {{ $message }} @endif</p>
 										@enderror
                     <div class="mb-6">
-                        <label for="message" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Your Message</label>
-                        <textarea wire:model.defer="message" wire:click="errorMessage" rows="5" name="message"  placeholder="Your Message" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" required>{{ old('message') }}</textarea>
+                        <label for="message" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Message</label>
+                        <textarea wire:model.defer="message"
+                                  wire:click="errorMessage"
+                                  rows="5"
+                                  name="message"
+                                  placeholder="How can we help?"
+                                  class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                                  >
+                                      {{ old('message') }}
+                        </textarea>
                     </div>
 										@error('message')
 											<p class="text-red-500 mt-1">@if($errorMessage) {{ $message }} @endif</p>
