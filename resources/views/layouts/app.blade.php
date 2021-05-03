@@ -44,11 +44,10 @@
 
             <!-- Page Content -->
             <main>
-              
                 {{ $slot }}
             </main>
         {{-- </div> --}}
-
+        <x-footer />
         @stack('modals')
 
         @livewireScripts

@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
+use App\Rules\CodeAuthorization;
+use App\Models\Record;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -25,8 +27,13 @@ class CreateNewUser implements CreatesNewUsers
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
+            'code' => ['required', new CodeAuthorization()],
         ])->validate();
 
+          Record::create([
+              'name' => $input['name'],
+              'email' => $input['email'],
+          ]);
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],

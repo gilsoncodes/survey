@@ -10,6 +10,7 @@ use Illuminate\Validation\Rule;
 use Carbon\Carbon;
 use App\Models\Appointment;
 use App\Models\Hour;
+use App\Models\Day;
 use App\Rules\ValidateDate;
 use App\Rules\ValidateTime;
 use Illuminate\Support\Str;
@@ -37,9 +38,23 @@ class AppointmentForm extends Component
     public $errorMessage;
     public $date_id;
     public $test='123';
+    public $hasDates = false;
 
-    protected $listeners = ['selectedDate', 'selectedTime'];
+    protected $listeners = ['selectedDate', 'selectedTime']; //, 'hasAvailability'];
 
+    public function mount(){
+      $setupDays = Day::where( 'daySelected', '<', date('Y-m-d', strtotime("+60 days")))
+                    ->where( 'daySelected', '>', date('Y-m-d', strtotime("-1 days")))
+                    ->orderBy('daySelected')
+                    ->get();
+       if ($setupDays->count() > 0) {
+         $this->hasDates = true;
+       }
+    }
+
+    // public function hasAvailability($passAvailability){
+    //   $this->hasDates = $passAvailability;
+    // }
 
     public function selectedDate($passDate)
     {
@@ -133,6 +148,10 @@ class AppointmentForm extends Component
        ]);
        //dd($appointmentDB);
       Mail::to($appointment['email'])->send(new AppointmentMarkdown($appointmentDB, $time4Mail, $appointment['dateShow']));
+
+      Mail::to('restaurant@garsolutions.com')->send(new AppointmentMarkdown($appointmentDB, $time4Mail, $appointment['dateShow']));
+
+
       $this->emit('successRequest');
 
       Hour::findOrFail($this->timeSelection)->delete();

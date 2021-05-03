@@ -57,7 +57,6 @@ class ContactForm extends Component
     	]);
 
       Mail::to($contact['email'])
-            //->bcc('restaurant@garsolutions.com')
             ->send(new ContactFormMail($contact));
       Mail::to('restaurant@garsolutions.com')
             ->send(new ContactMarkdown($contact));

@@ -110,7 +110,9 @@
         {{-- <div class="fixed top-0  h-full w-full bg-blue-900 opacity-90" @click='open = false'></div> <!-- like MODAL - blur outside the wrapper --> --}}
         <div class="relative bg-white mx-6 -mt-4 p-4 z-50 rounded-tl-md  rounded-b-md">
           <div class="flex justify-center bg-white pb-4 z-50"> <!-- Make an Apppointment -->
-            <a @click='open = false' class="inline-flex z-50 items-center h-10 px-4 my-auto text-sm text-white transition-colors duration-150 bg-yellow-500 rounded-xl focus:shadow-outline hover:bg-yellow-600" href="{{ URL::route('contact') }}#appointment">
+            <a @click='open = false'
+            class="inline-flex z-50 items-center h-10 px-4 my-auto text-sm text-white transition-colors duration-150 bg-yellow-500 rounded-xl focus:shadow-outline hover:bg-yellow-600"
+            href="{{ URL::route('contact') }}#appointment">
                 {{ __('Request an Appointment') }}
             </a>
         </div>

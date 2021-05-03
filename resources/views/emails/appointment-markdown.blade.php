@@ -31,12 +31,12 @@ You'll receive another email shortly with the instructions to access the zoom Me
 We'll be visiting your place in the date and time you scheduled.
 @endif
 
-If you are unable to make it, click the button below to cancel
+If you are unable to make it, please click the button below and cancel your appointment
 @component('mail::button', ['url' => config('app.url') . '/appointment?a=' . $appointment['id'] . '&r=' . $appointment['reference']])
 Cancel Appointment
 @endcomponent
 
-We are looking forward to talk to you,
+We are looking forward to speaking with you,
 
 <span style="border-bottom: 2px solid #005fe4; padding-bottom: 3px; ">
 The GAR Solutions Team

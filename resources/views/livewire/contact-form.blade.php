@@ -3,7 +3,7 @@
         <div class="max-w-md mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
             <div class="text-center">
                 <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">Contact Us</h1>
-                <p class="text-gray-400 dark:text-gray-400">Fill up the form below to send us a message.</p>
+                <p class="text-gray-900 dark:text-gray-400">Fill out the form below and send us a message.</p>
             </div>
             <div class="m-7">
               {{-- In livewire I think I don't need to to set the method and action  --}}
@@ -52,7 +52,7 @@
 											<p class="text-red-500 mt-1">@if($errorEmail) {{ $message }} @endif</p>
 										@enderror
                     <div class="mb-6">
-                        <label for="phone" class="text-sm text-gray-600 dark:text-gray-400">Phone Number</label>
+                        <label for="phone" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Phone Number</label>
                         <input wire:model.defer="phone"
                                type="text"
                                wire:click="errorPhone"

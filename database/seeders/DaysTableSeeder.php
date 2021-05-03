@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Day;
 use App\Models\Hour;
+use App\Models\Code;
 
 class DaysTableSeeder extends Seeder
 {
@@ -17,6 +18,7 @@ class DaysTableSeeder extends Seeder
     {
         Day::truncate();
         Hour::truncate();
+        Code::truncate();
         $today= date("Y-m-d");
         $numberDayOfWeek = date("w");
         $this->populate($today, $numberDayOfWeek);
@@ -28,6 +30,8 @@ class DaysTableSeeder extends Seeder
 
             $this->populate($nextDate, $numberDayOfWeek);
         }
+
+        Code::create(['business' => 'Recruter', 'code' => 'JobApplication']);
     }
 
     public function populate($date, $week){

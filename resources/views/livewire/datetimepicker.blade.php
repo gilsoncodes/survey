@@ -64,7 +64,7 @@
 	@if ($dateError)
 		<p class="text-red-500 mt-1">{{ $dateError }}</p>
 	@endif
-	 <div class="mb-6" >
+	 <div class="mt-2 mb-6" >
 			<div>
 					<select
 						class=" cursor-pointer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white  dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"

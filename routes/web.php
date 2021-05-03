@@ -34,7 +34,7 @@ Route::get('appointment', function () {
   if (request()->has('a') && request()->has('r')) {
       $appointment = App\Models\Appointment::where('id',request('a'))->where('reference',request('r'))->first();
   }
-  return view('cancel-appointment',[
+  return view('livewire.cancel-appointment',[
     'appointment' => $appointment
   ]);
 

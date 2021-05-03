@@ -50,52 +50,46 @@ class Datetimepicker extends Component
                     ->where( 'daySelected', '>', date('Y-m-d', strtotime("-1 days")))
                     ->orderBy('daySelected')
                     ->get();//get the days from today to 60days later, today can be on the current month or not
+                    
+      if ($setupDays->count() > 0) {
+        $dbDate2human = Carbon::createFromFormat('Y-m-d', $setupDays[0]['daySelected'])->format('l - F j, Y');
+        $this->timeShow =  $setupDays[0]->hours->sortBy('timeSelected');
+        $this->hourOption = $this->timeShow->first()['timeSelected'];
 
-      $dbDate2human = Carbon::createFromFormat('Y-m-d', $setupDays[0]['daySelected'])->format('l - F j, Y');
-      $this->timeShow =  $setupDays[0]->hours->sortBy('timeSelected');
-      $this->hourOption = $this->timeShow->first()['timeSelected'];
+        $dbDate2array = explode("-", $setupDays[0]['daySelected']);
+        $this->dayRef = 1;
+        $this->monthRef = 1;
+        $this->yearRef = 2020; // to make the date before today -> for not selecting a day on the calendar
+        $this->month = $dbDate2array[1];
+        $this->year = $dbDate2array[0];
 
-      $dbDate2array = explode("-", $setupDays[0]['daySelected']);
-      $this->dayRef = 1;
-      $this->monthRef = 1;
-      $this->yearRef = 2020; // to make the date before today -> for not selecting a day on the calendar
-      $this->month = $dbDate2array[1];
-      $this->year = $dbDate2array[0];
+        $this->totalDays = cal_days_in_month(CAL_GREGORIAN, $dbDate2array[1], $dbDate2array[0]);
 
-      $this->totalDays = cal_days_in_month(CAL_GREGORIAN, $dbDate2array[1], $dbDate2array[0]);
+        $unixTimestamp = strtotime($dbDate2array[0]."-".$dbDate2array[1]."-1");
+        $this->dayOfWeekRef = date("w", $unixTimestamp);
+        $this->monthNumber = date("n", $unixTimestamp);
 
-      $unixTimestamp = strtotime($dbDate2array[0]."-".$dbDate2array[1]."-1");
-      $this->dayOfWeekRef = date("w", $unixTimestamp);
-      $this->monthNumber = date("n", $unixTimestamp);
+         $this->dateShow = "Select Date";//$dbDate2human ; //"Fri April 23, 2021";
 
-       $this->dateShow = "Select Date";//$dbDate2human ; //"Fri April 23, 2021";
-
-       for ($j=1; $j <= $this->totalDays; $j++){
-         $dayAvailable = false;
-         foreach ($setupDays as $setupDay) {
-           $iteractionDay = explode("-", $setupDay['daySelected']);
-           if ($iteractionDay[2] == $j && $iteractionDay[1] == $this->month && $iteractionDay[0] == $this->year) {
-             $dayAvailable = true;
+         for ($j=1; $j <= $this->totalDays; $j++){
+           $dayAvailable = false;
+           foreach ($setupDays as $setupDay) {
+             $iteractionDay = explode("-", $setupDay['daySelected']);
+             if ($iteractionDay[2] == $j && $iteractionDay[1] == $this->month && $iteractionDay[0] == $this->year) {
+               $dayAvailable = true;
+             }
+           }
+           if ($dayAvailable) {
+             $this->availableDays[$j]= $j;
+           } else {
+             $this->availableDays[$j]= '';
            }
          }
-         if ($dayAvailable) {
-           $this->availableDays[$j]= $j;
-         } else {
-           $this->availableDays[$j]= '';
-         }
-       }
+      }
 
-       // dd($this->availableDays);
-       // foreach ($setupDays as $setupDay) {
-       //   $iteractionDay = explode("-", $setupDay['daySelected']);
-       //   if ($iteractionDay[1] == $this->month){
-       //     $this->availableDays[]= $iteractionDay[2];
-       //   }
-       // }
     }
 
     public function daySelected( $day ){
-      //dd($this->availableDays);
 
       if ($day > 0) {
         $this->dateError = false;
@@ -195,10 +189,7 @@ class Datetimepicker extends Component
           $this->hasNextMonth = true;
            $firstDayMonthBehind = Carbon::createFromFormat('Y-m-d', $startDate)->subMonth();
            $dateNow = Carbon::now()->subMonth();
-
-           //dd($date . " " . $firstDayMonthBehind . " " . $dateNow );
-           if ($firstDayMonthBehind->lt($dateNow)) {
-             //dd('entried');
+       if ($firstDayMonthBehind->lt($dateNow)) {
              $this->hasPrevMonth = false;
            }
           $this->month = $theMonth;

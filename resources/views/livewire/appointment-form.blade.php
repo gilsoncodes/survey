@@ -3,28 +3,26 @@
         <div class="max-w-md mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
             <div class="text-center">
                 <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">Request an Appoitment</h1>
-                <p class="text-gray-400 dark:text-gray-400">Let's meet in your restaurant or via Zoom</p>
+                <p class="text-gray-900 dark:text-gray-400">Let's meet in your restaurant or via Zoom. We'll show you how GAR Solutions can help your business. FREE consultation and NO obligations.</p>
             </div>
             <div class="m-7">
-              
-              {{-- In livewire I think I don't need to to set the method and action  --}}
-								<form
+              @if($hasDates)
+                <form
                   wire:submit.prevent="submitForm">
-
-                      <div class="mb-6">
+                       <div class="mb-6">
                           <label for="name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Name</label>
                           <input wire:model.defer="name" type="text" wire:click="errorName"  placeholder="John Doe" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" value="{{ old('name') }}" required/>
                       </div>
                       @error('name')
-  											<p class="text-red-500 mt-1">@if($errorName) {{ $message }} @endif</p>
-  										@enderror
-											<div class="mb-6">
-													<label for="business" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Business Name</label>
-													<input wire:model.defer="business" type="text" wire:click="errorBusiness" name="business"  placeholder="Ongarizer Restaurant" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" value="{{ old('business') }}" required/>
-											</div>
-											@error('business')
-												<p class="text-red-500 mt-1">@if($errorBusiness) {{ $message }} @endif</p>
-											@enderror
+                        <p class="text-red-500 mt-1">@if($errorName) {{ $message }} @endif</p>
+                      @enderror
+                      <div class="mb-6">
+                          <label for="business" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Business Name</label>
+                          <input wire:model.defer="business" type="text" wire:click="errorBusiness" name="business"  placeholder="Ongarizer Restaurant" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" value="{{ old('business') }}" required/>
+                      </div>
+                      @error('business')
+                        <p class="text-red-500 mt-1">@if($errorBusiness) {{ $message }} @endif</p>
+                      @enderror
                     <div class="mb-6 hidden">
                         <input wire:model.defer="extra" type="text" name="extra"  class="w-full" />
                     </div>
@@ -32,71 +30,71 @@
                         <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email Address</label>
                         <input wire:model.defer="email" type="email" wire:click="errorEmail" name="email"  placeholder="you@company.com" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"  value="{{ old('email') }}" required/>
                     </div>
-										@error('email')
-											<p class="text-red-500 mt-1">@if($errorEmail) {{ $message }} @endif</p>
-										@enderror
+                    @error('email')
+                      <p class="text-red-500 mt-1">@if($errorEmail) {{ $message }} @endif</p>
+                    @enderror
                     <div class="mb-6">
                         <label for="phone" class="text-sm text-gray-600 dark:text-gray-400">Phone Number</label>
                         <input wire:model.defer="phone" type="text" wire:click="errorPhone" name="phone" placeholder="+1 (555) 1234-567"  class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"  value="{{ old('phone') }}" required/>
                     </div>
-										@error('phone')
-											<p class="text-red-500 mt-1">@if($errorPhone) {{ $message }} @endif</p>
-										@enderror
-										<div class="mt-4">
-										  <div class="mt-2"
-														x-data="{
-															lists: [
-																{	id: 1, name: 'Zoom meeting' },
-																{ id: 0, name: 'Visit our business'}
-															],
-															 selectedMeeting: @entangle('selectedMeeting')
-														}">
-												<div class="flex justify-between">
-													<template  x-for="list in lists" :key="list.id">
-														<div class="inline-flex items-center">
-												      <input x-model="selectedMeeting"  type="radio" :value="list.id.toString()" :id="list.name">
-												      <label class="pl-2" :for="list.name" x-text="list.name"></label>
-												    </div>
-													</template>
-												</div>
-												@error('selectedMeeting')
-													<p class="text-red-500 mt-1">@if($errorMeeting) {{ $message }} @endif</p>
-												@enderror
-												<div x-show="selectedMeeting == 0" >
-													<div class="mb-6">
-		                          <label for="address" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Full Address</label>
-		                          <input wire:model.defer="address" type="text" name="address"  placeholder="125 Main Street, Watertown, MA 02472" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" value="{{ old('address') }}"/>
-		                      </div>
-												</div>
-										  </div>
-										</div>
-										{{-- <x-datepicker /> <!-- using AlpineJS--> --}}
-                    @livewire('datetimepicker')  <!-- using livewire -->
+                    @error('phone')
+                      <p class="text-red-500 mt-1">@if($errorPhone) {{ $message }} @endif</p>
+                    @enderror
+                    <div class="mt-4">
+                      <div class="mt-2"
+                            x-data="{
+                              lists: [
+                                {	id: 1, name: 'Zoom meeting' },
+                                { id: 0, name: 'Visit our business'}
+                              ],
+                               selectedMeeting: @entangle('selectedMeeting')
+                            }">
+                        <div class="flex justify-between mb-2">
+                          <template  x-for="list in lists" :key="list.id">
+                            <div class="inline-flex items-center">
+                              <input x-model="selectedMeeting"  type="radio" :value="list.id.toString()" :id="list.name">
+                              <label class="pl-2" :for="list.name" x-text="list.name"></label>
+                            </div>
+                          </template>
+                        </div>
+                        @error('selectedMeeting')
+                          <p class="text-red-500 mt-1">@if($errorMeeting) {{ $message }} @endif</p>
+                        @enderror
+                        <div x-show="selectedMeeting == 0" >
+                          <div class="mb-2">
+                              <label for="address" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Full Address</label>
+                              <input wire:model.defer="address" type="text" name="address"  placeholder="125 Main Street, Watertown, MA 02472" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" value="{{ old('address') }}"/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {{-- <x-datepicker /> <!-- using AlpineJS--> --}}
+                     @livewire('datetimepicker')  <!-- using livewire -->
                     <div class="mb-6">
                         <label for="message" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Comment</label>
                         <textarea wire:model.defer="message" wire:click="errorMessage" rows="5" name="message"  placeholder="Optional" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" required>{{ old('message') }}</textarea>
                     </div>
-										@error('message')
-											<p class="text-red-500 mt-1">@if($errorMessage) {{ $message }} @endif</p>
-										@enderror
+                    @error('message')
+                      <p class="text-red-500 mt-1">@if($errorMessage) {{ $message }} @endif</p>
+                    @enderror
                     @error('extra')
-											<p class="text-red-500  mt-1">
+                      <p class="text-red-500  mt-1">
                         {{ __('Oops! Something went wrong. Please try again.') }}
                       </p>
-										@enderror
-										<div x-data="{show: false}"
-												 x-show.transition.opacity.out.duration.5000ms="show"
-												 x-init="@this.on('successRequest', () => { show = true; setTimeout(() => { show = false; }, 2000 )} )"
-												 class=" flex justify-between rounded-md bg-green-50 p-4 mt-8"
-												 >
-											<span>we received your request successfully.</span>
-											<span @click="show = false" class="cursor-pointer px-2" >&times;</span>
-										</div>
-										@if ($errors->any())
-									     @foreach ($errors->all() as $error)
-									         <div>{{$error}}</div>
-									     @endforeach
-									 @endif
+                    @enderror
+                    <div x-data="{show: false}"
+                         x-show.transition.opacity.out.duration.5000ms="show"
+                         x-init="@this.on('successRequest', () => { show = true; setTimeout(() => { show = false; }, 2000 )} )"
+                         class=" flex justify-between rounded-md bg-green-50 p-4 mt-8"
+                         >
+                      <span>we received your request successfully.</span>
+                      <span @click="show = false" class="cursor-pointer px-2" >&times;</span>
+                    </div>
+                    @if ($errors->any())
+                       @foreach ($errors->all() as $error)
+                           <div>{{$error}}</div>
+                       @endforeach
+                   @endif
                     <div class="mb-6">
                         <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:border-indigo-700 active:bg-indigo-700 transition ease-in-out duration-150  disabled:opacity-50" >
                           <!-- This svg was grabbed from the source code view-source:https://tailwindcss.com/docs/animation -->
@@ -110,6 +108,10 @@
                     <p class="text-base text-center text-gray-400" id="result">
                     </p>
                 </form>
+              @else
+                <p class="text-center">Contact us to schedule an appointment.</p>
+              @endif
+
             </div>
         </div>
     </div>

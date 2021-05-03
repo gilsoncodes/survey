@@ -1,8 +1,10 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            {{-- <x-jet-authentication-card-logo /> --}}
         </x-slot>
+
+        <h1 class="my-3 text-3xl text-center font-semibold text-gray-700 dark:text-gray-200">Create an Account</h1>
 
         <x-jet-validation-errors class="mb-4" />
 
@@ -28,6 +30,17 @@
                 <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
                 <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
+
+            <div class="mt-4">
+                <x-jet-label for="code" value="{{ __('Authorization Code') }}" />
+                <x-jet-input id="code" class="block mt-1 w-full" type="text" name="code" :value="old('code')"  />
+                <div class="mt-2 text-xs text-center" >
+                  <a href="{{ route('contact') }}" class="underline text-gray-600 hover:text-gray-900">
+                    Contact us
+                  </a>
+                  to get an authorization code.</div>
+            </div>
+
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <div class="mt-4">

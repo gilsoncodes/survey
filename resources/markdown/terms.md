@@ -1,3 +1,3 @@
 # Terms of Service
 
-Edit this file to define the terms of service for your application.
+The terms of service will be here.
