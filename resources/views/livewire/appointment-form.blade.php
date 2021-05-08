@@ -84,10 +84,14 @@
                     @enderror
                     <div x-data="{show: false}"
                          x-show.transition.opacity.out.duration.5000ms="show"
-                         x-init="@this.on('successRequest', () => { show = true; setTimeout(() => { show = false; }, 2000 )} )"
+                         x-init="@this.on('successRequest', () => { show = true; setTimeout(() => { show = false; }, 10000 )} )"
                          class=" flex justify-between rounded-md bg-green-50 p-4 mt-8"
                          >
-                      <span>we received your request successfully.</span>
+
+                      <span>Your request has been received.
+                      <br>
+                       We sent an email to <strong>{{ $email2 }}</strong>.
+                       Check the spam or junk folder if you don't see it in the inbox.</span>
                       <span @click="show = false" class="cursor-pointer px-2" >&times;</span>
                     </div>
                     @if ($errors->any())

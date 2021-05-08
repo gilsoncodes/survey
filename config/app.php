@@ -56,6 +56,9 @@ return [
 
     'asset_url' => env('ASSET_URL', null),
 
+    'domain' => env('APP_DOMAIN', 'garsolutions.com'),
+
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

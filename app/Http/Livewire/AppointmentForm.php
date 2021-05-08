@@ -20,6 +20,7 @@ class AppointmentForm extends Component
     public $name;
     public $business;
     public $email;
+    public $email2;
     public $phone;
     public $selectedMeeting = '1';
     public $address;
@@ -146,6 +147,7 @@ class AppointmentForm extends Component
          'status' => 1,
          'reference' => $token
        ]);
+       $this->email2 = $this->email;
        //dd($appointmentDB);
       Mail::to($appointment['email'])->send(new AppointmentMarkdown($appointmentDB, $time4Mail, $appointment['dateShow']));
 

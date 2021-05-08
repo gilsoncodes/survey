@@ -17,7 +17,7 @@ class PasswordConfirmationTest extends TestCase
                         ? User::factory()->withPersonalTeam()->create()
                         : User::factory()->create();
 
-        $response = $this->actingAs($user)->get('/user/confirm-password');
+        $response = $this->actingAs($user)->get('/en/user/confirm-password');
 
         $response->assertStatus(200);
     }
@@ -26,7 +26,7 @@ class PasswordConfirmationTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this->actingAs($user)->post('/user/confirm-password', [
+        $response = $this->actingAs($user)->post('/en/user/confirm-password', [
             'password' => 'password',
         ]);
 
@@ -38,7 +38,7 @@ class PasswordConfirmationTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this->actingAs($user)->post('/user/confirm-password', [
+        $response = $this->actingAs($user)->post('/en/user/confirm-password', [
             'password' => 'wrong-password',
         ]);
 

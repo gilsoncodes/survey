@@ -15,6 +15,7 @@ class ContactForm extends Component
     public $name;
     public $extra;
     public $email;
+    public $email2;
     public $phone;
     public $message;
     public $errorName;
@@ -55,9 +56,9 @@ class ContactForm extends Component
     		'phone' => $contact['phone'],
         'message' => $contact['message']
     	]);
-
+      $this->email2 = $this->email;
       Mail::to($contact['email'])
-            ->send(new ContactFormMail($contact));
+            ->send(new ContactMarkdown($contact));
       Mail::to('restaurant@garsolutions.com')
             ->send(new ContactMarkdown($contact));
       $this->emit('successMessage');

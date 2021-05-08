@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-guest-layout pagetitle="{{ __('Two factor challenge') }}">
     <x-jet-authentication-card>
         <x-slot name="logo">
             {{-- <x-jet-authentication-card-logo /> --}}
@@ -17,7 +17,7 @@
 
             <x-jet-validation-errors class="mb-4" />
 
-            <form method="POST" action="{{ route('two-factor.login') }}">
+            <form method="POST" action="{{ route('two-factor.login', app()->getLocale()) }}">
                 @csrf
 
                 <div class="mt-4" x-show="! recovery">

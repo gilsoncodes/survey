@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout pagetitle="{{ __('Page not found') }}">
   <div class="pt-16  bg-gray-100">
       <div class="min-h-screen flex flex-col items-center pt-6 sm:pt-0">
           <div>

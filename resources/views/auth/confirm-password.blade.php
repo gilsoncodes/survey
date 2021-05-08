@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-guest-layout pagetitle="{{ __('Confirm password') }}">
     <x-jet-authentication-card>
         <x-slot name="logo">
             {{-- <x-jet-authentication-card-logo /> --}}
@@ -12,7 +12,7 @@
 
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('password.confirm') }}">
+        <form method="POST" action="{{ route('password.confirm', app()->getLocale()) }}">
             @csrf
 
             <div>

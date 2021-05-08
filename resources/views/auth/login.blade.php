@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-guest-layout pagetitle="{{ __('Log in') }}">
     <x-jet-authentication-card>
         <x-slot name="logo">
             {{-- <x-jet-authentication-card-logo /> --}}
@@ -15,7 +15,7 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('login', app()->getLocale()) }}">
             @csrf
 
             <div>
@@ -37,7 +37,7 @@
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request', app()->getLocale()) }}">
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
@@ -47,7 +47,7 @@
                 </x-jet-button>
             </div>
             <div class="flex items-center justify-center mt-4 ">
-              <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
+              <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register', app()->getLocale()) }}">
                   {{ __('Create an Account') }}
               </a>
             </div>

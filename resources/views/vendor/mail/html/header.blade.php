@@ -1,11 +1,12 @@
 <tr>
 <td class="header">
 <a href="{{ $url }}" style="display: inline-block;">
-@if (trim($slot) === 'Laravel')
+<img src="{{ asset( 'images/logo.png' ) }}" width="124" height="40" alt="GAR Solutions Logo">
+{{-- @if (trim($slot) === 'Laravel')
 <img src="https://laravel.com/img/notification-logo.png" class="logo" alt="Laravel Logo">
 @else
 <x-jet-application-mark />
-@endif
+@endif --}}
 </a>
 </td>
 </tr>
