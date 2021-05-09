@@ -82,6 +82,7 @@
 										@enderror
                     <div x-data="{show: false}"
                          x-show.transition.opacity.out.duration.1500ms="show"
+                         x-cloak
                          x-init="@this.on('successMessage', () => { show = true; setTimeout(() => { show = false; }, 10000 )} )"
                          class=" flex justify-between rounded-md bg-green-50 p-4 mt-8"
                          >

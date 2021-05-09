@@ -17,7 +17,7 @@ use Laravel\Fortify\Http\Controllers\TwoFactorAuthenticatedSessionController;
 use Laravel\Fortify\Http\Controllers\TwoFactorAuthenticationController;
 use Laravel\Fortify\Http\Controllers\TwoFactorQrCodeController;
 use Laravel\Fortify\Http\Controllers\VerifyEmailController;
-
+// 'prefix' => '{lang}',
 Route::group(['prefix' => '{lang}', 'middleware' => config('fortify.middleware', ['web'])], function () {
     $enableViews = config('fortify.views', true);
     // Authentication...

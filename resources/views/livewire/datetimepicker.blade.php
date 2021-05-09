@@ -6,7 +6,7 @@
 						class="cursor-pointer hover:bg-gray-300 w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-300 "
 						disabled>
 	</div>
-	<div class="border"  @click.away="calendar = false " x-show="calendar" >
+	<div class="border"  @click.away="calendar = false " x-show="calendar" x-cloak >
 		<div class="flex justify-between py-2">
 			<div class="w-1/5 flex justify-center">
 				@if ($hasPrevMonth)
