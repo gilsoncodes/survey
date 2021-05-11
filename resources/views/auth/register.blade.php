@@ -8,7 +8,7 @@
 
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('register', app()->getLocale()) }}">
+        <form method="POST" action="{{ route('register') }}">
             @csrf
 
             <div>
@@ -35,7 +35,7 @@
                 <x-jet-label for="code" value="{{ __('Authorization Code') }}" />
                 <x-jet-input id="code" class="block mt-1 w-full" type="text" name="code" :value="old('code')"  />
                 <div class="mt-2 text-xs text-center" >
-                  <a href="{{ route('contact', app()->getLocale()) }}" class="underline text-gray-600 hover:text-gray-900">
+                  <a href="{{ route('contact') }}" class="underline text-gray-600 hover:text-gray-900">
                     Contact us
                   </a>
                   to get an authorization code.</div>
@@ -50,8 +50,8 @@
 
                             <div class="ml-2">
                                 {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show', app()->getLocale()).'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
-                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show', app()->getLocale()).'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
+                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
+                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
                                 ]) !!}
                             </div>
                         </div>
@@ -60,7 +60,7 @@
             @endif
 
             <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login', app()->getLocale()) }}">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
                 </a>
 

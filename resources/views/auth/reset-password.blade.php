@@ -8,10 +8,10 @@
 
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('password.update', app()->getLocale()) }}">
+        <form method="POST" action="{{ route('password.update') }}">
             @csrf
 
-            <input type="hidden" name="token" value="{{ $request->route('token', app()->getLocale()) }}">
+            <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
             <div class="block">
                 <x-jet-label for="email" value="{{ __('Email') }}" />

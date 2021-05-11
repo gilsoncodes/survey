@@ -1,7 +1,7 @@
 @component('mail::message')
 Hello {{ ucwords($contact['name']) }},
 
-Thank you for reaching out!
+{{ __('Thank you for reaching out!') }}
 
 
 @component('mail::panel')

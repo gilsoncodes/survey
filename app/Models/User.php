@@ -9,6 +9,10 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+//use Illuminate\Auth\Notifications\sendPasswordResetNotification;
+use App\Notifications\CustomResetPasswordNotification;
+//sendEmailVerificationNotification;
+use App\Notifications\CustomEmailVerifyNotification;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -58,4 +62,26 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $appends = [
         'profile_photo_url',
     ];
+
+
+        /**
+         * Send the password reset notification.
+         *
+         * @param  string  $token
+         * @return void
+         */
+        public function sendPasswordResetNotification($token)
+        {
+            $this->notify(new CustomResetPasswordNotification($token));
+        }
+
+        /**
+         * Send the email verification notification.
+         *
+         * @return void
+         */
+        public function sendEmailVerificationNotification()
+        {
+            $this->notify(new CustomEmailVerifyNotification);
+        }
 }

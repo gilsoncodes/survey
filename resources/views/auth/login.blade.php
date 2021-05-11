@@ -15,7 +15,7 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ route('login', app()->getLocale()) }}">
+        <form method="POST" action="{{ route('login') }}">
             @csrf
 
             <div>
@@ -37,7 +37,7 @@
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request', app()->getLocale()) }}">
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
@@ -47,7 +47,7 @@
                 </x-jet-button>
             </div>
             <div class="flex items-center justify-center mt-4 ">
-              <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register', app()->getLocale()) }}">
+              <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
                   {{ __('Create an Account') }}
               </a>
             </div>

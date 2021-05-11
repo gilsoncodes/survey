@@ -1,11 +1,13 @@
 {
 	"About": "Sobre",
+	"All rights reserved.": "Todos os direitos reservados.",
 	"Contact": "Contato",
 	"Dashboard": "Inicial",
 	"English": "Português",
+	"GAR Solutions has received your appointment request.": "GAR Solutions recebeu seu pedido de agendamento the horário.",
 	"Home": "Principal",
-	"Log Out": "Sair",
 	"Log in": "Entrar",
+	"Log Out": "Sair",
 	"Manage Account": "Gerenciar Conta",
 	"Manage Your Account": "Gerencie sua Conta",
 	"Page not found": "Página não encontrada",
@@ -13,5 +15,8 @@
 	"Request an Appointment": "Agende um horário",
 	"Request an <br> Appointment": "Agende um <br> horário",
 	"Services": "Serviços",
-	"Webpages": "Páginas"
+	"Thank you for reaching out!": "obrigado por nos contatar!",
+	"thank you for scheduling an appointment.": "obrigado por agendar um horário.",
+	"Webpages": "Páginas",
+	"Web-based Solutions for Your Business": "Soluções Baseadas na Web para o Seu Negócio."
 }

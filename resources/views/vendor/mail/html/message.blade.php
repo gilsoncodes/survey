@@ -22,7 +22,7 @@
 {{-- Footer --}}
 @slot('footer')
 @component('mail::footer')
-© {{ date('Y') }} GAR Solutions. @lang('All rights reserved.')
+© {{ date('Y') }} GAR Solutions. {{ __('All rights reserved.') }}
 @endcomponent
 @endslot
 @endcomponent

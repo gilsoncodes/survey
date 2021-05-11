@@ -1,5 +1,5 @@
 @component('mail::message')
-{{ $appointment['name'] }}, thank you for scheduling an appointment.
+{{ $appointment['name'] }}, {{ __('thank you for scheduling an appointment.') }}
 
 @component('mail::panel')
 **You are very important to us, your information below will always remain private.**
