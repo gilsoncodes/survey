@@ -100,7 +100,7 @@
                               type="radio"
                               :value="list.id.toString()"
                               :id="list.name"
-                              required
+                              
                               {{-- oninvalid="this.setCustomValidity('{{ __('Please fill out this field') }}')"
                               oninput="this.setCustomValidity('')"
                               title='' --}}
