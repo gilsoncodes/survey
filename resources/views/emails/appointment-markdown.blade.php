@@ -2,73 +2,76 @@
 {{ $appointment['name'] }}, {{ __('thank you for scheduling an appointment.') }}
 
 @component('mail::panel')
-**You are very important to us, your information below will always remain private.**
+**{{ __('You are very important to us, your information below will always remain private.') }}**
 @endcomponent
-**Name:** {{ ucwords($appointment['name']) }}
+**{{ __('Name') }}:** {{ ucwords($appointment['name']) }}
 
-**Business:** {{ $appointment['business'] }}
+**{{ __('Business Name') }}:** {{ $appointment['business'] }}
 
 **Email:** {{ $appointment['email'] }}
 
-**Phone:** {{ $appointment['phone'] }}
+**{{ __('Phone Number') }}:** {{ $appointment['phone'] }}
 
-**Message:** {{ $appointment['message'] }}
+**{{ __('Message') }}:** {{ $appointment['message'] }}
 
-**Meeting:**
+**{{ __('Meeting') }}:**
 @if ($appointment['selectedMeeting'] == '1')
 Online (www.zoom.us)
 @else
-At your business place ({{ $appointment['address'] }})
+{{ __('At your business place') }}: ({{ $appointment['address'] }})
 @endif
 
-**Date:** {{ $dateMail }}
+**{{ __('Date') }}:** {{ $dateMail }}
 
-**Time:** {{ $timeMail }}
+**{{ __('Time') }}:** {{ $timeMail }}
 
 @if ($appointment['selectedMeeting'] == '1')
-You'll receive another email shortly with the instructions to access the zoom Meeting.
+{{ __("You'll receive another email shortly with the instructions to access the zoom Meeting.") }}
 @else
-We'll be visiting your place in the date and time you scheduled.
+{{ __("We'll be visiting your place in the date and time you scheduled.") }}
 @endif
 
-If you are unable to make it, please click the button below and cancel your appointment
-@component('mail::button', ['url' => config('app.url') . '/appointment?a=' . $appointment['id'] . '&r=' . $appointment['reference']])
-Cancel Appointment
+@if ($appointment['selectedMeeting'] == '1')
+{{ __('If you are unable to make it, please click the button below and cancel your appointment') }}
+@else
+{{ __('If you are unable to meet us at your restaurante, please click the button below and cancel your appointment') }}
+@endif
+@component('mail::button', ['url' => config('app.url') . '/' . app()->getLocale() . '/appointment?a=' . $appointment['id'] . '&r=' . $appointment['reference']])
+{{ __('Cancel Appointment') }}
 @endcomponent
 
-We are looking forward to speaking with you,
+{{ __('We are looking forward to speaking with you,') }}
 
-<span style="border-bottom: 2px solid #005fe4; padding-bottom: 3px; ">
-The GAR Solutions Team
+<span style="border-bottom: 2px solid #ff8b00; padding-bottom: 3px; margin-bottom: 17px; ">
+{{ __('The GAR Solutions Team') }}
 </span>
 
 <p style="display:flex; align-items: center; margin: 3px 0 0; padding:0;   font-size: small;">
-<svg xmlns="http://www.w3.org/2000/svg" style="width: 16px; hight: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-</svg>
+	<img src="{{ asset( 'images/globe.png' ) }}" width="15" height="15" alt="globe icon">
 &nbsp;
-<a href="https://www.garsolutions.com" style="color: #005fe4; text-decoration: none;">
+<a href="https://www.garsolutions.com/{{ app()->getLocale() }}" style="color: #006fc2; text-decoration: none;">
 www.garsolutions.com
 </a>
 </p>
 
 <p style="display:flex; align-items: center; margin: 0; padding:0; font-size: small;">
-<svg xmlns="http://www.w3.org/2000/svg" style="width: 16px; hight: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
-</svg>
+	<img src="{{ asset( 'images/at.png' ) }}" width="15" height="15" alt="at icon">
 &nbsp;
-<a href="mailto:contact@garsolutions.com" style="color: #005fe4; text-decoration: none;">
+<a href="mailto:contact@garsolutions.com" style="color: #006fc2; text-decoration: none;">
 contact@garsolutions.com
 </a>
 </p>
 
 <p style="display:flex; align-items: center; margin: 0; padding:0;  font-size: small;">
-<svg xmlns="http://www.w3.org/2000/svg" style="width: 16px; hight: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-</svg>
+	<img src="{{ asset( 'images/phone.png' ) }}" width="15" height="15" alt="phone icon">
 &nbsp;
-<a href="tel:+16175641345" style="color: #005fe4; text-decoration: none; font-size: ">
+<a href="tel:+16175641345" style="color:  #006fc2; text-decoration: none; font-size: small;">
 (617) 564 - 1345
 </a>
 </p>
+
+@slot('subcopy')
+@lang("If you want to cancel the appointment and you're having trouble clicking the 'Cancel Appointment' button, copy and paste the URL into your web browser:")<br>
+ <span class="break-all"> <a href="{{ config('app.url') }}/{{ app()->getLocale() }}/appointment?a={{ $appointment['id'] }}&r={{ $appointment['reference']}}">{{ config('app.url') }}/{{ app()->getLocale() }}/appointment?a={{ $appointment['id'] }}&r={{ $appointment['reference']}}</a> </span>
+@endslot
 @endcomponent

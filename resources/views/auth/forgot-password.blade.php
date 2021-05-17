@@ -1,10 +1,10 @@
-<x-guest-layout pagetitle="{{ __('Forgot password') }}">
+<x-guest-layout pagetitle="{{ __('Forgot Password') }}">
     <x-jet-authentication-card>
         <x-slot name="logo">
             {{-- <x-jet-authentication-card-logo /> --}}
         </x-slot>
 
-        <h1 class="my-3 text-3xl text-center font-semibold text-gray-700 dark:text-gray-200">Forgot Password</h1>
+        <h1 class="my-3 text-3xl text-center font-semibold text-gray-700 dark:text-gray-200">{{ __('Forgot Password') }}</h1>
 
         <div class="mb-4 text-sm text-gray-600">
             {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
@@ -18,7 +18,7 @@
 
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('password.email') }}">
+        <form method="POST" action="{{ route('password.email', [ 'lang' => app()->getLocale()]) }}">
             @csrf
 
             <div class="block">

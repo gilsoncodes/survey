@@ -24,7 +24,8 @@ class AppointmentForm extends Component
     public $phone;
     public $selectedMeeting = '1';
     public $address;
-    public $dateShow;
+    //public $dateShow;
+    public $dateHide;
     public $timeSelection;
     public $message;
     public $extra;
@@ -41,7 +42,7 @@ class AppointmentForm extends Component
     public $test='123';
     public $hasDates = false;
 
-    protected $listeners = ['selectedDate', 'selectedTime']; //, 'hasAvailability'];
+    protected $listeners = ['selectedHide', 'selectedTime']; //, 'hasAvailability']; 'selectedShow',
 
     public function mount(){
       $setupDays = Day::where( 'daySelected', '<', date('Y-m-d', strtotime("+60 days")))
@@ -57,9 +58,14 @@ class AppointmentForm extends Component
     //   $this->hasDates = $passAvailability;
     // }
 
-    public function selectedDate($passDate)
+    // public function selectedShow($passShow)
+    // {
+    //     $this->dateShow = $passShow;
+    // }
+
+    public function selectedHide($passHide)
     {
-        $this->dateShow = $passDate;
+        $this->dateHide = $passHide;
     }
 
     public function selectedTime($passTimeId)
@@ -114,9 +120,9 @@ class AppointmentForm extends Component
         'phone' => 'required|min:10',
         'selectedMeeting' => ['required', Rule::in([0, 1])],
         'address' => Rule::requiredIf($this->selectedMeeting == '0'),
-        'dateShow' => ['required', new ValidateDate], // I need to create a Rule to check if "l F jS, Y hh:mm XM" is available on db
-        'timeSelection' => ['required', new ValidateTime($this->dateShow)],
-        'message' => 'required',
+        'dateHide' => ['required', new ValidateDate], // I need to create a Rule to check if "l F jS, Y hh:mm XM" is available on db
+        'timeSelection' => ['required', new ValidateTime($this->dateHide)],
+        'message' => '',
       ]);
 
      if ($this->selectedMeeting == '0') {
@@ -124,9 +130,10 @@ class AppointmentForm extends Component
       } else {
         $newAddress = '';
       }
+
      // dd($appointment);
       //$date4db = Carbon::createFromFormat('D M jS Y', $appointment['dateShow'])->format('Y-m-d');
-      $date4db = Carbon::createFromFormat('l - F j, Y', $appointment['dateShow'])->format('Y-m-d');
+      $date4db = Carbon::createFromFormat('l - F j, Y', $this->dateHide)->format('Y-m-d');
       //dd($date4db);
       $getTimeRecord = Hour::findOrFail($this->timeSelection);
       //dd($getTimeRecord->timeSelected);
@@ -149,9 +156,9 @@ class AppointmentForm extends Component
        ]);
        $this->email2 = $this->email;
        //dd($appointmentDB);
-      Mail::to($appointment['email'])->send(new AppointmentMarkdown($appointmentDB, $time4Mail, $appointment['dateShow']));
+      Mail::to($appointment['email'])->send(new AppointmentMarkdown($appointmentDB, $time4Mail, $appointment['dateHide']));
 
-      Mail::to('restaurant@garsolutions.com')->send(new AppointmentMarkdown($appointmentDB, $time4Mail, $appointment['dateShow']));
+      Mail::to('restaurant@garsolutions.com')->send(new AppointmentMarkdown($appointmentDB, $time4Mail, $appointment['dateHide']));
 
 
       $this->emit('successRequest');

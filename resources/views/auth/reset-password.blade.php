@@ -4,11 +4,11 @@
             {{-- <x-jet-authentication-card-logo /> --}}
         </x-slot>
 
-        <h1 class="my-3 text-3xl text-center font-semibold text-gray-700 dark:text-gray-200">Reset Password</h1>
+        <h1 class="my-3 text-3xl text-center font-semibold text-gray-700 dark:text-gray-200">{{ __('Reset Password') }}</h1>
 
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('password.update') }}">
+        <form method="POST" action="{{ route('password.update', [ 'lang' => app()->getLocale()]) }}">
             @csrf
 
             <input type="hidden" name="token" value="{{ $request->route('token') }}">

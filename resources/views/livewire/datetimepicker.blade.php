@@ -4,7 +4,16 @@
 						name="dateShow"
 						wire:model.defer="dateShow"
 						class="cursor-pointer hover:bg-gray-300 w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-300 "
-						disabled>
+						disabled
+						required
+						oninvalid="this.setCustomValidity('{{ __('Please fill out this field') }}')"
+						oninput="this.setCustomValidity('')"
+						title=''
+						>
+						<input	type="hidden"
+										name="dateHide"
+										wire:model.defer="dateHide"
+										>
 	</div>
 	<div class="border"  @click.away="calendar = false " x-show="calendar" x-cloak >
 		<div class="flex justify-between py-2">
@@ -16,7 +25,7 @@
 				@endif
 			</div>
 
-			<span>{{ $monthArray[$monthNumber] . " " . $year }}</span>
+			<span>{{ __($monthArray[$monthNumber]) . " " . $year }}</span>
 
 			<div class="w-1/5 flex justify-center" >
 				@if ($hasNextMonth)
@@ -29,13 +38,13 @@
 
 		</div>
 		<div class="grid grid-cols-7 gap-1 pb-1">
-			<div class="flex justify-center bg-gray-300">Sun</div>
-			<div class="flex justify-center bg-gray-300">Mon</div>
-			<div class="flex justify-center bg-gray-300">Tue</div>
-			<div class="flex justify-center bg-gray-300">Wed</div>
-			<div class="flex justify-center bg-gray-300">Thu</div>
-			<div class="flex justify-center bg-gray-300">Fri</div>
-			<div class="flex justify-center bg-gray-300">Sat</div>
+			<div class="flex justify-center bg-gray-300">{{ __('Sun') }}</div>
+			<div class="flex justify-center bg-gray-300">{{ __('Mon') }}</div>
+			<div class="flex justify-center bg-gray-300">{{ __('Tue') }}</div>
+			<div class="flex justify-center bg-gray-300">{{ __('Wed') }}</div>
+			<div class="flex justify-center bg-gray-300">{{ __('Thu') }}</div>
+			<div class="flex justify-center bg-gray-300">{{ __('Fri') }}</div>
+			<div class="flex justify-center bg-gray-300">{{ __('Sat') }}</div>
 			@for ($i=0; $i < $dayOfWeekRef; $i++)
 			<div></div>
 			@endfor
@@ -58,24 +67,37 @@
 			@endfor
 		</div>
 	</div>
-	@error('dateMeeting')
+	@error('dateShow')
+	<p class="text-red-500 mt-1">@if($errorMessage) {{ $message }} @endif</p>
+@enderror
+	{{-- @error('dateMeeting')
 		<p class="text-red-500 mt-1">@if($errorDate) {{ $message }} @endif</p>
-	@enderror
-	@if ($dateError)
+	@enderror --}}
+	{{-- @if ($dateError)
 		<p class="text-red-500 mt-1">{{ $dateError }}</p>
-	@endif
+	@endif --}}
 	 <div class="mt-2 mb-6" >
 			<div>
 					<select
 						class=" cursor-pointer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white  dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
 						name="timeSelection"
 						wire:model="timeSelection"
+						required
+						oninvalid="this.setCustomValidity('{{ __('Please fill out this field') }}')"
+						oninput="this.setCustomValidity('')"
+						title=''
 						>
-						<option value="0">Select Time</option>
+						<option value="0">{{ __('Select Time') }}</option>
+						{{-- @error('dateShow')
+			 			 <p class="text-red-500 mt-1">@if($errorMessage) {{ $message }} @endif</p>
+			 		 @enderror --}}
 						@foreach ($timeShow as $timeOne)
 							<option value="{{ $timeOne['id'] }}">{{ date('g:i A', strtotime($timeOne['timeSelected'])) }}</option>
 						@endforeach
 					</select>
+					@error('timeSelection')
+					 <p class="text-red-500 mt-1">@if($errorMessage) {{ $message }} @endif</p>
+				 @enderror
 			</div>
 	</div>
 	@error('date') <!-- ????? -->

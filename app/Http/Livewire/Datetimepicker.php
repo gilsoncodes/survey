@@ -10,6 +10,7 @@ use Carbon\Carbon;
 class Datetimepicker extends Component
 {
     public $dateShow;
+    public $dateHide;
     public $timeSelection;
     //hard code for now
     public $rangeDate=60;
@@ -23,8 +24,12 @@ class Datetimepicker extends Component
     public $year;
     public $availableDays=[];
     public $dateError = false;
-    public $monthArray = [ "1" => "January", "2" => "February", "3" => "March", "4" => "April", "5" => "May", "6" => "June",
+    //public $may= trans('May');
+    public $monthArray = [ "1" => "January", "2" => "February", "3" => "March", "4" => "April", "5" => 'May', "6" => "June",
                            "7" => "July", "8" => "August", "9" => "September", "10" => "October", "11" => "November", "12" => "December"
+                         ];
+    public $monthArrayPT = [ "1" => "Janeiro", "2" => "Fevereiro", "3" => "Março", "4" => "Abril", "5" => 'Maio', "6" => "Junho",
+                           "7" => "Julho", "8" => "Agosto", "9" => "Setembro", "10" => "Outubro", "11" => "Novembro", "12" => "Dezembro"
                          ];
     public $monthNumber;
     public $calendar = false;
@@ -35,10 +40,12 @@ class Datetimepicker extends Component
 
     protected $listeners = ['reset' => 'dateTimeReset'];
 
+    const date_select = 'livewire.select_date';
+
 
     public function dateTimeReset()
     {
-      $this->dateShow = 'Select Date';
+      $this->dateShow = trans('livewire.select_date');
       $this->timeSelection = 0;
       $this->yearRef = 2020; // to make the date before today -> for not selecting a day on the calendar
 
@@ -50,7 +57,7 @@ class Datetimepicker extends Component
                     ->where( 'daySelected', '>', date('Y-m-d', strtotime("-1 days")))
                     ->orderBy('daySelected')
                     ->get();//get the days from today to 60days later, today can be on the current month or not
-                    
+
       if ($setupDays->count() > 0) {
         $dbDate2human = Carbon::createFromFormat('Y-m-d', $setupDays[0]['daySelected'])->format('l - F j, Y');
         $this->timeShow =  $setupDays[0]->hours->sortBy('timeSelected');
@@ -69,7 +76,7 @@ class Datetimepicker extends Component
         $this->dayOfWeekRef = date("w", $unixTimestamp);
         $this->monthNumber = date("n", $unixTimestamp);
 
-         $this->dateShow = "Select Date";//$dbDate2human ; //"Fri April 23, 2021";
+         $this->dateShow = trans('livewire.select_date');//"Select Date";//$dbDate2human ; //"Fri April 23, 2021";
 
          for ($j=1; $j <= $this->totalDays; $j++){
            $dayAvailable = false;
@@ -98,15 +105,31 @@ class Datetimepicker extends Component
              $this->dayRef = $day;
              $this->monthRef = $this->month;
              $this->yearRef = $this->year;
-             $dbDate2human = Carbon::createFromFormat('Y-m-d', $this->year ."-". $this->month ."-". $day)->format('l - F j, Y');
+
+             //
+             //$this->Year = Carbon::createFromFormat('Y-m-d H:i:s', $this->appointment[0]['dateTime'])->format('Y');
+             //$this->month = Carbon::createFromFormat('Y-m-d H:i:s', $this->appointment[0]['dateTime'])->format('F');
+             //$this->day = Carbon::createFromFormat('Y-m-d H:i:s', $this->appointment[0]['dateTime'])->format('j');
+             $dayNameEN = Carbon::createFromFormat('Y-m-d', $this->year . "-". $this->month . "-" . $day)->format('l');
+             $mountNameEN = Carbon::createFromFormat('Y-m-d', $this->year . "-". $this->month . "-" . $day)->format('F');
+             if (app()->getLocale() == 'en') {
+               $dbDate2human = trans($dayNameEN) . ' - ' . trans($mountNameEN) . ' ' . $day . ', ' . $this->year;
+             } else {
+               $dbDate2human = trans($dayNameEN) . ' - ' . $day . ' de ' . trans($mountNameEN) . ' de ' . $this->year;
+             }
+             //
+            $this->dateHide = Carbon::createFromFormat('Y-m-d', $this->year ."-". $this->month ."-". $day)->format('l - F j, Y');
              $this->calendar = false;
             $this->timeShow = $dayRecord->hours->sortBy('timeSelected');
 
             $this->hourOption = $this->timeShow->first()['hourSelected'];
             $this->dateShow = $dbDate2human;
+
             $this->timeSelection = 0;
 
-            $this->emitUp('selectedDate', $this->dateShow);
+            //$this->emitUp('selectedShow', $this->dateShow);
+
+           $this->emitUp('selectedHide', $this->dateHide);
 
         } else { // in case, somoone is try to hack
             $this->dateError = $dbDate2human . "@" . $this->hourOption . " is not available. Please select another date.";
@@ -163,7 +186,11 @@ class Datetimepicker extends Component
             }
           }
         }else {
-            $this->dateError = "Sorry! At this moment, we haven't setup the time for appointment on ".$this->monthArray[$theMonthNumber] . " " . $theYear . " Please request appointment by phone.";
+          // if (app()->getLocale() == 'pt-br') {
+          //   $this->dateError = "Sorry! At this moment, we haven't setup the time for appointment on ".$this->monthArrayPT[$theMonthNumber] . " " . $theYear . " Please request appointment by phone.";
+          // } else {// en
+            $this->dateError = "Sorry! At this moment, we haven't setup the time for appointment on ". trans($this->monthArray[$theMonthNumber]) . " " . $theYear . " Please request appointment by phone.";
+          // }
         }
     }
     public function prevMonth(){

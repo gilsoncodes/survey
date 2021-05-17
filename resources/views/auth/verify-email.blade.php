@@ -4,8 +4,11 @@
             {{-- <x-jet-authentication-card-logo /> --}}
         </x-slot>
 
-        <h1 class="my-3 text-3xl text-center font-semibold text-gray-700 dark:text-gray-200">Virify Email</h1>
-
+        <h1 class="my-3 text-3xl text-center font-semibold text-gray-700 dark:text-gray-200">{{ __('Virify Email') }}</h1>
+        <p>{{ session('key0123') }}</p>
+        {{-- <p>the locale is : {{ session('locale') }}</p>
+        <p>The last url is: {{ session('urlend') }} </p>
+        <p>It was inside if : {{ session('atleatonce') }}</p> --}}
         <div class="mb-4 text-sm text-gray-600">
             {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? Check Spam and Junk folder if you don\'t see on the inbox.  If you didn\'t receive the email, we will gladly send you another.') }}
         </div>

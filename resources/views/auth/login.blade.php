@@ -1,10 +1,10 @@
-<x-guest-layout pagetitle="{{ __('Log in') }}">
+<x-guest-layout pagetitle="{{ __('Log In') }}">
     <x-jet-authentication-card>
         <x-slot name="logo">
             {{-- <x-jet-authentication-card-logo /> --}}
         </x-slot>
 
-        <h1 class="my-3 text-3xl text-center font-semibold text-gray-700 dark:text-gray-200">Log in</h1>
+        <h1 class="my-3 text-3xl text-center font-semibold text-gray-700 dark:text-gray-200">{{ __('Log In') }}</h1>
 
 
         <x-jet-validation-errors class="mb-4" />
@@ -15,11 +15,11 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('login', [ 'lang' => app()->getLocale()]) }}">
             @csrf
 
             <div>
-                <x-jet-label for="email" value="{{ __('Email') }}" />
+                <x-jet-label for="email" value="Email" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
@@ -37,7 +37,7 @@
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request', [ 'lang' => app()->getLocale()]) }}">
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
@@ -47,7 +47,7 @@
                 </x-jet-button>
             </div>
             <div class="flex items-center justify-center mt-4 ">
-              <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
+              <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register', [ 'lang' => app()->getLocale()]) }}">
                   {{ __('Create an Account') }}
               </a>
             </div>

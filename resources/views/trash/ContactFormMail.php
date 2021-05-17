@@ -33,7 +33,7 @@ class ContactFormMail extends Mailable
     public function build()
     {
         return $this->from('contact@garsolutions.com')
-                    ->subject('GAR Solutions has received your message.')
+                    ->subject( 'livewire.contact_message' )
                     ->view('emails.contact-form',[
                           'contact' => $this->contact,
                         ]);

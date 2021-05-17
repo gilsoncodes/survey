@@ -6,7 +6,9 @@ use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+//debug Start
+use Illuminate\Support\Facades\Log;
+//debug end
 
 class RedirectIfAuthenticated
 {
@@ -21,7 +23,15 @@ class RedirectIfAuthenticated
     public function handle(Request $request, Closure $next, ...$guards)
     {
 
-
+      //debug Start
+if (app()->environment('local')) {
+$log = [
+  'where' => 'RedirectIfAuthenticated2',
+  'URI' => $request->getUri()
+];
+Log::info(json_encode($log));
+}
+//debug end
 
         $guards = empty($guards) ? [null] : $guards;
 

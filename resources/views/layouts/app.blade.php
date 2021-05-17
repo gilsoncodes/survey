@@ -27,10 +27,9 @@
         @stack('calendar')
 
     </head>
-    <body class="font-sans antialiased">
-        <x-jet-banner />
+    <body class="font-sans antialiased text-gray-900  pt-28">
+        {{-- <x-jet-banner /> --}}
 
-        {{-- <div class="min-h-screen bg-gray-100"> --}}
             @livewire('navigation-menu')
 
             <!-- Page Heading -->
@@ -46,7 +45,6 @@
             <main>
                 {{ $slot }}
             </main>
-        {{-- </div> --}}
         <x-footer />
         @stack('modals')
 

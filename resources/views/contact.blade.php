@@ -1,10 +1,10 @@
 <x-app-layout pagetitle="{{ __('Contact') }}">
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight mt-16">
+    {{-- <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Contact') }}
         </h2>
-    </x-slot>
-  <div class="pt-16">
+    </x-slot> --}}
+  <div class="">
     @livewire('contact-form')
   </div>
   <div id='appointment'>

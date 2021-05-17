@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Fideloper\Proxy\TrustProxies as Middleware;
 use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Log;
 
 class TrustProxies extends Middleware
 {
@@ -13,7 +14,15 @@ class TrustProxies extends Middleware
      * @var array|string|null
      */
     protected $proxies;
-
+    //debug Start
+// if (app()->environment('local')) {
+// $log = [
+//   'where' => 'TrustProxies',
+//   'URI' => $request->getUri()
+// ];
+// Log::info(json_encode($log));
+// }
+//debug end
     /**
      * The headers that should be used to detect proxies.
      *

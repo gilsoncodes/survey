@@ -18,7 +18,7 @@ class CreateAppointmentsTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('phone');
-            $table->text('message');
+            $table->text('message')->nullable();
             $table->string('business');
             $table->boolean('selectedMeeting')->comment('1=zoom 0=place');
             $table->string('address')->nullable();

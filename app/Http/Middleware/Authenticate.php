@@ -3,6 +3,9 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+//debug Start
+use Illuminate\Support\Facades\Log;
+//debug end
 
 
 class Authenticate extends Middleware
@@ -16,9 +19,17 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
-
+      //debug Start
+    if (app()->environment('local')) {
+    $log = [
+      'where' => 'Authenticate2',
+      'URI' => $request->getUri()
+    ];
+    Log::info(json_encode($log));
+    }
+    //debug end
         if (! $request->expectsJson()) {
-            return route('login');
+            return route('login', [ 'lang' => app()->getLocale()]);
         }
     }
 }

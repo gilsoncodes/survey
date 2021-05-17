@@ -19,13 +19,13 @@
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
         <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
         <link rel="manifest" href="{{ asset('site.webmanifest') }}">
-
+        @livewireStyles
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body>
-      @livewire('navigation-menu')
+    <body class="font-sans antialiased text-gray-900 pt-28">
 
+      @livewire('navigation-menu')
       <!-- Page Heading -->
       @if (isset($header))
           <header class="bg-white shadow">
@@ -34,9 +34,12 @@
               </div>
           </header>
       @endif
-        <div class="font-sans text-gray-900 antialiased">
+
+        <main>
             {{ $slot }}
-        </div>
+        </main>
+
         <x-footer />
+        @livewireScripts
     </body>
 </html>

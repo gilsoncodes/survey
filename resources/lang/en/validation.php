@@ -150,6 +150,10 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+      'dateShow'              => 'date',
+      'selectedMeeting'       => 'type of meeting',
+      'timeSelection'         => 'horário',
+    ],
 
 ];

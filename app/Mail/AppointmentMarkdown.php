@@ -34,7 +34,7 @@ class AppointmentMarkdown extends Mailable
     public function build()
     {
         return $this->from('contact@garsolutions.com')
-                    ->subject( __('GAR Solutions has received your appointment request.'))
+                    ->subject( __('The GAR Solutions Team has received your appointment request.'))
                     ->markdown('emails.appointment-markdown',[
                       'appointment' => $this->appointment,
                       'timeMail' => $this->timeMail,

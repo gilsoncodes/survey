@@ -14,6 +14,7 @@ class CreateNewUser implements CreatesNewUsers
 {
     use PasswordValidationRules;
 
+
     /**
      * Validate and create a newly registered user.
      *
@@ -22,8 +23,9 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input)
     {
-      // debug
-      // session(['something' => 'pt-br']);
+       session(['keepLocate' => app()->getLocale()]);
+     
+
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],

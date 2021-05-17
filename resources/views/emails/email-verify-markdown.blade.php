@@ -1,23 +1,16 @@
 @component('mail::message')
-{{ __('Hello') }} {{ ucwords($contact['name']) }},
+{{ __('Hello') }},
 
-{{ __('Thank you for reaching out!') }}
+{{ __('Please click the button below to verify your email address.') }}<br>
 
-
-@component('mail::panel')
-**{{ __('You are very important to us, your information below will always remain private.') }}**
+@component('mail::button', ['url' => $url])
+{{ __('Verify Email Address') }}
 @endcomponent
-**{{ __('Name') }}:** {{ ucwords($contact['name']) }}
 
-**Email:** {{ $contact['email'] }}
+{{ __('If you did not create an account, no further action is required.') }}
 
-**{{ __('Phone Number') }}:** {{ $contact['phone'] }}
 
-**{{ __('Message') }}:** {{ $contact['message'] }}
-
-{{ __('We will contact you as soon as we review your message.') }}</p>
-
-{{ __('Sincerely,') }}
+{{ __('Regards') }},
 
 <span style="border-bottom: 2px solid #ff8b00; padding-bottom: 3px; margin-bottom: 17px; ">
 {{ __('The GAR Solutions Team') }}
@@ -46,5 +39,10 @@ contact@garsolutions.com
 (617) 564 - 1345
 </a>
 </p>
+
+@slot('subcopy')
+@lang("If you’re having trouble clicking the 'Verify Email Address' button, copy and paste the URL below into your web browser:")<br>
+ <span class="break-all"> <a href="{{ $url }}">{{ $url }}</a> </span>
+@endslot
 
 @endcomponent

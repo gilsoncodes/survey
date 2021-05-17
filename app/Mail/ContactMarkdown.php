@@ -30,7 +30,7 @@ class ContactMarkdown extends Mailable
     public function build()
     {
         return $this->from('contact@garsolutions.com')
-                    ->subject('GAR Solutions has received your message.')
+                    ->subject(trans('The GAR Solutions Team has received your message.'))
                     ->markdown('emails.conctat-markdown',[
                       'contact' => $this->contact,
                     ]);

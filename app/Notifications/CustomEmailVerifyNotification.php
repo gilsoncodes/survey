@@ -64,11 +64,28 @@ class CustomEmailVerifyNotification extends Notification
      */
     protected function buildMailMessage($url)
     {
+
+      //emails/email-verify-markdown.blade.php
+      // $emailContent = "<span style='border-bottom: 2px solid #ff8b00; padding-bottom: 3px; margin-bottom: 17px; '>" .
+      // trans('The GAR Solutions Team') . "</span><p style='display:flex; align-items: center; margin: 3px 0 0; padding:0;font-size: small;'><img src='" .
+      // asset( 'images/globe.png' ) . "' width='15' height='15' alt='globe icon'> &nbsp; <a href='https://www.garsolutions.com' style='color: #006fc2; text-decoration: none;'>
+      // www.garsolutions.com </a> </p> <p style='display:flex; align-items: center; margin: 0; padding:0; font-size: small;'>	<img src='" .
+      // asset( 'images/at.png' ) . "' width='15' height='15' alt='at icon'> &nbsp; <a href='mailto:contact@garsolutions.com' style='color: #006fc2; text-decoration: none;'>
+      // contact@garsolutions.com </a> </p> <p style='display:flex; align-items: center; margin: 0; padding:0;  font-size: small;'> 	<img src='" .
+      // asset( 'images/phone.png' ) . "' width='15' height='15' alt='phone icon'> &nbsp; <a href='tel:+16175641345' style='color:  #006fc2; text-decoration: none; font-size: small;'>
+      // (617) 564 - 1345 </a> </p>";
         return (new MailMessage)
-            ->subject(Lang::get('Verify Email Address customized'))
-            ->line(Lang::get('Please click the button below to verify your email address.'))
-            ->action(Lang::get('Verify Email Address'), $url)
-            ->line(Lang::get('If you did not create an account, no further action is required.'));
+                    ->from('contact@garsolutions.com')
+                    ->subject( __('Verify Email Address - GAR Solutions'))
+                    ->markdown('emails.email-verify-markdown',[
+                      'url' => $url,
+                    ]);
+      //      ->subject(Lang::get('Verify Email Address customized'))
+      //       ->line(Lang::get('Please click the button below to verify your email address.'))
+      //       ->action(Lang::get('Verify Email Address'), $url)
+      //       ->line(Lang::get('If you did not create an account, no further action is required.'))
+      //       ->salutation(Lang::get('Regards,'))
+      //       ->html($emailContent);
     }
 
     /**

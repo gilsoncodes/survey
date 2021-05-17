@@ -20,14 +20,28 @@ require_once __DIR__ . '/fortify.php';
 |'.app()->getLocale().'
 */
 
-Route::redirect('/', '/en');
-Route::redirect('/dashboard', '/'.app()->getLocale().'/dashboard');
+// Route::get('/', function(){
+//
+//   if (session('locale')) {
+//
+//     $url_path = '/' . session('locale');
+//   } else {
+//     //dd('NO');
+//     $url_path = '/en';
+//   }
+//   return redirect($url_path);
+//
+// });
+
+ // Route::redirect('/', '/en');
+// Route::redirect('/dashboard', '/'.app()->getLocale().'/dashboard');
 // Route::get('/dashboard', function () {
 //   dd(redirect()->route('dashboard'));
 //     return redirect()->route('dashboard');
 // });
 
 Route::group(['prefix' => '{lang}'], function (){
+
   Route::get('/', function () {
       return view('home');
   })->name('home');
@@ -41,13 +55,14 @@ Route::group(['prefix' => '{lang}'], function (){
   })->name('contact');
 
   Route::get('appointment', function () {
-    $appointment = null;
-    if (request()->has('a') && request()->has('r')) {
-        $appointment = App\Models\Appointment::where('id',request('a'))->where('reference',request('r'))->first();
-    }
-    return view('livewire.cancel-appointment',[
-      'appointment' => $appointment
-    ]);
+      return view('appointment');
+    // $appointment = null;
+    // if (request()->has('a') && request()->has('r')) {
+    //     $appointment = App\Models\Appointment::where('id',request('a'))->where('reference',request('r'))->first();
+    // }
+    // return view('livewire.cancel-appointment',[
+    //   'appointment' => $appointment
+    // ]);
 
   })->name('cancel');
   Route::get('about', function () {
@@ -89,6 +104,7 @@ Route::group(['prefix' => '{lang}'], function (){
 
       return new App\Mail\AppointmentMarkdown($appointment, $timeMail, $dateMail );
   });
+
 });
 
 
