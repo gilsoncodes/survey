@@ -1,4 +1,4 @@
-<div x-show.transition.opacity.duration.200ms="top"
+<div x-cloak x-show.transition.opacity.duration.200ms="top"
 			x-on:scroll.window="if(window.scrollY > 20){top=false;}else{top=true;}"
 			class="max-w-7xl mx-auto px-4 md:px-2 lg:px-8 h-10 my-auto">
 	<div class="" x-data="urls()" x-init="init"  >
@@ -35,7 +35,7 @@
 					x-cloak
 					class="absolute top-0 right-0 mt-8 p-2  z-30 bg-white border border-blue-400">
 				<div class="text-center">
-					<span>Select a language</span><span>Selecione uma língua</span>
+					<span>Select a language</span><br><span>Selecione uma língua</span>
 				</div>
 				<hr class="my-3">
 				<div >

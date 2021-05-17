@@ -1,20 +1,8 @@
 <div class="mb-6" x-data="{calendar: @entangle('calendar')}">
-	<div @click="calendar = !calendar">
-		<input	type="text"
-						name="dateShow"
-						wire:model.defer="dateShow"
-						class="cursor-pointer hover:bg-gray-300 w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-300 "
-						disabled
-						required
-						oninvalid="this.setCustomValidity('{{ __('Please fill out this field') }}')"
-						oninput="this.setCustomValidity('')"
-						title=''
-						>
-						<input	type="hidden"
-										name="dateHide"
-										wire:model.defer="dateHide"
-										>
+	<div @click="calendar = !calendar" class="cursor-pointer hover:bg-gray-300 w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-300">
+		{{ $dateShow }}
 	</div>
+	<input	type="hidden"	name="dateHide"	wire:model.defer="dateHide"	>
 	<div class="border"  @click.away="calendar = false " x-show="calendar" x-cloak >
 		<div class="flex justify-between py-2">
 			<div class="w-1/5 flex justify-center">
