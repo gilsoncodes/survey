@@ -20,8 +20,11 @@ class AdjustLocate
       //debug Start
 if (app()->environment('local')) {
     $log = [
-        'where' => 'AdjustLocate2',
-        'URI' => $request->getUri()
+        'sequence' => 'start'
+        // 'method' => $request->method(),
+        // 'lang' => app()->getLocale(),
+        // 'where' => 'AdjustLocate2',
+        // 'URI' => $request->getUri()
     ];
     Log::info(json_encode($log));
 }
@@ -29,7 +32,8 @@ if (app()->environment('local')) {
         if (!($request->segment(1) == 'en' ||
               $request->segment(1) == 'pt-br' ||
               $request->segment(1) == 'xx' ||
-              $request->segment(1) == 'livewire') ) {//There is NO locale
+              $request->segment(1) == 'livewire' ||
+              $request->segment(1) == 'storage') ) {//There is NO locale
           if ($request->path() == '/') {
             $url_full =config('app.url') . '/xx';
           } else {

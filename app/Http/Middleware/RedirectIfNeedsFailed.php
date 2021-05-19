@@ -15,6 +15,7 @@ class RedirectIfNeeds
       //debug Start
 if (app()->environment('local')) {
 $log = [
+  'locale' => app()->getLocale(),
   'where' => 'RedirectIfNeeds2',
   'URI' => $request->getUri()
 ];
@@ -28,39 +29,31 @@ Log::info(json_encode($log));
 
         //URL=> domain.com/segment(1)/segment(2)/segment(3)/.../segment(N)
         //path=> /segment(1)/segment(2)/segment(3)/.../segment(N)
-        if ($request->segment(1) == 'pt-br') {
-          $pathNoWrongLocate = substr($request->path(), 5);
-        } else { //'en' or 'xx'
-          $pathNoWrongLocate = substr($request->path(), 2);
-        }
-        if ($request->segment(1) != 'livewire' && $request->segment(1) != 'storage') {
+        if ($request->segment(1) != 'livewire') {
+          if ($request->segment(1) == 'pt-br') {
+            $pathNoWrongLocate = substr($request->path(), 5);
+          } else {//'en' or 'xx'
+            $pathNoWrongLocate = substr($request->path(), 2);
+          }
           if ($request->session()->has('keepLocate')) { // exist a locate stored in session
             if ($request->segment(1) != session('keepLocate')) {//There is NO locale
+                app()->setLocale(session('keepLocate'));
                 $url_full = config('app.url') . '/' . session('keepLocate') . $pathNoWrongLocate;
                 return redirect($url_full);// it will come back to this middleware
             }
+            app()->setLocale(session('keepLocate'));
           } else {
             if ( $request->segment(1) == 'xx' ) {//There is NO locale in the initial url
+              if ($request->session()->has('keepLocate')){
                 if ($request->path() == '/') {
-                  $url_full = config('app.url') . '/en';
+                  $url_full = config('app.url') . '/' . app()->getLocale();
+
                 } else {
-                  $url_full = config('app.url') . '/en' . $pathNoWrongLocate;
+                  $url_full = config('app.url') . '/' . app()->getLocale() . $pathNoWrongLocate;
                 }
                 return redirect($url_full);// it will come back to this middleware
+              }
             }
-          }
-          app()->setLocale($request->segment(1));
-        }
-        //services, contact, about are to make sure eliminate 'keepLocate' from the session
-        if ($request->session()->has('keepLocate')) {
-          if ($request->segment(2)."/".$request->segment(3) == "email/verify" ||
-            $pathNoWrongLocate == "" ||
-            $request->segment(2) == "dashboard" ||
-            $request->segment(2) == "services" ||
-            $request->segment(2) == "contact" ||
-            $request->segment(2) == "about" )
-          {
-                    $request->session()->forget('keepLocate');
           }
         }
         return $next($request);

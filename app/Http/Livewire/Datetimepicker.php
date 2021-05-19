@@ -127,7 +127,7 @@ class Datetimepicker extends Component
 
             $this->timeSelection = 0;
 
-            //$this->emitUp('selectedShow', $this->dateShow);
+           $this->emitUp('selectedShow', $this->dateShow);
 
            $this->emitUp('selectedHide', $this->dateHide);
 

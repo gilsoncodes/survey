@@ -134,6 +134,7 @@ return [
         'business'              => 'Nome do restaurante',
         'city'                  => 'cidade',
         'country'               => 'país',
+        'current password'      => 'senha atual',
         'date'                  => 'data',
         'dateShow'              => 'dia',
         'day'                   => 'dia',

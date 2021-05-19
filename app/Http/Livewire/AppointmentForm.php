@@ -24,7 +24,7 @@ class AppointmentForm extends Component
     public $phone;
     public $selectedMeeting = '1';
     public $address;
-    //public $dateShow;
+    public $dateShow;
     public $dateHide;
     public $timeSelection;
     public $message;
@@ -42,7 +42,7 @@ class AppointmentForm extends Component
     public $test='123';
     public $hasDates = false;
 
-    protected $listeners = ['selectedHide', 'selectedTime']; //, 'hasAvailability']; 'selectedShow',
+    protected $listeners = ['selectedHide', 'selectedShow', 'selectedTime']; //, 'hasAvailability'];
 
     public function mount(){
       $setupDays = Day::where( 'daySelected', '<', date('Y-m-d', strtotime("+60 days")))
@@ -58,10 +58,10 @@ class AppointmentForm extends Component
     //   $this->hasDates = $passAvailability;
     // }
 
-    // public function selectedShow($passShow)
-    // {
-    //     $this->dateShow = $passShow;
-    // }
+    public function selectedShow($passShow)
+    {
+        $this->dateShow = $passShow;
+    }
 
     public function selectedHide($passHide)
     {
@@ -156,9 +156,9 @@ class AppointmentForm extends Component
        ]);
        $this->email2 = $this->email;
        //dd($appointmentDB);
-      Mail::to($appointment['email'])->send(new AppointmentMarkdown($appointmentDB, $time4Mail, $appointment['dateHide']));
+      Mail::to($appointment['email'])->send(new AppointmentMarkdown($appointmentDB, $time4Mail, $this->dateShow));
 
-      Mail::to('restaurant@garsolutions.com')->send(new AppointmentMarkdown($appointmentDB, $time4Mail, $appointment['dateHide']));
+      Mail::to('restaurant@garsolutions.com')->send(new AppointmentMarkdown($appointmentDB, $time4Mail, $this->dateShow));
 
 
       $this->emit('successRequest');
