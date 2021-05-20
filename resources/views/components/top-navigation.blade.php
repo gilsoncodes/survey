@@ -9,12 +9,12 @@
 			</div>
 			<div class="pr-8">
 				Lang={{ app()->getLocale() }}
-			</div>
+			</div> --}}
 			@if (request()->session()->has('keepLocate'))
 				<div class="pr-8">
 					session={{ session('keepLocate') }}
 				</div>
-			@endif --}}
+			@endif
 			<div @click="links" class="relative flex items-center justify-center border border-blue-400 hover:border-transparent text-blue-500  hover:text-white bg-transparent hover:bg-blue-500 rounded-xl cursor-pointer pl-9 pr-2">
 				<div class="text-sm">
 					{{ __('English') }}
@@ -165,10 +165,10 @@
 								 this.path = full_path;
 						}
 					},
-					animation2(){
-						alert(this.select);
-						this.select = !this.select;
-					},
+					// animation2(){
+					// 	alert(this.select);
+					// 	this.select = !this.select;
+					// },
 					languageOption(){
 						this.language = false;
 						clearInterval(this.animation);

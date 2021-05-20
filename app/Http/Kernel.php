@@ -35,11 +35,11 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
+            \App\Http\Middleware\SetLocateAndDefaultForUrls::class,
+            \App\Http\Middleware\RedirectIfNeeds::class,
             \Laravel\Jetstream\Http\Middleware\AuthenticateSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
-            \App\Http\Middleware\SetLocateAndDefaultForUrls::class,
-            \App\Http\Middleware\RedirectIfNeeds::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
 
         ],
@@ -53,12 +53,12 @@ class Kernel extends HttpKernel
     protected $middlewarePriority = [
         \Illuminate\Cookie\Middleware\EncryptCookies::class,
         \Illuminate\Session\Middleware\StartSession::class,
+        \App\Http\Middleware\SetLocateAndDefaultForUrls::class,
+        \App\Http\Middleware\RedirectIfNeeds::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
         \Illuminate\Contracts\Auth\Middleware\AuthenticatesRequests::class,
         \Illuminate\Routing\Middleware\ThrottleRequests::class,
         \Illuminate\Session\Middleware\AuthenticateSession::class,
-        \App\Http\Middleware\SetLocateAndDefaultForUrls::class,
-        \App\Http\Middleware\RedirectIfNeeds::class,
         \Illuminate\Routing\Middleware\SubstituteBindings::class,
         \Illuminate\Auth\Middleware\Authorize::class,
     ];
