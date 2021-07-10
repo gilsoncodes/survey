@@ -37,6 +37,8 @@ Log::info(json_encode($log));
           if ($request->session()->has('keepLocate')) { // exist a locate stored in session
             if ($request->segment(1) != session('keepLocate')) {//There is NO locale
                 $url_full = config('app.url') . '/' . session('keepLocate') . $pathNoWrongLocate;
+                //I am not sure if it is working. Just in case, I am deleting session
+                $request->session()->forget('keepLocate');
                 return redirect($url_full);// it will come back to this middleware
             }
           } else {
