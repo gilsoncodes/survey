@@ -1,7 +1,10 @@
-<div class="mb-6" x-data="{calendar: @entangle('calendar')}">
-	<div @click="calendar = !calendar" class="cursor-pointer hover:bg-gray-300 w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-300">
+<div class="relative mb-6" x-data="{calendar: @entangle('calendar')}">
+	<div @click="calendar = !calendar" class=" {{ $this->calend }} pl-9 cursor-pointer hover:bg-gray-300 w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-300">
 		{{ $dateShow }}
 	</div>
+	<svg class="absolute  top-2 left-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="{{ $this->calendicon }}">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+</svg>
 	<input	type="hidden"	name="dateHide"	wire:model.defer="dateHide"	>
 	<div class="border"  @click.away="calendar = false " x-show="calendar" x-cloak >
 		<div class="flex justify-between py-2">
@@ -65,9 +68,9 @@
 		<p class="text-red-500 mt-1">{{ $dateError }}</p>
 	@endif --}}
 	 <div class="mt-2 mb-6" >
-			<div>
+			<div class="relative">
 					<select
-						class=" cursor-pointer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white  dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+						class="{{ $this->clock }} cursor-pointer w-full pl-9  px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white  dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
 						name="timeSelection"
 						wire:model="timeSelection"
 						required
@@ -83,6 +86,9 @@
 							<option value="{{ $timeOne['id'] }}">{{ date('g:i A', strtotime($timeOne['timeSelected'])) }}</option>
 						@endforeach
 					</select>
+					<svg class="absolute top-2 left-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="{{ $this->clockicon }}">
+					  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+					</svg>
 					@error('timeSelection')
 					 <p class="text-red-500 mt-1">@if($errorMessage) {{ $message }} @endif</p>
 				 @enderror

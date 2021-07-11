@@ -42,14 +42,28 @@ class Datetimepicker extends Component
 
     const date_select = 'livewire.select_date';
 
-
+    // Computed Property
+    public function getClockProperty()
+    {
+        return ($this->timeSelection == 0 ? 'color-gray' : 'color-black');
+    }
+    public function getClockiconProperty()
+    {
+        return ($this->timeSelection == 0 ? '#D1D5DB' : '#000000');
+    }
+    public function getCalendProperty()
+    {
+        return ($this->dateShow == 'Select Date' || $this->dateShow == 'Selecione o dia' ? 'color-gray' : 'color-black');
+    }
+    public function getCalendiconProperty()
+    {
+        return ($this->dateShow == 'Select Date' || $this->dateShow == 'Selecione o dia' ? '#D1D5DB' : '#000000');
+    }
     public function dateTimeReset()
     {
       $this->dateShow = trans('livewire.select_date');
       $this->timeSelection = 0;
       $this->yearRef = 2020; // to make the date before today -> for not selecting a day on the calendar
-
-
     }
 
     public function mount(){

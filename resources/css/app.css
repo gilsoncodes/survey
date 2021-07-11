@@ -6,3 +6,11 @@
 [x-cloak] {
     display: none !important;
 }
+
+.color-black {
+  color: black;
+}
+
+.color-gray {
+  color: #D1D5DB;
+}

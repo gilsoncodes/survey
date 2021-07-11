@@ -57,6 +57,22 @@ class AppointmentForm extends Component
     // public function hasAvailability($passAvailability){
     //   $this->hasDates = $passAvailability;
     // }
+    public function getNameiconProperty()
+    {
+        return ($this->name == '' ? '#D1D5DB' : '#000000');
+    }
+    public function getBusinessiconProperty()
+    {
+        return ($this->business == '' ? '#D1D5DB' : '#000000');
+    }
+    public function getEmailiconProperty()
+    {
+        return ($this->email == '' ? '#D1D5DB' : '#000000');
+    }
+    public function getPhoneiconProperty()
+    {
+        return ($this->phone == '' ? '#D1D5DB' : '#000000');
+    }
 
     public function selectedShow($passShow)
     {

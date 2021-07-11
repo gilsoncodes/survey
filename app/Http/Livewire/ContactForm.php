@@ -11,7 +11,6 @@ use App\Models\Contact;
 
 class ContactForm extends Component
 {
-
     public $name;
     public $extra;
     public $email;
@@ -34,6 +33,18 @@ class ContactForm extends Component
     }
     public function errorMessage(){
       $this->errorMessage = false;
+    }
+    public function getNameiconProperty()
+    {
+        return ($this->name == '' ? '#D1D5DB' : '#000000');
+    }
+    public function getEmailiconProperty()
+    {
+        return ($this->email == '' ? '#D1D5DB' : '#000000');
+    }
+    public function getPhoneiconProperty()
+    {
+        return ($this->phone == '' ? '#D1D5DB' : '#000000');
     }
     public function submitForm(){
       // $this->successMessage = false;

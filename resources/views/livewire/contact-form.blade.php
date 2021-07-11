@@ -12,7 +12,7 @@
 
                       <div class="relative mb-6 ">
                           <label for="name" class=" block mb-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Name') }}</label>
-                          <input wire:model.defer="name"
+                          <input wire:model="name"
                                    type="text"
                                    wire:click="errorName"
                                    name="name"
@@ -23,7 +23,7 @@
                                    oninput="this.setCustomValidity('')"
                                    title=''
                                    />
-                          <svg class="absolute top-9 left-2 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                          <svg class="absolute top-9 left-2 w-6 h-6" fill="none" stroke="{{ $this->nameicon }}" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                           @error('name')
       											<p class="text-red-500 mt-1">@if($errorName) {{ $message }} @endif</p>
       										@enderror
@@ -33,7 +33,7 @@
                     </div>
                     <div class="relative mb-6 z-5">
                         <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email</label>
-                        <input wire:model.defer="email"
+                        <input wire:model="email"
                                type="email"
                                wire:click="errorEmail"
                                name="email"
@@ -44,14 +44,14 @@
                                oninput="setCustomValidity('')"
                                title=''
                                />
-                        <svg class="absolute top-9 left-2 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path></svg>
+                        <svg class="absolute top-9 left-2 w-6 h-6" fill="none" stroke="{{ $this->emailicon }}" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path></svg>
                         @error('email')
     											<p class="text-red-500 mt-1">@if($errorEmail) {{ $message }} @endif</p>
     										@enderror
                     </div>
                     <div class="relative mb-6 z-5">
                         <label for="phone" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Phone Number') }}</label>
-                        <input wire:model.defer="phone"
+                        <input wire:model="phone"
                                type="text"
                                wire:click="errorPhone"
                                name="phone"
@@ -62,7 +62,7 @@
                                oninput="setCustomValidity('')"
                                title=''
                                />
-                        <svg class="absolute top-9 left-2 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        <svg class="absolute top-9 left-2 w-6 h-6" fill="none" stroke="{{ $this->phoneicon }}" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                         @error('phone')
     											<p class="text-red-500 mt-1">@if($errorPhone) {{ $message }} @endif</p>
     										@enderror
