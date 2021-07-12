@@ -14,3 +14,7 @@
 .color-gray {
   color: #D1D5DB;
 }
+
+.gradient {
+  background: linear-gradient(90deg, #68c2ff 0%, #ff8b00 100%);
+}
