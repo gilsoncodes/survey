@@ -1,4 +1,4 @@
-<nav x-data="{ open: false, top: true  }" class="pb-2 fixed top-0 left-0 z-10 w-full bg-white border-b border-gray-100"><!-- fixed -->
+<nav x-data="{ open: false, top: true  }" class="pb-2 fixed top-0 left-0 z-20 w-full bg-white border-b border-gray-100"><!-- fixed -->
 	<x-top-navigation />
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 md:px-2 lg:px-8">
@@ -47,7 +47,7 @@
                         <x-jet-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                                <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
+                                <button class="flex flex-shrink-0 text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
                                     <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                                 </button>
                                 @else
@@ -96,14 +96,14 @@
                 @endauth
                 <div class="hidden md:-my-px md:ml-7 md:flex"> <!-- Make an Apppointment -->
                     <a class="inline-flex items-center text-center font-semibold h-12 px-4 my-auto text-sm text-white transition-colors duration-150 bg-yellow-500 rounded-xl focus:shadow-outline hover:bg-yellow-600"
-										href="{{ route('contact', [ 'lang' => app()->getLocale()]) }}#appointment">
-                        {!! __('Request an <br> Appointment') !!}
+										href="{{ route('contact', [ 'lang' => app()->getLocale()]) }}#consultation">
+                        {!! __('Free Consultation') !!}
                     </a>
                 </div>
             </div>
             <!-- Hamburger -->
             <div class="mr-2 flex items-center z-20 md:hidden ">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 bg-white focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-t-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 bg-white focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -115,20 +115,21 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" @click.away="open = false" class="hidden  md:hidden z-20">
         {{-- <div class="fixed top-0  h-full w-full bg-blue-900 opacity-90" @click='open = false'></div> <!-- like MODAL - blur outside the wrapper --> --}}
-        <div class="relative bg-white mx-6 -mt-4 p-4 rounded-tl-md  rounded-b-md">
-          <div class="flex justify-center bg-white pb-4 "> <!-- Make an Apppointment -->
-            <a @click='open = false'
-            class="inline-flex  items-center h-10 px-4 my-auto text-sm text-white transition-colors duration-150 bg-yellow-500 rounded-xl focus:shadow-outline hover:bg-yellow-600"
-            href="{{ route('contact', [ 'lang' => app()->getLocale()]) }}#appointment">
-                {{ __('Request an Appointment') }}
-            </a>
-        </div>
-            <div class="flex justify-between  mr-2">
-            <div class="bg-white "> <!-- menu Wrapper -->
+        <div class="relative mx-6 -mt-3 p-2 rounded-tl-md  rounded-b-md  border border-gray-100 bg-gray-100">
+          	<div class="flex justify-center pb-4 "> <!-- Make an Apppointment -->
+	            <a @click='open = false'
+	            class="inline-flex  items-center h-10 px-4 my-auto text-sm text-white transition-colors duration-150 bg-yellow-500 rounded-xl focus:shadow-outline hover:bg-yellow-600"
+	            href="{{ route('contact', [ 'lang' => app()->getLocale()]) }}#consultation">
+	                {{ __('Free Consultation') }}
+	            </a>
+        	</div>
+            <div class=" grid grid-cols-3 gap-x-3">
+            		<div class="col-span-1 bg-white"> <!-- menu Wrapper -->
               <!-- Webpages Links -->
               <div class="block px-4 py-2 text-xs text-gray-400">
                   {{ __('Webpages') }}
               </div>
+							<hr class="w-1/2 mx-auto">
                 <div class="pt-1 pb-2 space-y-1"> <!-- Home -->
                     <x-jet-responsive-nav-link href="{{ route('home', [ 'lang' => app()->getLocale()]) }}" :active="request()->routeIs('home')">
                         {{ __('Home') }}
@@ -150,24 +151,25 @@
                     </x-jet-responsive-nav-link>
                 </div>
             </div>
-            <div class="bg-white"> <!-- account wrapper-->
+            		<div class="col-span-2 bg-white"> <!-- account wrapper-->
                 <!-- Account Management -->
                 <div class="block px-4 py-2 text-xs text-gray-400">
                     {{ __('Manage Your Account') }}
                 </div>
+								<hr class="w-1/2 mx-auto">
                 <!-- Responsive Settings Options -->
                 @auth
                 <div class="pt-4 pb-1">
 
-                    <div class="flex items-center px-4">
+                    <div class="grid grid-cols-3 px-4">
                         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                        <div class="flex-shrink-0 mr-3">
+                        <div class="col-span-1">
                             <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                         </div>
                         @endif
-                        <div>
-                            <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                            <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                        <div class="col-span-2">
+                            <div class="font-medium text-base text-gray-800 whitespace-nowrap truncate"> {{ Auth::user()->name }}</div>
+                            <div class="font-medium text-sm text-gray-500 whitespace-nowrap truncate">{{ Auth::user()->email }}</div>
                         </div>
                     </div>
                     <div class="pt-1 pb-2 space-y-1"> <!-- Dashboard -->
@@ -191,6 +193,7 @@
                             </x-jet-responsive-nav-link>
                         </form>
                     </div>
+								</div>
                 @else
                 <div class="pt-4 pb-1">
                     <div class="pt-1 pb-2 space-y-1"> <!-- Log in -->
@@ -201,7 +204,7 @@
                 </div>
                 @endauth
             </div>
-        </div>
+        		</div>
         </div>
     </div>
 </nav>

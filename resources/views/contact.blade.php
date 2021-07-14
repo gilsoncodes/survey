@@ -7,7 +7,7 @@
   <div class="">
     @livewire('contact-form')
   </div>
-  <div id='appointment'>
+  <div id='consultation'>
     @livewire('appointment-form')
   </div>
 </x-app-layout>

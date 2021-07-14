@@ -1,32 +1,32 @@
 <x-app-layout pagetitle="{{ __('Home') }}">
-  <div class="pt-14">
+  <div class="pt-14 gradient">
     <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
-      <!--Left Col-->
-      <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center">
-        <p class="uppercase tracking-loose w-full  md:text-left">{{ __('Web-based Solutions for Your Restaurant') }}</p>
-        <h1 class="my-4 text-5xl font-bold leading-tight  md:text-left">
-          {{ __('Online Ordering System') }}
-        </h1>
-        <p class="w-full leading-normal text-2xl md:text-left">
-            {{ __('No Commission') }}
-        </p>
-        <p class="w-full leading-normal text-2xl md:text-left">
-          {{ __('No Monthly Fee') }}
-        </p>
-        <p class="w-full leading-normal text-2xl mb-6 md:text-left">
-          {{ __('No Contract') }}
-        </p>
-          <a href="{{ route('services', [ 'lang' => app()->getLocale()]) }}" class="mx-auto lg:mx-0 bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-            {{ __('Learn More') }}
-          </a>
-      </div>
-      <!--Right Col-->
-      <div class="w-full pl-0 md:pl-5 md:w-3/5 py-6 text-center">
-        <img class="w-full md:w-4/5 z-50" src="{{ asset('images/online_illustration.png') }}" />
-      </div>
-    </div>
+  <!--Left Col-->
+  <div class="flex flex-col w-full md:w-1/2 justify-center items-start text-center">
+    <p class="uppercase tracking-loose w-full  md:text-left">{{ __('Web-based Solutions for Your Restaurant') }}</p>
+    <h1 class="my-4 text-5xl font-bold leading-tight  md:text-left">
+      {{ __('Online Ordering System') }}
+    </h1>
+    <p class="w-full leading-normal text-2xl md:text-left">
+        {{ __('No Commission') }}
+    </p>
+    <p class="w-full leading-normal text-2xl md:text-left">
+      {{ __('No Monthly Fee') }}
+    </p>
+    <p class="w-full leading-normal text-2xl mb-6 md:text-left">
+      {{ __('No Contract') }}
+    </p>
+      <a href="{{ route('services', [ 'lang' => app()->getLocale()]) }}" class="z-10 mx-auto bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+        {{ __('Learn More') }}
+      </a>
   </div>
-  <div class="relative -mt-12 lg:-mt-24">
+  <!--Right Col-->
+  <div class="w-full md:w-1/2 pb-4 flex justify-center">
+    <img class="w-full md:w-4/5 lg:w-3/5 z-8" src="{{ asset('images/online_illustration.png') }}" />
+  </div>
+</div>
+  </div>
+  <div class="relative -mt-12 lg:-mt-24 gradient">
     <svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g transform="translate(-2.000000, 44.000000)" fill="#FFFFFF" fill-rule="nonzero">
@@ -45,8 +45,91 @@
       </g>
     </svg>
   </div>
+  <div class="bg-white h-80">
+    No background
+  </div>
+  <div class="bg-white h-80" style="background-color: #68c2ff;">
+    No background
+  </div>
+  <div class="bg-white h-80">
+    No background
+  </div>
+  <div style="background-color: #ff8b00;" class="bg-white h-80">
+    No background
+  </div>
+  <div class="bg-white">
+    <!-- Cards srtart -->
+    <h2 class="mt-14 px-3 max-w-lg mx-auto text-3xl leading-tight text-center">
+      {{ __('The Order Processing is done in three steps') }}
+    </h2>
+    <div class="my-14 flex flex-col md:flex-row content-center justify-around">
+        <!-- 1 card -->
+        <div class="relative bg-white  py-6 px-6 rounded-3xl w-64 mt-8 mx-auto shadow-xl">
+          <div class=" text-white flex items-center text-2xl absolute rounded-full py-4 px-6 shadow-xl bg-blue-400 left-4 -top-6">
+              1
+          </div>
+            <div class="mt-8 text-center">
+                <p class="text-xl font-semibold pb-3 my-2">{{ __('Customers Order Online') }}</p>
+                <img class="w-full" src="{{ asset('images/order.png') }}" />
+            </div>
+        </div>
+
+        <!-- 2 card -->
+        <div class="relative bg-white py-6 px-6 rounded-3xl w-64  mt-14 md:mt-6  mx-auto shadow-xl">
+            <div class=" text-white flex items-center text-2xl absolute rounded-full py-4 px-6 shadow-xl bg-yellow-500 left-4 -top-6">
+                2
+            </div>
+            <div class="mt-8">
+              <div class="mt-8 text-center">
+                  <p class="text-xl font-semibold pb-3 my-2">{{ __('The Restaurant Takes Orders') }}</p>
+                  <div class="grid grid grid-cols-4">
+                    <div class="col-span-1">
+                      <img class="w-full" src="{{ asset('images/check.png') }}" />
+                    </div>
+                    <div class="col-span-3 pl-3 text-left">
+                      &#8658; {{ __('Accept the order') }}
+                      <br>
+                      &#8658; {{ __('Make the food') }}
+                    </div>
+                  </div>
+                  <br>
+                  <p>{{ __('or') }}</p>
+                  <br>
+                  <div class="grid grid grid-cols-4">
+                    <div class="col-span-1">
+                      <img class="w-full" src="{{ asset('images/cross.png') }}" />
+                    </div>
+                    <div class="col-span-3 pl-3  text-left">
+                      &#8658; {{ __('Reject the order') }}
+                      <br>
+                      &#8658; {{ __('The system cancels the order') }}
+                    </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+
+        <!-- 3 card -->
+          <div class="relative bg-white py-6 px-6 rounded-3xl w-64  mt-14 md:mt-6 mx-auto shadow-xl">
+              <div class=" text-white flex items-center text-2xl absolute rounded-full py-4 px-6 shadow-xl bg-green-500 left-4 -top-6">
+                  3
+              </div>
+              <div class="mt-8">
+                <div class="mt-8 text-center">
+                    <p class="text-xl font-semibold my-2">{{ __('Customers Receive their Food') }}</p>
+                    <img class="w-full" src="{{ asset('images/delivery.png') }}" />
+                    <p>{{ __('Pickup or Delivery') }}</p>
+                </div>
+              </div>
+          </div>
+
+    </div>
+    <!-- Cards finish-->
+
+  </div>
+
   <!-- Change the colour #f8fafc to match the previous section colour -->
-  <svg class="wave-top" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <svg class="wave-top gradient" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
       <g transform="translate(-1.000000, -14.000000)" fill-rule="nonzero">
         <g class="wave" fill="#f8fafc">
@@ -67,7 +150,7 @@
       </g>
     </g>
   </svg>
-  <section class="container mx-auto text-center py-6 mb-12">
+  <section class=" mx-auto text-center py-6 pb-12 gradient">
     <h2 class="w-full mb-8 text-5xl font-bold leading-tight text-center text-white">
       {{ __('Get Started Today!') }}
     </h2>

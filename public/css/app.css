@@ -32733,6 +32733,18 @@ select {
   background: linear-gradient(90deg, #68c2ff 0%, #ff8b00 100%);
 }
 
+/* .logodarkblue {
+  color: #004a92;
+}
+
+.logoorange {
+  color: #ff8b00;
+}
+
+.logoliteblue {
+  color: #68c2ff;
+} */
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

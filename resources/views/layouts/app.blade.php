@@ -27,7 +27,7 @@
         @stack('calendar')
 
     </head>
-    <body class="font-sans antialiased text-gray-900  pt-28 gradient">
+    <body class="font-sans antialiased text-gray-900  pt-28 ">
         {{-- <x-jet-banner /> --}}
 
             @livewire('navigation-menu')

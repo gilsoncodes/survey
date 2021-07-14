@@ -2,7 +2,7 @@
     <div class="container mx-auto">
         <div class="max-w-md mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
             <div class="text-center">
-                <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">{{ __('Request an Appointment') }}</h1>
+                <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">{{ __('Request a Free Consultation') }}</h1>
                 <p class="text-gray-900 dark:text-gray-400">{{  __("Let's meet in your restaurant or via Zoom. We'll show you how GAR Solutions can help your business. FREE consultation and NO obligations.") }}</p>
             </div>
             <div class="m-7">
@@ -194,7 +194,7 @@
                     </p>
                 </form>
               @else
-                <p class="text-center">{{ __('Contact us to schedule an appointment.') }}</p>
+                <p class="text-center">{{ __('Contact us to Request a Free Consultation.') }}</p>
               @endif
 
             </div>

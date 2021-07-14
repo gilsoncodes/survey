@@ -27,8 +27,8 @@
     <p>{{ __("click the button below if you would like to reschedule it.") }}</p>
     <div class="hidden md:-my-px md:ml-7 md:flex"> <!-- Make an Apppointment -->
         <a class="inline-flex items-center text-center font-semibold h-12 px-4 my-auto text-sm text-white transition-colors duration-150 bg-yellow-500 rounded-xl focus:shadow-outline hover:bg-yellow-600"
-        href="{{ route('contact', [ 'lang' => app()->getLocale()]) }}#appointment">
-            {!! __('Request an <br> Appointment') !!}
+        href="{{ route('contact', [ 'lang' => app()->getLocale()]) }}#consultation">
+            {!! __('Request a Free Consultation') !!}
         </a>
     </div>
 
