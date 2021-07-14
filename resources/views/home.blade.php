@@ -54,8 +54,50 @@
   <div class="bg-white h-80">
     No background
   </div>
-  <div style="background-color: #ff8b00;" class="bg-white h-80">
-    No background
+  <div style="background-color: #ff8b00;" class="py-14">
+    <h2 class="mb-8 px-3 max-w-lg mx-auto text-3xl leading-tight text-center">
+      {{ __('Why Your Restaurant Needs an Online Ordering System') }}
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 text-center">
+      <div class="py-3">
+        {{ __('Save Money') }}<!--10-->
+      </div>
+      <div class="py-3">
+        {{ __('Manage the Menu') }}<!--15-->
+      </div>
+      <div class="py-3">
+        {{ __('Increase Revenue') }}<!--16-->
+      </div>
+      <div class="py-3">
+        {{ __('Profile Customers') }}<!--17-->
+      </div>
+      <div class="py-3">
+        {{ __('Offer Convenience') }}<!--17-->
+      </div>
+      <div class="py-3">
+        {{ __('Improve Order Accuracy') }}<!--22-->
+      </div>
+      <div class="py-3">
+        {{ __('Control Delivery Zones') }}<!--22-->
+      </div>
+      <div class="py-3">
+        {{ __('Get Ahead of Competition') }}<!--24-->
+      </div>
+      <div class="py-3">
+        {{ __('Enhance Marketing Efforts') }}<!--25-->
+      </div>
+      <div class="py-3">
+        {{ __('Provide Powerful Analytics') }}<!--26-->
+      </div>
+      <div class="py-3">
+        {{ __('Higher Employee Productivity') }}<!--28-->
+      </div>
+      <div class="py-3">
+        {{ __('Improve Customer Satisfaction') }}<!--29-->
+      </div>
+
+
+    </div>
   </div>
   <div class="bg-white">
     <!-- Cards srtart -->
