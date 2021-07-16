@@ -26,7 +26,7 @@
   </div>
 </div>
   </div>
-  <div class="relative -mt-12 lg:-mt-24 gradient">
+  <div class="relative -mt-8 lg:-mt-24 gradient">
     <svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g transform="translate(-2.000000, 44.000000)" fill="#FFFFFF" fill-rule="nonzero">
@@ -45,68 +45,124 @@
       </g>
     </svg>
   </div>
-  <div class="bg-white h-80">
-    No background
+  <div class="text-xl my-8 px-4 md:w-2/3 mx-auto">
+    <p>
+      {{ __("We know it's not easy at the moment for many businesses including the food industry, but we’ll get through this together. The good news is where there are challenges, there are also opportunities.") }}
+    </p>
+    <br>
+    <p>
+      {{ __('Due to the coronavirus pandemic, customers are frequently opting to pick up their food or asking for delivery. The appropriate way to meet this demand is to use an efficient Online Ordering System for your restaurant.') }}
+    </p>
+    <br>
+    <p>
+      {{ __("We've got the perfect solution for your restaurant. We'll make a website for your business if you don't have one and set up an Online Ordering System in it. It has a simple and friendly interface, a beautiful design, and is easy to update the menu. Best of all, our services are affordable and guarantee satisfaction. Contact us for a free consultation and no obligation.") }}
+    </p>
+
   </div>
-  <div class="bg-white h-80" style="background-color: #68c2ff;">
-    No background
-  </div>
-  <div class="bg-white h-80">
-    No background
-  </div>
-  <div style="background-color: #ff8b00;" class="py-14">
-    <h2 class="mb-8 px-3 max-w-lg mx-auto text-3xl leading-tight text-center">
-      {{ __('Why Your Restaurant Needs an Online Ordering System') }}
+  <div  style="background-color: #68c2ff;" class="py-6">
+    <h2 class="mb-6 px-3 max-w-lg mx-auto text-3xl leading-tight text-center">
+      <strong>{{ __('Reasons Why Your Restaurant Needs a Website') }}</strong>
     </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 text-center">
-      <div class="py-3">
-        {{ __('Save Money') }}<!--10-->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 text-xl text-center">
+      <div class="py-1">
+        {{ __('Grow your Business') }}<!--18-->
       </div>
-      <div class="py-3">
-        {{ __('Manage the Menu') }}<!--15-->
+      <div class="py-1">
+        {{ __('Allow Online Ordering') }}<!--21-->
       </div>
-      <div class="py-3">
-        {{ __('Increase Revenue') }}<!--16-->
+      <div class="py-1">
+        {{ __('Share Hours and Menus') }}<!--21-->
       </div>
-      <div class="py-3">
-        {{ __('Profile Customers') }}<!--17-->
+      <div class="py-1">
+        {{ __('Attract more Customers') }}<!--22-->
       </div>
-      <div class="py-3">
-        {{ __('Offer Convenience') }}<!--17-->
+      <div class="py-1">
+        {{ __('Build a Solid Brand Image') }}<!--25-->
       </div>
-      <div class="py-3">
-        {{ __('Improve Order Accuracy') }}<!--22-->
+      <div class="py-1">
+        {{ __('Increase Online Visibility') }}<!--26-->
       </div>
-      <div class="py-3">
-        {{ __('Control Delivery Zones') }}<!--22-->
+      <div class="py-1">
+        {{ __('Show up in Local Searches') }}<!--25-->
       </div>
-      <div class="py-3">
-        {{ __('Get Ahead of Competition') }}<!--24-->
+      <div class="py-1">
+        {{ __('Improves Trust and Loyalty') }}<!--26-->
       </div>
-      <div class="py-3">
-        {{ __('Enhance Marketing Efforts') }}<!--25-->
+      <div class="py-1">
+        {{ __('Compete with Larger Brands') }}<!--26-->
       </div>
-      <div class="py-3">
-        {{ __('Provide Powerful Analytics') }}<!--26-->
+      <div class="py-1">
+        {{ __('Create Permanent advertising') }}<!--28-->
       </div>
-      <div class="py-3">
-        {{ __('Higher Employee Productivity') }}<!--28-->
+      <div class="py-1">
+        {{ __('Promote Products and Services') }}<!--29-->
       </div>
-      <div class="py-3">
-        {{ __('Improve Customer Satisfaction') }}<!--29-->
+      <div class="py-1">
+        {{ __('Provide Information and Notification') }}<!--36-->
       </div>
-
-
     </div>
   </div>
-  <div class="bg-white">
+
+  <div style="background-color: #ff8b00;" class="py-6">
+    <h2 class="mb-6 px-3 max-w-lg mx-auto text-3xl leading-tight text-center">
+      <strong>{{ __('Advantage of an Online Ordering System for Your Restaurant') }}</strong>
+      {{-- <strong>{{ __('Reasons Why Your Restaurant Needs an Online Ordering System') }}</strong> --}}
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 text-xl text-center">
+      <div class="py-1">
+        {{ __('Save Money') }}<!--10-->
+      </div>
+      <div class="py-1">
+        {{ __('Manage the Menu') }}<!--15-->
+      </div>
+      <div class="py-1">
+        {{ __('Increase Revenue') }}<!--16-->
+      </div>
+      <div class="py-1">
+        {{ __('Profile Customers') }}<!--17-->
+      </div>
+      <div class="py-1">
+        {{ __('Offer Convenience') }}<!--17-->
+      </div>
+      <div class="py-1">
+        {{ __('Improve Order Accuracy') }}<!--22-->
+      </div>
+      <div class="py-1">
+        {{ __('Control Delivery Zones') }}<!--22-->
+      </div>
+      <div class="py-1">
+        {{ __('Get Ahead of Competition') }}<!--24-->
+      </div>
+      <div class="py-1">
+        {{ __('Enhance Marketing Efforts') }}<!--25-->
+      </div>
+      <div class="py-1">
+        {{ __('Provide Powerful Analytics') }}<!--26-->
+      </div>
+      <div class="py-1">
+        {{ __('Higher Employee Productivity') }}<!--28-->
+      </div>
+      <div class="py-1">
+        {{ __('Improve Customer Satisfaction') }}<!--29-->
+      </div>
+    </div>
+    <div class="px-1 sm:3/4 lg:w-2/3 mx-auto mt-6">
+      <div class="aspect-w-16 aspect-h-9">
+        <iframe src="https://www.youtube.com/embed/oUz5SCEhyak?modestbranding=1&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+
+  </div>
+
+  <div>
     <!-- Cards srtart -->
     <h2 class="mt-14 px-3 max-w-lg mx-auto text-3xl leading-tight text-center">
-      {{ __('The Order Processing is done in three steps') }}
+     <strong>{{ __('With our help, your Order Processing will be done in three steps') }}</strong>
+
     </h2>
     <div class="my-14 flex flex-col md:flex-row content-center justify-around">
         <!-- 1 card -->
-        <div class="relative bg-white  py-6 px-6 rounded-3xl w-64 mt-8 mx-auto shadow-xl">
+        <div class="relative bg-white  py-6 px-6 rounded-3xl w-64 dg:w-56 lg:w-64 mt-8 mx-auto shadow-xl">
           <div class=" text-white flex items-center text-2xl absolute rounded-full py-4 px-6 shadow-xl bg-blue-400 left-4 -top-6">
               1
           </div>
@@ -117,7 +173,7 @@
         </div>
 
         <!-- 2 card -->
-        <div class="relative bg-white py-6 px-6 rounded-3xl w-64  mt-14 md:mt-6  mx-auto shadow-xl">
+        <div class="relative bg-white py-6 px-6 rounded-3xl w-64  dg:w-56 lg:w-64 mt-14 md:mt-6  mx-auto shadow-xl">
             <div class=" text-white flex items-center text-2xl absolute rounded-full py-4 px-6 shadow-xl bg-yellow-500 left-4 -top-6">
                 2
             </div>
@@ -152,7 +208,7 @@
         </div>
 
         <!-- 3 card -->
-          <div class="relative bg-white py-6 px-6 rounded-3xl w-64  mt-14 md:mt-6 mx-auto shadow-xl">
+          <div class="relative bg-white py-6 px-6 rounded-3xl w-64  dg:w-56 lg:w-64 mt-14 md:mt-6 mx-auto shadow-xl">
               <div class=" text-white flex items-center text-2xl absolute rounded-full py-4 px-6 shadow-xl bg-green-500 left-4 -top-6">
                   3
               </div>

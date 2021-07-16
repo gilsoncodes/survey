@@ -116,7 +116,7 @@
     <div :class="{'block': open, 'hidden': ! open}" @click.away="open = false" class="hidden  md:hidden z-20">
         {{-- <div class="fixed top-0  h-full w-full bg-blue-900 opacity-90" @click='open = false'></div> <!-- like MODAL - blur outside the wrapper --> --}}
         <div class="relative mx-6 -mt-3 p-2 rounded-tl-md  rounded-b-md  border border-gray-100 bg-gray-100">
-          	<div class="flex justify-center pb-4 "> <!-- Make an Apppointment -->
+          	<div class="flex justify-center pb-4"> <!-- Make an Apppointment -->
 	            <a @click='open = false'
 	            class="inline-flex  items-center h-10 px-4 my-auto text-sm text-white transition-colors duration-150 bg-yellow-500 rounded-xl focus:shadow-outline hover:bg-yellow-600"
 	            href="{{ route('contact', [ 'lang' => app()->getLocale()]) }}#consultation">
