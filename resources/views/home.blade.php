@@ -7,13 +7,22 @@
     <h1 class="my-4 text-5xl font-bold leading-tight  md:text-left">
       {{ __('Online Ordering System') }}
     </h1>
-    <p class="w-full leading-normal text-2xl md:text-left">
+    <p class="w-full leading-normal text-2xl md:text-left flex ">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3" fill="none" viewBox="0 0 24 24" stroke="#10B981">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+      </svg>
         {{ __('No Commission') }}
     </p>
-    <p class="w-full leading-normal text-2xl md:text-left">
+    <p class="w-full leading-normal text-2xl md:text-left flex">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3" fill="none" viewBox="0 0 24 24" stroke="#10B981">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+      </svg>
       {{ __('No Monthly Fee') }}
     </p>
-    <p class="w-full leading-normal text-2xl mb-6 md:text-left">
+    <p class="w-full leading-normal text-2xl mb-6 md:text-left flex">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3" fill="none" viewBox="0 0 24 24" stroke="#10B981">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+      </svg>
       {{ __('No Contract') }}
     </p>
       <a href="{{ route('services', [ 'lang' => app()->getLocale()]) }}" class="z-10 mx-auto bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
