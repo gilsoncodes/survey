@@ -1,6 +1,6 @@
-<div class="flex items-center min-h-screen bg-gray-50 dark:bg-gray-900">
+<div class="flex items-center min-h-screen">
     <div class="container mx-auto">
-        <div class="max-w-md mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
+        <div class="max-w-md mx-auto my-10 bg-white p-5 rounded-md shadow-xl">
             <div class="text-center">
                 <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">{{ __('Request a Free Consultation') }}</h1>
                 <p class="text-gray-900 dark:text-gray-400">{{  __("Let's meet in your restaurant or via Zoom. We'll show you how GAR Solutions can help your business. FREE consultation and NO obligations.") }}</p>

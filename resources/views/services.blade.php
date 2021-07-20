@@ -91,7 +91,7 @@
         1<sup>{{ __('st') }}</sup> {{ __("We'll create a website for your restaurant if you don't have one.") }}
       </h4>
       <div class="bg-gray-200 py-6">
-        <p class="text-center"> <strong>{{ __('Example from our sample at') }} </strong><a href="https://ongarizer.com" class="text-blue-400"><strong>www.ongarizer.com</strong></a></p>
+        <p class="text-center"> <strong>{{ __('Example from our sample at') }} </strong><a href="https://ongarizer.com" class="text-blue-400" target="_blank"><strong>www.ongarizer.com</strong></a></p>
         <div class="flex flex-col items-center md:flex-row  md:justify-around">
             <div class="mx-4 text-center">
               <p class="my-3">{{ __('Header') }}</p>
@@ -227,7 +227,7 @@
             {{ __('Credit Card') }}<!--16-->
           </div>
         </div>
-        <p class="text-center"> <strong>{{ __('The ordering system is free and provided by www.gloriafood.com. Optionally, Gloria Food offers oline / credit card payment service for $ 29.00 per month.') }}</strong></p>
+        {{-- <p class="text-center"> <strong>{{ __('The ordering system is free and provided by www.gloriafood.com. Optionally, Gloria Food offers oline / credit card payment service for $ 29.00 per month.') }}</strong></p> --}}
 
       </div>
       <h4 class="my-4 mx-2 text-2xl font-bold leading-tight">
@@ -271,11 +271,11 @@
       </h4>
       <div class="bg-gray-200 py-6">
         <div class="flex flex-col items-center md:flex-row  md:justify-around">
-            <div class="mx-4 text-center w-1/5">
+            <div class="mx-4 text-center w-full lg:w-1/5">
               <p class="my-3">{{ __('The customer picks up the order') }}</p>
               <img src="{{ asset('images/delivery.png') }}" alt="{{ __('Delivery') }}">
             </div>
-            <div class="mx-4 text-center  w-4/5">
+            <div class="mx-4 text-center  w-full lg:w-4/5">
               <p class="my-3"><strong>{{ __('The Online Ordering System can allow pickup and/or delivery options.') }}</strong></p>
             </div>
         </div>

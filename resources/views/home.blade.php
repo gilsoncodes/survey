@@ -267,7 +267,7 @@
     <h3 class="px-3 max-w-lg mx-auto mb-8 text-3xl leading-tight">
       {{ __('Grow your business. Use an efficient online ordering system with no fees or commissions.') }}
     </h3>
-    <a href="{{ route('contact', [ 'lang' => app()->getLocale()]) }}" class=" mx-auto lg:mx-0 bg-white text-gray-800 font-bold rounded-full py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+    <a href="{{ route('contact', [ 'lang' => app()->getLocale()]) }}#message" class=" mx-auto lg:mx-0 bg-white text-gray-800 font-bold rounded-full py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
       {{ __('Contact us') }}
     </a>
   </section>

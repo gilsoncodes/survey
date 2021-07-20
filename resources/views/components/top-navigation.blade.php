@@ -1,21 +1,14 @@
 <div x-cloak x-show.transition.opacity.duration.200ms="top"
 			x-on:scroll.window="if(window.scrollY > 20){top=false;}else{top=true;}"
-			class="max-w-7xl mx-auto px-4 md:px-2 lg:px-8 h-10 my-auto">
-
+			class="w-full  border-b border-gray-100">
+	<div class="max-w-7xl mx-auto px-4 md:px-2 lg:px-8 h-10  ">
 	<div class="" x-data="urls()" x-init="init"  >
 		<div class="relative flex justify-end h-8 mt-2">
-			{{-- <div class="pr-8" x-text="'animation=' + animation" >
-
+			<div class="flex pl-3">
+					<svg class="w-6 h-6" fill="none" stroke="#000000" viewBox="0 0 24 24" ><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+					&nbsp; (617) 564 - 1345
 			</div>
-			<div class="pr-8">
-				Lang={{ app()->getLocale() }}
-			</div> --}}
-			@if (request()->session()->has('keepLocate'))
-				<div class="pr-8">
-					session={{ session('keepLocate') }}
-				</div>
-			@endif
-			<div @click="links" class="relative flex items-center justify-center border border-blue-400 hover:border-transparent text-blue-500  hover:text-white bg-transparent hover:bg-blue-500 rounded-xl cursor-pointer pl-9 pr-2">
+			<div @click="links" class="ml-auto relative flex items-center justify-center border border-blue-400 hover:border-transparent text-blue-500  hover:text-white bg-transparent hover:bg-blue-500 rounded-xl cursor-pointer pl-9 pr-2">
 				<div class="text-sm">
 					{{ __('English') }}
 				</div>
@@ -111,6 +104,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 <script>
 		function urls() {
