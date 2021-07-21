@@ -2,16 +2,17 @@
   <div class="pt-14 gradient">
     <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
   <!--Left Col-->
-  <div class="flex flex-col w-full md:w-1/2 justify-center items-start text-center">
+  <div class="flex flex-col  justify-center w-full md:w-3/5 text-center">
     @livewire('contact-form')
   </div>
   <!--Right Col-->
-  <div class="w-full md:w-1/2 pb-4 flex justify-center">
-    <img class="w-full md:w-4/5 lg:w-3/5 z-8" src="{{ asset('images/contact_vector.png') }}" />
+  <div class="w-full md:w-2/5 pb-4 flex flex-col">
+    <img class="w-full mx-auto md:w-4/5  z-8" src="{{ asset('images/contact_vector.png') }}" />
+    <p class="mt-4 px-3 text-center mx-auto"><strong>{{ __('Fill out the contact form and send us a message') }}</strong></p>
   </div>
 </div>
   </div>
-  <div class="relative -mt-8 lg:-mt-24 gradient">
+  <div class="relative  gradient">
     <svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g transform="translate(-2.000000, 44.000000)" fill="#FFFFFF" fill-rule="nonzero">
@@ -30,7 +31,7 @@
       </g>
     </svg>
   </div>
-  <div class="py-6" style="background-color: #68c2ff;">
+  <div class="py-6">
     <h3 class="my-4 text-2xl font-bold leading-tight text-center">
       {{ __('Info') }}
     </h3>
@@ -45,22 +46,15 @@
       </div>
     </div>
   </div>
-    <div class="w-full">
+    <div class="w-full mb-14">
       <div class="aspect-w-16 aspect-h-9 md:aspect-h-6">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11790.923210910243!2d-71.17066332705747!3d42.369575968627224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e378275063c683%3A0xca5edb0e2242bba4!2sEast%20Watertown%2C%20Watertown%2C%20MA%2002472!5e0!3m2!1sen!2sus!4v1626730655980!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
     </div>
 
-  <div id='message' class="px-2">
-    @livewire('contact-form')
-  </div>
-  {{-- px-2 gives some shadow on small devices --}}
-  <div id='consultation' class="px-2">
-    @livewire('appointment-form')
-  </div>
 
   <!-- Change the colour #f8fafc to match the previous section colour -->
-  <svg class="wave-top gradient" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <svg id="consultation"  class="wave-top gradient" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
       <g transform="translate(-1.000000, -14.000000)" fill-rule="nonzero">
         <g class="wave" fill="#f8fafc">
@@ -84,36 +78,13 @@
   <div class="pt-14 gradient">
     <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
   <!--Left Col-->
-  <div class="flex flex-col w-full md:w-1/2 justify-center items-start text-center">
-    <p class="uppercase tracking-loose w-full  md:text-left">{{ __('Web-based Solutions for Your Restaurant') }}</p>
-    <h1 class="my-4 text-5xl font-bold leading-tight  md:text-left">
-      {{ __('Online Ordering System') }}
-    </h1>
-    <p class="w-full leading-normal text-2xl md:text-left flex ">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3" fill="none" viewBox="0 0 24 24" stroke="#10B981">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
-      </svg>
-        {{ __('No Commission') }}
-    </p>
-    <p class="w-full leading-normal text-2xl md:text-left flex">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3" fill="none" viewBox="0 0 24 24" stroke="#10B981">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
-      </svg>
-      {{ __('No Monthly Fee') }}
-    </p>
-    <p class="w-full leading-normal text-2xl mb-6 md:text-left flex">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3" fill="none" viewBox="0 0 24 24" stroke="#10B981">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
-      </svg>
-      {{ __('No Contract') }}
-    </p>
-      <a href="{{ route('services', [ 'lang' => app()->getLocale()]) }}" class="z-10 mx-auto bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-        {{ __('Learn More') }}
-      </a>
+  <div class="flex flex-col  justify-center w-full md:w-3/5 text-center">
+    @livewire('appointment-form')
   </div>
   <!--Right Col-->
-  <div class="w-full md:w-1/2 pb-4 flex justify-center">
-    <img class="w-full md:w-4/5 lg:w-3/5 z-8" src="{{ asset('images/presentation.png') }}" />
+  <div class="w-full md:w-2/5 pb-4 flex flex-col">
+    <img class="w-full mx-auto md:w-4/5  z-8" src="{{ asset('images/presentation.png') }}" />
+    <p class="mt-4 px-3 text-center mx-auto"><strong>{{  __("Let's meet in your restaurant or via Zoom. We'll show you how GAR Solutions can help your business. FREE consultation and NO obligations.") }}</strong></p>
   </div>
 </div>
   </div>

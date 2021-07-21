@@ -84,7 +84,7 @@
     </svg>
   </div>
   <div class="">
-      <h3 class="my-4 text-3xl font-bold leading-tight text-center">
+      <h3 class="my-14 text-3xl font-bold leading-tight text-center">
         {{ __('How does It Work?') }}
       </h3>
       <h4 class="my-4 mx-2 text-2xl font-bold leading-tight">
@@ -107,7 +107,7 @@
             </div>
         </div>
       </div>
-      <h4 class="my-4 mx-2 text-2xl font-bold leading-tight">
+      <h4 class="mb-4 mt-8 mx-2 text-2xl font-bold leading-tight">
         2<sup>{{ __('nd') }}</sup> {{ __("We'll implement the online ordering system.") }}
       </h4>
       <div class="bg-gray-200 py-6">
@@ -167,7 +167,7 @@
       </div>
     </div>
   </div>
-  <h4 class="my-4 mx-2 text-2xl font-bold leading-tight">
+  <h4 class="mb-4 mt-8 mx-2 text-2xl font-bold leading-tight">
     3<sup>{{ __('rd') }}</sup> {{ __("We'll install and set up the app.") }}
   </h4>
   <div class="bg-gray-200 py-6">
@@ -185,7 +185,7 @@
   </div>
 
   <div class="">
-      <h3 class="my-4 text-3xl font-bold leading-tight text-center">
+      <h3 class="my-14 text-3xl font-bold leading-tight text-center">
         {{ __('Four Steps of a Typical Ordering') }}
       </h3>
       <h4 class="my-4 mx-2 text-2xl font-bold leading-tight">
@@ -230,7 +230,7 @@
         {{-- <p class="text-center"> <strong>{{ __('The ordering system is free and provided by www.gloriafood.com. Optionally, Gloria Food offers oline / credit card payment service for $ 29.00 per month.') }}</strong></p> --}}
 
       </div>
-      <h4 class="my-4 mx-2 text-2xl font-bold leading-tight">
+      <h4 class="mb-4 mt-8 mx-2 text-2xl font-bold leading-tight">
         2- {{ __("The restaurant takes the order.") }}
       </h4>
       <div class="bg-gray-200 py-6">
@@ -250,7 +250,7 @@
             </div>
         </div>
       </div>
-      <h4 class="my-4 mx-2 text-2xl font-bold leading-tight">
+      <h4 class="mb-4 mt-8 mx-2 text-2xl font-bold leading-tight">
         3- {{ __("The customer is notified.") }}
       </h4>
       <div class="bg-gray-200 py-6">
@@ -266,10 +266,10 @@
             </div>
         </div>
       </div>
-      <h4 class="my-4 mx-2 text-2xl font-bold leading-tight">
+      <h4 class="mb-4 mt-8 mx-2 text-2xl font-bold leading-tight">
         4- {{ __("The customer receives the food.") }}
       </h4>
-      <div class="bg-gray-200 py-6">
+      <div class="bg-gray-200 py-6 mb-14">
         <div class="flex flex-col items-center md:flex-row  md:justify-around">
             <div class="mx-4 text-center w-full lg:w-1/5">
               <p class="my-3">{{ __('The customer picks up the order') }}</p>

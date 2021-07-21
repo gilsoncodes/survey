@@ -103,7 +103,7 @@
             </div>
             <!-- Hamburger -->
             <div class="mr-2 flex items-center z-20 md:hidden ">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-t-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 bg-white focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                <button @click="open = ! open" :class="{'outline-none': open, 'ring': open, 'ring-indigo-100': open, 'border-indigo-300': open, 'border-b-0': open, 'ring-b-0': open }" class="border     inline-flex items-center justify-center p-2 pb-3 rounded-t-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 bg-white focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -115,7 +115,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" @click.away="open = false" class="hidden  md:hidden z-20">
         {{-- <div class="fixed top-0  h-full w-full bg-blue-900 opacity-90" @click='open = false'></div> <!-- like MODAL - blur outside the wrapper --> --}}
-        <div class="relative mx-6 -mt-3 p-2 rounded-tl-md  rounded-b-md  border border-gray-100 bg-gray-100">
+        <div class="relative mx-6 -mt-3 p-2 rounded-tl-md  rounded-b-md border outline-none ring ring-indigo-100 border-indigo-300 bg-gray-100">
           	<div class="flex justify-center pb-4"> <!-- Make an Apppointment -->
 	            <a @click='open = false'
 	            class="inline-flex  items-center h-10 px-4 my-auto text-sm text-white transition-colors duration-150 bg-yellow-500 rounded-xl focus:shadow-outline hover:bg-yellow-600"
@@ -126,7 +126,7 @@
             <div class=" grid grid-cols-3 gap-x-3">
             		<div class="col-span-1 bg-white"> <!-- menu Wrapper -->
               <!-- Webpages Links -->
-              <div class="block px-4 py-2 text-xs text-gray-400">
+              <div class="block text-center py-2 text-ms text-gray-400">
                   {{ __('Webpages') }}
               </div>
 							<hr class="w-1/2 mx-auto">
@@ -153,7 +153,7 @@
             </div>
             		<div class="col-span-2 bg-white"> <!-- account wrapper-->
                 <!-- Account Management -->
-                <div class="block px-4 py-2 text-xs text-gray-400">
+                <div class="block text-center py-2 text-ms text-gray-400">
                     {{ __('Manage Your Account') }}
                 </div>
 								<hr class="w-1/2 mx-auto">

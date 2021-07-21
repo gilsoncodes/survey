@@ -34,7 +34,6 @@ class AppointmentForm extends Component
     public $errorEmail;
     public $errorPhone;
     public $errorMeeting;
-    public $errorAddress;
     public $errorDate;
     public $errorTime;
     public $errorMessage;
@@ -73,6 +72,10 @@ class AppointmentForm extends Component
     {
         return ($this->phone == '' ? '#D1D5DB' : '#000000');
     }
+    public function getAddressiconProperty()
+    {
+        return ($this->address == '' ? '#D1D5DB' : '#000000');
+    }
 
     public function selectedShow($passShow)
     {
@@ -104,9 +107,6 @@ class AppointmentForm extends Component
     public function errorMeeting(){
       $this->errorMeeting = false;
     }
-    public function errorAddress(){
-      $this->errorAddress = false;
-    }
     public function errorDate(){
       $this->errorDate = false;
     }
@@ -123,7 +123,6 @@ class AppointmentForm extends Component
         $this->errorEmail = true;
         $this->errorPhone = true;
         $this->errorMeeting = true;
-        $this->errorAddress = true;
         $this->errorDate = true;
         $this->errorTime = true;
         $this->errorMessage = true;
