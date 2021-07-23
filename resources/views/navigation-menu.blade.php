@@ -32,12 +32,12 @@
                         {{ __('Contact') }}
                     </x-jet-nav-link>
                 </div>
-                <div class="hidden md:-my-px md:ml-9 md:flex"> <!-- About -->
+                {{-- <div class="hidden md:-my-px md:ml-9 md:flex"> <!-- About -->
                   <x-jet-nav-link href="{{ route('about', [ 'lang' => app()->getLocale()]) }}" :active="request()->routeIs('about')">
 											<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                       {{ __('About') }}
                   </x-jet-nav-link>
-              </div>
+              </div> --}}
             </div>
             <div class="flex justify-between h-16">
                 @auth
@@ -145,11 +145,11 @@
                         {{ __('Contact') }}
                     </x-jet-responsive-nav-link>
                 </div>
-                <div class="pt-1 pb-2 space-y-1 "> <!-- About -->
+                {{-- <div class="pt-1 pb-2 space-y-1 "> <!-- About -->
                     <x-jet-responsive-nav-link href="{{ route('about', [ 'lang' => app()->getLocale()]) }}" :active="request()->routeIs('about')">
                         {{ __('About') }}
                     </x-jet-responsive-nav-link>
-                </div>
+                </div> --}}
             </div>
             		<div class="col-span-2 bg-white"> <!-- account wrapper-->
                 <!-- Account Management -->

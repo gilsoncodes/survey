@@ -65,9 +65,9 @@ Route::group(['prefix' => '{lang}'], function (){
     // ]);
 
   })->name('cancel');
-  Route::get('about', function () {
-      return view('about');
-  })->name('about');
+  // Route::get('about', function () {
+  //     return view('about');
+  // })->name('about');
 
 
   Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
