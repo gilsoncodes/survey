@@ -111,14 +111,14 @@
         2<sup>{{ __('nd') }}</sup> {{ __("We'll implement the online ordering system.") }}
       </h4>
       <div class="bg-gray-200 py-6">
-        <p class="text-center"> <strong>{{ __('Transfer the restaurant information to the order page') }}</strong></p>
+        <p class="text-center"> <strong>{{ __('Transfer the restaurant information to the ordering page') }}</strong></p>
         <div class="flex flex-col items-center md:flex-row  md:justify-around">
             <div class="mx-4 text-center">
               <p class="my-3">{{ __('Menu') }}</p>
               <img src="{{ asset('images/menu.jpg') }}" alt="{{ __('Restaurant Menu') }}">
             </div>
             <div class="mx-4 text-center">
-              <p class="my-3">{{ __('Order page') }}</p>
+              <p class="my-3">{{ __('Ordering Page') }}</p>
               <img src="{{ asset('images/pizza_ongarizer.jpg') }}" alt="{{ __('Pizza Page') }}">
             </div>
         </div>
@@ -139,7 +139,7 @@
         {{ __('Detailed Reports') }}<!--16-->
       </div>
       <div class="py-1">
-        {{ __('Promo and Coupon') }}<!--16-->
+        {{ __('Promos and Coupons') }}<!--16-->
       </div>
       <div class="py-1">
         {{ __('Pictures in Menu') }}<!--16-->
@@ -174,11 +174,11 @@
     <p class="text-center"> <strong>{{ __('The restaurant should have a dedicated tablet or phone to take orders.') }}</p>
     <div class="flex flex-col items-center md:flex-row  md:justify-around">
         <div class="mx-4 text-center">
-          <p class="my-3">{{ __('App Login Page') }}</p>
+          <p class="my-3">{{ __('Login Page') }}</p>
           <img src="{{ asset('images/ipad_log_in.png') }}" alt="{{ __('App Login Page') }}">
         </div>
         <div class="mx-4 text-center">
-          <p class="my-3">{{ __('My Orders Page') }}</p>
+          <p class="my-3">{{ __('Ordering Page') }}</p>
           <img src="{{ asset('images/ipad_my_orders.png') }}" alt="{{ __('My Orders Page') }}">
         </div>
     </div>
@@ -207,7 +207,7 @@
               <img src="{{ asset('images/online_checkout2.png') }}" alt="{{ __("Checkout") }}">
             </div>
             <div class="mx-4 text-center">
-              <p class="my-3">{{ __('Waiting') }}</p>
+              <p class="my-3">{{ __('Waiting for Confirmation') }}</p>
               <img src="{{ asset('images/online_wait.png') }}" alt="{{ __('Waiting') }}">
             </div>
         </div>
@@ -261,7 +261,7 @@
               <img src="{{ asset('images/online_confirm.png') }}" alt="{{ __('Confirmation at the Website') }}">
             </div>
             <div class="mx-4 text-center">
-              <p class="my-3">{{ __("Customer's Email") }}</p>
+              <p class="my-3">Email</p>
               <img src="{{ asset('images/confirm_email.png') }}" alt="{{ __("Customer's Email") }}">
             </div>
         </div>
@@ -312,9 +312,11 @@
       <div class="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"></div>
     </div>
     <h3 class="px-3 max-w-lg mx-auto mb-8 text-3xl leading-tight">
-      {{ __("Get in touch for more details.") }}
+
+      {{ __('Low investment and guaranteed high returns.') }}
       <br>
-      {{ __("It's LOW investment and HIGH return.") }}
+      {{ __("Talk to us for more details.") }}
+
     </h3>
     <a href="{{ route('contact', [ 'lang' => app()->getLocale()]) }}#consultation" class=" mx-auto lg:mx-0 bg-white text-gray-800 font-bold rounded-full py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
       {{ __('Schedule a Free Consultation') }}

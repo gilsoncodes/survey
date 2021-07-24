@@ -46,6 +46,10 @@ class ContactForm extends Component
     {
         return ($this->phone == '' ? '#D1D5DB' : '#000000');
     }
+    public function getTexticonProperty()
+    {
+        return ($this->message == '' ? '#D1D5DB' : '#000000');
+    }
     public function submitForm(){
       // $this->successMessage = false;
         $this->errorName = true;

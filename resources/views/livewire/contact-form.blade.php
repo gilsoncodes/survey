@@ -1,6 +1,6 @@
 <div class="flex flex-col">
   <div class="w-full">
-    <h1 class="text-center mb-3 text-3xl font-bold text-gray-700">{{ __('Contact Us') }}</h1>
+    <h1 class="text-center mb-12 text-3xl font-bold text-gray-700">{{ __('Contact Us') }}</h1>
   </div>
 
   <form wire:submit.prevent="submitForm">
@@ -67,13 +67,13 @@
               </div>
             </div>
             {{-- right fields --}}
-            <div class="flex w-full md:w-1/2">
-                  <textarea wire:model.defer="message"
+            <div class="relative flex w-full md:w-1/2">
+                  <textarea wire:model="message"
                             wire:click="errorMessage"
                             rows="5"
                             name="message"
                             placeholder="{{ __('How can we help?') }}"
-                            class="w-full mb-6 ml-0 md:ml-4 px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 "
+                            class="w-full mb-6 ml-0 md:ml-4  pl-9 pr-3  py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 "
                             required
                             oninvalid="this.setCustomValidity('{{ __('Please fill out this field') }}')"
                             oninput="setCustomValidity('')"
@@ -81,6 +81,9 @@
                             >
                                 {{ old('message') }}
                   </textarea>
+                  <svg class="absolute top-2 left-2 md:left-6 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="{{ $this->texticon }}">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                  </svg>
                   @error('message')
                     <p class="text-red-500 mt-1 bg-white">@if($errorMessage) {{ $message }} @endif</p>
                   @enderror
@@ -105,7 +108,7 @@
           </span>
           <span @click="show = false" class="cursor-pointer px-2" >&times;</span>
         </div>
-        <button type="submit" class="mb-6 md:mb-0 bg-white text-gray-800 font-bold rounded-full mx-auto py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out" >
+        <button type="submit" class="mb-6 mt-8 md:mb-0 bg-white text-gray-800 font-bold rounded-full mx-auto py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out" >
           <!-- This svg was grabbed from the source code view-source:https://tailwindcss.com/docs/animation -->
           <svg wire:loading wire:target="submitForm" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="#68c2ff" stroke-width="4"></circle>

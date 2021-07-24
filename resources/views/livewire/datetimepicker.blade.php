@@ -68,7 +68,7 @@
 	{{-- @if ($dateError)
 		<p class="text-red-500 mt-1">{{ $dateError }}</p>
 	@endif --}}
-	 <div class="mt-3 mb-4" >
+	 <div class="mt-6 md:mt-3 mb-6 md:mb-3" >
 			<div class="relative">
 					<select
 						class="{{ $this->clock }} cursor-pointer w-full pl-9  px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white  dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"

@@ -1,7 +1,7 @@
 
   <div class="flex flex-col">
     <div class="w-full">
-      <h1 class="text-center mb-3 text-3xl font-bold text-gray-700">{{ __('Request a Free Consultation') }}</h1>
+      <h1 class="text-center mb-12 text-3xl font-bold text-gray-700">{{ __('Request a Free Consultation') }}</h1>
     </div>
     @if($hasDates)
     <form wire:submit.prevent="submitForm" class="mb-6">
@@ -119,7 +119,7 @@
                       <p class="text-red-500 mt-1">@if($errorMeeting) {{ $message }} @endif</p>
                     @enderror
                     <div x-show="selectedMeeting == 0" x-cloak>
-                      <div class="mb-3 relative">
+                      <div class="mb-6 md:mb-3 relative">
                           <input wire:model="address"
                                 type="text"
                                 name="address"
@@ -132,7 +132,7 @@
                       </div>
                     </div>
                     <div x-show="selectedMeeting == 1" x-cloak>
-                      <div class="mb-3 relative">
+                      <div class="mb-6 md:mb-3 relative">
                           <div class="text-left w-full pl-9 pr-3 py-2 bg-white  border border-gray-300 rounded-md ">Online</div>
                           <svg class="absolute top-2 left-2 w-6 h-6" fill="none" stroke="#000000" viewBox="0 0 24 24" ><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
 
@@ -151,22 +151,26 @@
                 @error('timeSelection')
                  <p class="text-red-500 mt-1">@if($errorMessage) {{ $message }} @endif</p>
                @enderror
-                    <textarea wire:model.defer="message"
-                              wire:click="errorMessage"
-                              rows="1"
-                              name="message"
-                              placeholder="{{ __('Optional message') }}"
-                              class="w-full mb-6 px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 "
-                              required
-                              oninvalid="this.setCustomValidity('{{ __('Please fill out this field') }}')"
-                              oninput="setCustomValidity('')"
-                              title=''
-                              >
-                                  {{ old('message') }}
-                    </textarea>
-                    @error('message')
-                      <p class="text-red-500 mt-1 bg-white">@if($errorMessage) {{ $message }} @endif</p>
-                    @enderror
+               <div class="relative">
+                 <textarea wire:model="message"
+                           wire:click="errorMessage"
+                           name="message"
+                           placeholder="{{ __('Message (optional)') }}"
+                           class="resize-y w-full mb-6 h-20 md:h-11  pl-9 pr-3 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 "
+                           required
+                           oninvalid="this.setCustomValidity('{{ __('Please fill out this field') }}')"
+                           oninput="setCustomValidity('')"
+                           title=''
+                           >
+                               {{ old('message') }}
+                 </textarea>
+                 <svg class="absolute top-2 left-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="{{ $this->texticon }}">
+                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                 </svg>
+                 @error('message')
+                   <p class="text-red-500 mt-1 bg-white">@if($errorMessage) {{ $message }} @endif</p>
+                 @enderror
+               </div>
 
               </div>
 
@@ -188,7 +192,7 @@
             </span>
             <span @click="show = false" class="cursor-pointer px-2" >&times;</span>
           </div>
-          <button type="submit" class="mb-6 md:mb-0 bg-white text-gray-800 font-bold rounded-full mx-auto py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out" >
+          <button type="submit" class="mt-8 mb-6 md:mb-0 bg-white text-gray-800 font-bold rounded-full mx-auto py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out" >
             <!-- This svg was grabbed from the source code view-source:https://tailwindcss.com/docs/animation -->
             <svg wire:loading wire:target="submitForm" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="#68c2ff" stroke-width="4"></circle>

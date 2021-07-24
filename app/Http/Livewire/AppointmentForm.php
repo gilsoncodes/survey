@@ -76,7 +76,10 @@ class AppointmentForm extends Component
     {
         return ($this->address == '' ? '#D1D5DB' : '#000000');
     }
-
+    public function getTexticonProperty()
+    {
+        return ($this->message == '' ? '#D1D5DB' : '#000000');
+    }
     public function selectedShow($passShow)
     {
         $this->dateShow = $passShow;
