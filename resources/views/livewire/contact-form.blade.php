@@ -4,14 +4,16 @@
   </div>
 
   <form wire:submit.prevent="submitForm">
+
         <div class="flex flex-col md:flex-row">
+          {{-- left fields --}}
             <div class="flex flex-col w-full md:w-1/2">
               <div class="relative mb-6 ">
                   <input wire:model="name"
                            type="text"
                            wire:click="errorName"
                            name="name"
-                           placeholder="Name"
+                           placeholder="{{ __('Name') }}"
                            class="w-full pl-9 pr-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" value="{{ old('name') }}"
                            required
                            oninvalid="this.setCustomValidity('{{ __('Please fill out this field') }}')"
@@ -51,7 +53,7 @@
                          type="text"
                          wire:click="errorPhone"
                          name="phone"
-                         placeholder="Phone Number"
+                         placeholder="{{ __('Phone Number') }}"
                          class="w-full  pl-9 pr-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"  value="{{ old('phone') }}"
                          required
                          oninvalid="this.setCustomValidity('{{ __('Please fill out this field') }}')"
@@ -64,6 +66,7 @@
                   @enderror
               </div>
             </div>
+            {{-- right fields --}}
             <div class="flex w-full md:w-1/2">
                   <textarea wire:model.defer="message"
                             wire:click="errorMessage"
@@ -110,9 +113,5 @@
           </svg>
           <span>{{ __('Send') }}</span>
         </button>
-
   </form>
-
-
-
 </div>

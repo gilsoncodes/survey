@@ -91,7 +91,7 @@
         1<sup>{{ __('st') }}</sup> {{ __("We'll create a website for your restaurant if you don't have one.") }}
       </h4>
       <div class="bg-gray-200 py-6">
-        <p class="text-center"> <strong>{{ __('Example from our sample at') }} </strong><a href="https://ongarizer.com" class="text-blue-400" target="_blank"><strong>www.ongarizer.com</strong></a></p>
+        <p class="text-center"> <strong>{{ __('See an example at') }} </strong><a href="https://ongarizer.com" class="text-blue-400" target="_blank"><strong>www.ongarizer.com</strong></a></p>
         <div class="flex flex-col items-center md:flex-row  md:justify-around">
             <div class="mx-4 text-center">
               <p class="my-3">{{ __('Header') }}</p>
@@ -171,7 +171,7 @@
     3<sup>{{ __('rd') }}</sup> {{ __("We'll install and set up the app.") }}
   </h4>
   <div class="bg-gray-200 py-6">
-    <p class="text-center"> <strong>{{ __('The restaurant should have a tablet or phone dedicated to receive the orders.') }}</p>
+    <p class="text-center"> <strong>{{ __('The restaurant should have a dedicated tablet or phone to take orders.') }}</p>
     <div class="flex flex-col items-center md:flex-row  md:justify-around">
         <div class="mx-4 text-center">
           <p class="my-3">{{ __('App Login Page') }}</p>
@@ -189,7 +189,7 @@
         {{ __('Four Steps of a Typical Ordering') }}
       </h3>
       <h4 class="my-4 mx-2 text-2xl font-bold leading-tight">
-        1- {{ __("The customer is Ordering from a Computer or Mobile Phone") }}
+        1- {{ __("The customer orders food on your website") }}
       </h4>
       <div class="bg-gray-200 py-6">
         <p class="text-center"> <strong>{{ __("It's simple, quick, and efficient") }}</strong></p>
@@ -231,7 +231,7 @@
 
       </div>
       <h4 class="mb-4 mt-8 mx-2 text-2xl font-bold leading-tight">
-        2- {{ __("The restaurant takes the order.") }}
+        2- {{ __("The restaurant takes the order") }}
       </h4>
       <div class="bg-gray-200 py-6">
         <p class="text-center"> <strong>{{ __('The order can also be sent to an email as a backup.') }} </strong></p>
@@ -251,7 +251,7 @@
         </div>
       </div>
       <h4 class="mb-4 mt-8 mx-2 text-2xl font-bold leading-tight">
-        3- {{ __("The customer is notified.") }}
+        3- {{ __("The customer is notified") }}
       </h4>
       <div class="bg-gray-200 py-6">
         <p class="text-center"> <strong>{{ __('All these happen in real-time') }}</strong></p>
@@ -267,7 +267,7 @@
         </div>
       </div>
       <h4 class="mb-4 mt-8 mx-2 text-2xl font-bold leading-tight">
-        4- {{ __("The customer receives the food.") }}
+        4- {{ __("The customer receives the food") }}
       </h4>
       <div class="bg-gray-200 py-6 mb-14">
         <div class="flex flex-col items-center md:flex-row  md:justify-around">

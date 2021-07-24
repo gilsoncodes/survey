@@ -19,13 +19,29 @@
   background: linear-gradient(90deg, #68c2ff 0%, #ff8b00 100%);
 }
 
-.footer-bottom {
-  height: calc(100vh - 160px);
-  height: -o-calc(100vh - 160px); /* opera */
-  height: -webkit-calc(100vh - 160px); /* google, safari */
-  height: -moz-calc(100vh - 160px); /* firefox */
+/* .your-class {
+    @apply your-rules
+} */
 
+@screen sm {
+    /* .your-class {
+        @apply your-rules-for-the-sm-breakpoint-and-above
+    } */
 }
+
+@screen md  {
+    /* .your-class {
+        @apply your-rules-for-the-md-breakpoint-and-above
+    } */
+    .footer-bottom {
+      height: calc(100vh - 160px);
+      height: -o-calc(100vh - 160px); /* opera */
+      height: -webkit-calc(100vh - 160px); /* google, safari */
+      height: -moz-calc(100vh - 160px); /* firefox */
+    }
+}
+    /* etc... */
+
 /* .logodarkblue {
   color: #004a92;
 }

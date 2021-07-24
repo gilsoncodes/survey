@@ -1,16 +1,16 @@
 <x-app-layout pagetitle="{{ __('Contact') }}">
   <div class="pt-14 gradient">
     <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
-  <!--Left Col-->
-  <div class="flex flex-col  justify-center w-full md:w-3/5 text-center">
-    @livewire('contact-form')
-  </div>
-  <!--Right Col-->
-  <div class="w-full md:w-2/5 pb-4 flex flex-col">
-    <img class="w-full mx-auto md:w-4/5  z-8" src="{{ asset('images/contact_vector.png') }}" />
-    <p class="mt-4 px-3 text-center mx-auto"><strong>{{ __('Fill out the contact form and send us a message') }}</strong></p>
-  </div>
-</div>
+      <!--Left Col-->
+      <div class="flex flex-col  justify-center w-full md:w-3/5 text-center">
+        @livewire('contact-form')
+      </div>
+      <!--Right Col-->
+      <div class="w-full md:w-2/5 pb-4 flex flex-col">
+        <img class="w-full mx-auto md:w-4/5  z-8" src="{{ asset('images/contact_vector.png') }}" />
+        <p class="mt-4 px-3 text-center mx-auto"><strong>{{ __('Fill out the contact form and send us a message') }}</strong></p>
+      </div>
+    </div>
   </div>
   <div class="relative  gradient">
     <svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">

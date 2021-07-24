@@ -223,7 +223,7 @@
               </div>
               <div class="mt-8">
                 <div class="mt-8 text-center">
-                    <p class="text-xl font-semibold my-2">{{ __('Customers Receive their Food') }}</p>
+                    <p class="text-xl font-semibold my-2">{{ __('Customers Get their Food') }}</p>
                     <img class="w-full" src="{{ asset('images/delivery.png') }}" />
                     <p>{{ __('Pickup or Delivery') }}</p>
                 </div>
