@@ -15,21 +15,21 @@
     </p>
     <p><strong>{{ __('Date') }}</strong>: {{ $dateENorPT }}</p>
     <p><strong>{{ __('Time') }}</strong>: {{ $time }}</p>
-        <div>
+        <div class="mt-8 mb-8 md:mb-12">
             <button wire:click="cancelAppointment('{{ $appointment[0]->id }}','{{ $appointment[0]->reference }}')"
-                    class="px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:border-indigo-700 active:bg-indigo-700 transition ease-in-out duration-150"
+                    class=" bg-white text-gray-800 font-bold rounded-full mx-auto py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
                     >
               {{ __('Cancel Appointment') }}
             </button>
         </div>
+
   @else
     <p>{{ __('Your appointment') }} '{{ $dateENorPT }} {{ __('at') }} {{ $time }}' {{ __('has been canceled.') }}</p>
-    <p>{{ __("click the button below if you would like to reschedule it.") }}</p>
+    <p class="mb-12">{{ __("click the button below if you would like to reschedule it.") }}</p>
     <div class="hidden md:-my-px md:ml-7 md:flex"> <!-- Make an Apppointment -->
-        <a class="inline-flex items-center text-center font-semibold h-12 px-4 my-auto text-sm text-white transition-colors duration-150 bg-yellow-500 rounded-xl focus:shadow-outline hover:bg-yellow-600"
-        href="{{ route('contact', [ 'lang' => app()->getLocale()]) }}#consultation">
-            {!! __('Request a Free Consultation') !!}
-        </a>
+      <a href="{{ route('contact', [ 'lang' => app()->getLocale()]) }}#consultation" class="z-10 mx-auto bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+        {{ __('Request a Free Consultation') }}
+      </a>
     </div>
 
 

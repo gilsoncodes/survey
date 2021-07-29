@@ -227,7 +227,7 @@
             {{ __('Credit Card') }}<!--16-->
           </div>
         </div>
-        {{-- <p class="text-center"> <strong>{{ __('The ordering system is free and provided by www.gloriafood.com. Optionally, Gloria Food offers oline / credit card payment service for $ 29.00 per month.') }}</strong></p> --}}
+        <p class="text-center"> <strong>{{ __('The ordering system is free and provided by www.gloriafood.com. Optionally, Gloria Food offers oline / credit card payment service for $ 29.00 per month.') }}</strong></p> 
 
       </div>
       <h4 class="mb-4 mt-8 mx-2 text-2xl font-bold leading-tight">

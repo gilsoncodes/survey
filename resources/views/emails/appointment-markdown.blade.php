@@ -42,7 +42,7 @@ Online (www.zoom.us)
 
 {{ __('We are looking forward to speaking with you,') }}
 
-<span style="border-bottom: 2px solid #ff8b00; padding-bottom: 3px; margin-bottom: 17px; ">
+<span style="border-bottom: 4px solid #ff8b00;  ">
 {{ __('The GAR Solutions Team') }}
 </span>
 

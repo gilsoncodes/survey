@@ -1,14 +1,16 @@
 @component('mail::message')
 {{ __('Hello') }},
 
-{{ __('Please click the button below to verify your email address.') }}<br>
+{{ __('You are receiving this email because we received a password reset request for your account.') }}<br>
 
 @component('mail::button', ['url' => $url])
-{{ __('Verify Email Address') }}
+{{ __('Reset Password') }}
 @endcomponent
 
-{{ __('If you did not create an account, no further action is required.') }}
 
+{{ trans('This password reset link will expire in :count minutes.', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]) }}
+
+{{ __('If you did not request a password reset, no further action is required.') }}
 
 {{ __('Regards') }},
 
@@ -41,7 +43,7 @@ contact@garsolutions.com
 </p>
 
 @slot('subcopy')
-@lang("If you’re having trouble clicking the 'Verify Email Address' button, copy and paste the URL below into your web browser:")<br>
+@lang("If you’re having trouble clicking the 'Reset Password' button, copy and paste the URL below into your web browser:")<br>
  <span class="break-all"> <a href="{{ $url }}">{{ $url }}</a> </span>
 @endslot
 

@@ -183,11 +183,11 @@
           <div x-data="{show: false}"
                x-show.transition.opacity.out.duration.1500ms="show"
                x-cloak
-               x-init="@this.on('successMessage', () => { show = true; setTimeout(() => { show = false; }, 10000 )} )"
+               x-init="@this.on('successRequest', () => { show = true; setTimeout(() => { show = false; }, 10000 )} )"
                class=" flex justify-between rounded-md bg-green-50 p-4 mb-6"
                >
             <span>
-              {!! __('Your message has been received.<br> We sent an email to') !!} <strong>{{ $email2 }}</strong>.
+              {!! __('Your appointment has been scheduled.<br> We sent an email to') !!} <strong>{{ $email2 }}</strong>.
                {{ __("Check the spam or junk folder if you don't see it in the inbox.") }}
             </span>
             <span @click="show = false" class="cursor-pointer px-2" >&times;</span>

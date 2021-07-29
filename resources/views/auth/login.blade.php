@@ -5,7 +5,7 @@
       <!--Left Col-->
       <div class="flex flex-col  justify-center w-full md:w-3/5 text-center">
         <div class="w-full md:w-1/2 mb-6 md:mb-0">
-        <h1 class="my-3 text-3xl text-center font-semibold text-gray-700 dark:text-gray-200">{{ __('Log In') }}</h1>
+        <h1 class="mb-12 text-3xl text-center font-semibold text-gray-700 dark:text-gray-200">{{ __('Log In') }}</h1>
         <x-jet-validation-errors class="mb-4  bg-white" />
 
         @if (session('status'))

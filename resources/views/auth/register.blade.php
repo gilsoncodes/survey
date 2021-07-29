@@ -5,11 +5,11 @@
       <!--Left Col-->
       <div class="flex flex-col  justify-center w-full md:w-3/5 text-center">
         <div class="flex flex-col">
-          <h1 class="my-3 text-3xl text-center font-semibold text-gray-700 dark:text-gray-200">{{ __('Create an Account') }}</h1>
+          <h1 class="my-3 text-3xl text-center font-semibold text-gray-700 dark:text-gray-200 mb-12">{{ __('Create an Account') }}</h1>
 
           <x-jet-validation-errors class="mb-4 bg-white" />
 
-          <form method="POST" action="{{ route('register', [ 'lang' => app()->getLocale()]) }}">
+          <form method="POST" action="{{ route('register', [ 'lang' => app()->getLocale()]) }}" class="mb-12">
             @csrf
                 <div class="flex flex-col md:flex-row">
                   {{-- left fields --}}
@@ -33,8 +33,8 @@
                     {{-- right fields --}}
                     <div class="flex flex-col w-full md:w-1/2">
                       <div class="relative">
-                          <x-jet-input id="password_confirmation" class="block mt-1 w-full pl-9 ml-0 md:ml-4" placeholder="{{ __('Confirm Password') }}" type="password" name="password_confirmation" required autocomplete="new-password" />
-                          <svg class="absolute top-2 left-2 md:left-6 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#000000"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" /></svg>
+                          <x-jet-input id="password_confirmation" class="block mt-6 md:mt-1 w-full pl-9 ml-0 md:ml-4" placeholder="{{ __('Confirm Password') }}" type="password" name="password_confirmation" required autocomplete="new-password" />
+                          <svg class="absolute top-8 md:top-2 left-2 md:left-6 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#000000"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" /></svg>
                           {{-- value="Aaaa!111" --}}
                       </div>
                       <div class="mt-4 relative">
@@ -49,10 +49,10 @@
                     </div>
                 </div>
                 @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                    <div class="mt-4">
+                    <div class="mt-4 hidden">
                         <x-jet-label for="terms">
                             <div class="flex items-center">
-                                <x-jet-checkbox name="terms" id="terms"   />
+                                <x-jet-checkbox name="terms" id="terms" checked/>
                                   {{-- checked --}}
                                 <div class="ml-2">
                                     {!! __('I agree to the :terms_of_service and :privacy_policy', [
