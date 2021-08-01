@@ -173,7 +173,7 @@
         {{ __('Vacation Mode') }}<!--13-->
       </div>
       <div class="py-1">
-         {{ __('Take Orders 24/7') }} <!-- 16 -->
+        {{ __('Pictures in Menu') }}<!--16-->
       </div>
       <div class="py-1">
         {{ __('Scheduled orders') }}<!--16-->
@@ -182,7 +182,7 @@
         {{ __('Detailed Reports') }}<!--16-->
       </div>
       <div class="py-1">
-        {{ __('Pictures in Menu') }}<!--16-->
+         {{ __('Take Orders 24/7') }} <!-- 16 -->
       </div>
       <div class="py-1">
         {{ __('Real-Time Ordering') }}<!--18-->
@@ -230,7 +230,7 @@
         </div>
     </div>
     <p class="text-center my-12">
-      <span class="bg-white text-gray-800 font-bold rounded-full py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out" data-glf-cuid="b502d6e4-581e-45f0-b428-341bf4e07b00" data-glf-ruid="691c76af-5754-4f65-b94f-5ec521f5a445" data-glf-reservation="true" >
+      <span class="bg-white text-gray-800 font-bold rounded-full py-4 px-4 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out" data-glf-cuid="b502d6e4-581e-45f0-b428-341bf4e07b00" data-glf-ruid="691c76af-5754-4f65-b94f-5ec521f5a445" data-glf-reservation="true" >
          {{ __('See the Table Reservation System') }}
          &nbsp;
          <svg xmlns="http://www.w3.org/2000/svg" class="inline h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
