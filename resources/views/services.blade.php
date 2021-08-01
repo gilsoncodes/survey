@@ -58,10 +58,21 @@
         </div>
 
       </div>
+
+
+
       <div class="text-center my-8 ">
-        <a href="https://www.ongarizer.com" target="_blank" class="z-1 bg-white text-gray-800 font-bold rounded-full py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+        <span class=" cursor-pointer bg-white text-gray-800 font-bold rounded-full py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out" data-glf-cuid="b502d6e4-581e-45f0-b428-341bf4e07b00" data-glf-ruid="691c76af-5754-4f65-b94f-5ec521f5a445">
+            {{ __('See a Sample') }}
+            &nbsp;
+            <svg xmlns="http://www.w3.org/2000/svg" class="inline h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+             </svg>
+
+        </span>
+        {{-- <a href="https://www.ongarizer.com" target="_blank" class="z-1 bg-white text-gray-800 font-bold rounded-full py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
           {{ __('See a Sample') }}
-        </a>
+        </a> --}}
       </div>
   </div>
   <div class="relative gradient -mt-5 lg:-mt-4 ">
@@ -91,7 +102,7 @@
         1<sup>{{ __('st') }}</sup> {{ __("We'll create a website for your restaurant if you don't have one.") }}
       </h4>
       <div class="bg-gray-200 py-6">
-        <p class="text-center"> <strong>{{ __('See an example at') }} </strong><a href="https://ongarizer.com" class="text-blue-400" target="_blank"><strong>www.ongarizer.com</strong></a></p>
+        {{-- <p class="text-center"> <strong>{{ __('See an example at') }} </strong><a href="https://ongarizer.com" class="text-blue-400" target="_blank"><strong>www.ongarizer.com</strong></a></p> --}}
         <div class="flex flex-col items-center md:flex-row  md:justify-around">
             <div class="mx-4 text-center">
               <p class="my-3">{{ __('Header') }}</p>
@@ -106,15 +117,35 @@
               <img src="{{ asset('images/contact_ongarizer.jpg') }}" alt="{{ __('Ongarizer Contact') }}">
             </div>
         </div>
+        <p class="text-center my-12">
+          <a href="https://ongarizer.com" class="bg-white text-gray-800 font-bold rounded-full py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out" target="_blank">
+            {{ __('See a Website Example') }}
+            &nbsp;
+            <svg xmlns="http://www.w3.org/2000/svg" class="inline h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+             </svg>
+          </a>
+        </p>
+
+
       </div>
       <h4 class="mb-4 mt-8 mx-2 text-2xl font-bold leading-tight">
         2<sup>{{ __('nd') }}</sup> {{ __("We'll implement the online ordering system.") }}
       </h4>
+
+      <!-- If you would like to customize the button, remove or change the "class" attribute inside the <span> tag -->
+{{-- <span class="glf-button" data-glf-cuid="b502d6e4-581e-45f0-b428-341bf4e07b00" data-glf-ruid="691c76af-5754-4f65-b94f-5ec521f5a445" > See MENU & Order</span>
+<span class="glf-button reservation" data-glf-cuid="b502d6e4-581e-45f0-b428-341bf4e07b00" data-glf-ruid="691c76af-5754-4f65-b94f-5ec521f5a445" data-glf-reservation="true" > Table Reservation</span> --}}
+<script src="https://www.fbgcdn.com/embedder/js/ewm2.js" defer async ></script>
+
+
       <div class="bg-gray-200 py-6">
-        <p class="text-center"> <strong>{{ __('Transfer the restaurant information to the ordering page') }}</strong></p>
+        {{-- <p class="text-center"> <strong> __('Transfer the restaurant information to the ordering page') </strong></p> --}}
+        <p class="text-center"> <strong>{{ __('Transfer Menu to the Ordering System') }}</strong></p>
         <div class="flex flex-col items-center md:flex-row  md:justify-around">
             <div class="mx-4 text-center">
-              <p class="my-3">{{ __('Menu') }}</p>
+              {{-- <p class="my-3">{{ __('Menu') }}</p> --}}
+              <p class="my-3">{{ __('Restaurant Menu') }}</p>
               <img src="{{ asset('images/menu.jpg') }}" alt="{{ __('Restaurant Menu') }}">
             </div>
             <div class="mx-4 text-center">
@@ -122,6 +153,15 @@
               <img src="{{ asset('images/pizza_ongarizer.jpg') }}" alt="{{ __('Pizza Page') }}">
             </div>
         </div>
+        <p class="text-center my-12">
+          <span class="bg-white text-gray-800 font-bold rounded-full py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out" data-glf-cuid="b502d6e4-581e-45f0-b428-341bf4e07b00" data-glf-ruid="691c76af-5754-4f65-b94f-5ec521f5a445" >
+            {{ __('See the Ordering System') }}
+            &nbsp;
+            <svg xmlns="http://www.w3.org/2000/svg" class="inline h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+             </svg>
+          </span>
+        </p>
       </div>
   </div>
   <div  style="background-color: #ff8b00;" class="py-6">
@@ -133,13 +173,13 @@
         {{ __('Vacation Mode') }}<!--13-->
       </div>
       <div class="py-1">
+         {{ __('Take Orders 24/7') }} <!-- 16 -->
+      </div>
+      <div class="py-1">
         {{ __('Scheduled orders') }}<!--16-->
       </div>
       <div class="py-1">
         {{ __('Detailed Reports') }}<!--16-->
-      </div>
-      <div class="py-1">
-        {{ __('Promos and Coupons') }}<!--16-->
       </div>
       <div class="py-1">
         {{ __('Pictures in Menu') }}<!--16-->
@@ -148,7 +188,10 @@
         {{ __('Real-Time Ordering') }}<!--18-->
       </div>
       <div class="py-1">
-        {{ __('Table Reservations') }}<!--18-->
+        {{ __('Promos and Coupons') }}<!--18-->
+      </div>
+      <div class="py-1">
+         {{ __('Easy Checkout Options') }} <!-- 21 -->
       </div>
       <div class="py-1">
         {{ __('End of The Day Report') }}<!--21-->
@@ -160,18 +203,73 @@
         {{ __('Draw Your Own Delivery Area') }}<!--27-->
       </div>
       <div class="py-1">
-        {{ __('Order Ahead for Reservations') }}<!--28-->
-      </div>
-      <div class="py-1">
         {{ __('Multi-Template Receipt Editor') }}<!--29-->
       </div>
     </div>
   </div>
   <h4 class="mb-4 mt-8 mx-2 text-2xl font-bold leading-tight">
-    3<sup>{{ __('rd') }}</sup> {{ __("We'll install and set up the app.") }}
+    3<sup>{{ __('rd') }}</sup> {{ __("We'll implement the Table Reservation System if your restaurant needs it.") }}
+  </h4>
+
+  <!-- If you would like to customize the button, remove or change the "class" attribute inside the <span> tag -->
+{{-- <span class="glf-button" data-glf-cuid="b502d6e4-581e-45f0-b428-341bf4e07b00" data-glf-ruid="691c76af-5754-4f65-b94f-5ec521f5a445" > See MENU & Order</span>
+<span class="glf-button reservation" data-glf-cuid="b502d6e4-581e-45f0-b428-341bf4e07b00" data-glf-ruid="691c76af-5754-4f65-b94f-5ec521f5a445" data-glf-reservation="true" > Table Reservation</span>
+<script src="https://www.fbgcdn.com/embedder/js/ewm2.js" defer async ></script> --}}
+
+
+  <div class="bg-gray-200 py-6">
+    <p class="text-center"> <strong>{{ __('Transfer reservation availability to the Table Reservation System') }}</strong></p>
+    <div class="flex flex-col items-center md:flex-row  md:justify-around">
+        <div class="mx-4 text-center">
+          <p class="my-3">{{ __('Manual Reservation') }}</p>
+          <img src="{{ asset('images/manual_reservation.jpg') }}" alt="{{ __('Restaurant Menu') }}">
+        </div>
+        <div class="mx-4 text-center">
+          <p class="my-3">{{ __('Reservation System') }}</p>
+          <img src="{{ asset('images/reservation_system.png') }}" alt="{{ __('Pizza Page') }}">
+        </div>
+    </div>
+    <p class="text-center my-12">
+      <span class="bg-white text-gray-800 font-bold rounded-full py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out" data-glf-cuid="b502d6e4-581e-45f0-b428-341bf4e07b00" data-glf-ruid="691c76af-5754-4f65-b94f-5ec521f5a445" data-glf-reservation="true" >
+         {{ __('See the Table Reservation System') }}
+         &nbsp;
+         <svg xmlns="http://www.w3.org/2000/svg" class="inline h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+       </span>
+    </p>
+  </div>
+</div>
+<div  style="background-color: #68c2ff;" class="py-6">
+<h2 class="mb-6 px-3 max-w-lg mx-auto text-3xl leading-tight text-center">
+  <strong>{{ __('Reservation System Main Features') }}</strong>
+</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  text-xl text-center">
+  <div class="py-1">
+    {{ __('Order Ahead') }}<!--11-->
+  </div>
+  <div class="py-1">
+    {{ __('No Monthly Fees') }}<!--15-->
+  </div>
+  <div class="py-1">
+    {{ __('No Cost per Guest') }}<!--17-->
+  </div>
+  <div class="py-1">
+    {{ __('Real-Time Booking') }}<!--17-->
+  </div>
+  <div class="py-1">
+    {{ __('No Cost per Booking') }}<!--19-->
+  </div>
+  <div class="py-1">
+    {{ __('Unlimited Online Bookings') }}<!--25-->
+  </div>
+</div>
+</div>
+  <h4 class="mb-4 mt-8 mx-2 text-2xl font-bold leading-tight">
+    4<sup>{{ __('rd') }}</sup> {{ __("We'll install and set up the app.") }}
   </h4>
   <div class="bg-gray-200 py-6">
-    <p class="text-center"> <strong>{{ __('The restaurant should have a dedicated tablet or phone to take orders.') }}</p>
+    <p class="text-center"> <strong>{{ __('The restaurant should have a dedicated tablet or smartphone to take orders.') }}</p>
     <div class="flex flex-col items-center md:flex-row  md:justify-around">
         <div class="mx-4 text-center">
           <p class="my-3">{{ __('Login Page') }}</p>
@@ -227,7 +325,7 @@
             {{ __('Credit Card') }}<!--16-->
           </div>
         </div>
-        <p class="text-center"> <strong>{{ __('The ordering system is free and provided by www.gloriafood.com. Optionally, Gloria Food offers oline / credit card payment service for $ 29.00 per month.') }}</strong></p> 
+        {{-- <p class="text-center"> <strong>{{ __('The ordering system is free and provided by www.gloriafood.com. Optionally, Gloria Food offers oline / credit card payment service for $ 29.00 per month.') }}</strong></p> --}}
 
       </div>
       <h4 class="mb-4 mt-8 mx-2 text-2xl font-bold leading-tight">
@@ -320,6 +418,11 @@
     </h3>
     <a href="{{ route('contact', [ 'lang' => app()->getLocale()]) }}#consultation" class=" mx-auto lg:mx-0 bg-white text-gray-800 font-bold rounded-full py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
       {{ __('Schedule a Free Consultation') }}
+      &nbsp;
+      <svg xmlns="http://www.w3.org/2000/svg" class="inline h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+       </svg>
     </a>
+
   </section>
 </x-app-layout>

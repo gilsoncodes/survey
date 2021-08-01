@@ -27,6 +27,10 @@
     </p>
       <a href="{{ route('services', [ 'lang' => app()->getLocale()]) }}" class="z-10 mx-auto bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
         {{ __('Learn More') }}
+        &nbsp;
+        <svg xmlns="http://www.w3.org/2000/svg" class="inline h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+         </svg>
       </a>
   </div>
   <!--Right Col-->
@@ -269,6 +273,10 @@
     </h3>
     <a href="{{ route('contact', [ 'lang' => app()->getLocale()]) }}" class="z-10 mx-auto bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
       {{ __('Contact us') }}
+      &nbsp;
+      <svg xmlns="http://www.w3.org/2000/svg" class="inline h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+       </svg>
     </a>
   </section>
 </x-app-layout>

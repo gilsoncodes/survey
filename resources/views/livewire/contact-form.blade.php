@@ -114,7 +114,20 @@
              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="#68c2ff" stroke-width="4"></circle>
              <path class="opacity-75" fill="#68c2ff" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
           </svg>
-          <span>{{ __('Send') }}</span>
+          <span>
+            {{ __('Send') }}&nbsp;
+            <svg class="inline h-6 w-6" viewBox="0 0 48 48" fill="none">
+              <path d="M44 24V9H24H4V24V39H24" stroke="#333" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M44 34L30 34" stroke="#333" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M39 29L44 34L39 39" stroke="#333" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 9L24 24L44 9" stroke="#333" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            {{-- <svg class="inline h-6 w-6" viewBox="0 0 48 48" fill="none">
+              <path d="M48 0H0V48H48V0Z" fill="white" fill-opacity="0.01"/>
+              <path d="M43 5L29.7 43L22.1 25.9L5 18.3L43 5Z" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M43.0001 5L22.1001 25.9" stroke="#333" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg> --}}
+          </span>
         </button>
   </form>
 </div>
