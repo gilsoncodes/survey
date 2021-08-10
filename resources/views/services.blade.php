@@ -154,7 +154,7 @@
             </div>
         </div>
         <p class="text-center my-12">
-          <span class="bg-white text-gray-800 font-bold rounded-full py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out" data-glf-cuid="b502d6e4-581e-45f0-b428-341bf4e07b00" data-glf-ruid="691c76af-5754-4f65-b94f-5ec521f5a445" >
+          <span class="cursor-pointer bg-white text-gray-800 font-bold rounded-full py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out" data-glf-cuid="b502d6e4-581e-45f0-b428-341bf4e07b00" data-glf-ruid="691c76af-5754-4f65-b94f-5ec521f5a445" >
             {{ __('See the Ordering System') }}
             &nbsp;
             <svg xmlns="http://www.w3.org/2000/svg" class="inline h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -162,6 +162,7 @@
              </svg>
           </span>
         </p>
+        <p class="text-center"> <strong>{{ __('The customer does not leave your website') }}</strong></p>
       </div>
   </div>
   <div  style="background-color: #ff8b00;" class="py-6">
@@ -230,7 +231,7 @@
         </div>
     </div>
     <p class="text-center my-12">
-      <span class="bg-white text-gray-800 font-bold rounded-full py-4 px-4 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out" data-glf-cuid="b502d6e4-581e-45f0-b428-341bf4e07b00" data-glf-ruid="691c76af-5754-4f65-b94f-5ec521f5a445" data-glf-reservation="true" >
+      <span class="cursor-pointer bg-white text-gray-800 font-bold rounded-full py-4 px-4 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out" data-glf-cuid="b502d6e4-581e-45f0-b428-341bf4e07b00" data-glf-ruid="691c76af-5754-4f65-b94f-5ec521f5a445" data-glf-reservation="true" >
          {{ __('See the Table Reservation System') }}
          &nbsp;
          <svg xmlns="http://www.w3.org/2000/svg" class="inline h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
