@@ -11,6 +11,7 @@ use App\Models\Contact;
 
 class ContactForm extends Component
 {
+    public $hasAnyError = false;
     public $surveyID;
     public $flash = false;
     public $question1;
@@ -61,6 +62,7 @@ class ContactForm extends Component
     public $comments;
     public function errorQuestion1(){
        $this->errorQuestion1 = false;
+        $this->hasAnyError = false;
         if($this->question1 == 'Never'){
            $this->applicable = false;
         }else{
@@ -69,51 +71,67 @@ class ContactForm extends Component
     }
     public function errorQuestion4(){
       $this->errorQuestion4 = false;
+      $this->hasAnyError = false;
     }
     public function errorQuestion5(){
       $this->errorQuestion5 = false;
+      $this->hasAnyError = false;
     }
     public function errorQuestion6(){
       $this->errorQuestion6 = false;
+      $this->hasAnyError = false;
     }
     public function errorQuestion7(){
       $this->errorQuestion7 = false;
+      $this->hasAnyError = false;
     }
     public function errorQuestion8(){
       $this->errorQuestion8 = false;
+      $this->hasAnyError = false;
     }
     public function errorQuestion9(){
       $this->errorQuestion9 = false;
+      $this->hasAnyError = false;
     }
     public function errorQuestion10(){
       $this->errorQuestion10 = false;
+      $this->hasAnyError = false;
     }
     public function errorQuestion11(){
       $this->errorQuestion11 = false;
+      $this->hasAnyError = false;
     }
     public function errorQuestion12(){
       $this->errorQuestion12 = false;
+      $this->hasAnyError = false;
     }
     public function errorQuestion13(){
       $this->errorQuestion13 = false;
+      $this->hasAnyError = false;
     }
     public function errorQuestion14(){
       $this->errorQuestion14 = false;
+      $this->hasAnyError = false;
     }
     public function errorQuestion15(){
       $this->errorQuestion15 = false;
+      $this->hasAnyError = false;
     }
     public function errorQuestion16(){
       $this->errorQuestion16 = false;
+      $this->hasAnyError = false;
     }
     public function errorQuestion17(){
       $this->errorQuestion17 = false;
+      $this->hasAnyError = false;
     }
     public function errorQuestion18(){
       $this->errorQuestion18 = false;
+      $this->hasAnyError = false;
     }
     public function errorQuestion19(){
       $this->errorQuestion19 = false;
+      $this->hasAnyError = false;
     }
     public function closeFlashMessage(){
       $this->flash = false;
@@ -136,7 +154,7 @@ class ContactForm extends Component
         $this->errorQuestion17 = true;
         $this->errorQuestion18 = true;
         $this->errorQuestion19 = true;
-
+        $this->hasAnyError = true;
 
       $contact = $this->validate([
         'question1' => 'required',
